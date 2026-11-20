@@ -21,7 +21,7 @@ describe('sort', () => {
     expect(ids.indexOf('e5')).toBeLessThan(ids.indexOf('e8'));
   });
   it('ordem de publicação usa capítulo e deixa sem capítulo por último', () => {
-    const ids = sortEvents(data.events, 'pub').map((e) => e.id);
+    const ids = sortEvents(data.events.map((e) => (e.id === 'e3' ? { ...e, ch: null } : e)), 'pub').map((e) => e.id);
     expect(ids[ids.length - 1]).toBe('e3');
   });
 });
@@ -46,7 +46,7 @@ describe('spoilers', () => {
   it('oculta eventos depois do capítulo ou sem capítulo', () => {
     expect(isHidden(ev('e8'), on)).toBe(false);
     expect(isHidden(ev('e24'), on)).toBe(true);
-    expect(isHidden(ev('e3'), on)).toBe(true);
+    expect(isHidden({ ...ev('e3'), ch: null }, on)).toBe(true);
     expect(isHidden(ev('e24'), { ...on, spoilerOn: false })).toBe(false);
   });
   it('a view de um evento oculto não contém texto real', () => {

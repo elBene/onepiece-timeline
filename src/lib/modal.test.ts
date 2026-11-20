@@ -8,6 +8,9 @@ import { toModalView } from './modal';
 
 const data = parseTimelineData({ eras, sagas, events, tags });
 
+// Os dados reais já têm capítulo em todos os eventos; força um sem capítulo para testar a regra.
+const noCh = { ...data, events: data.events.map((e) => (e.id === 'e3' ? { ...e, ch: null } : e)) };
+
 describe('toModalView', () => {
   it('evento visível traz texto, tags e fatos', () => {
     const v = toModalView(data, { spoilerOn: true, lastChapter: 100 }, 'e8')!;
@@ -25,7 +28,7 @@ describe('toModalView', () => {
     expect(v.facts).toEqual([]);
   });
   it('evento sem capítulo fica oculto com spoilers ligados', () => {
-    expect(toModalView(data, { spoilerOn: true, lastChapter: 5000 }, 'e3')!.hidden).toBe(true);
+    expect(toModalView(noCh, { spoilerOn: true, lastChapter: 5000 }, 'e3')!.hidden).toBe(true);
   });
   it('id inexistente retorna null', () => {
     expect(toModalView(data, { spoilerOn: false, lastChapter: 1 }, 'nope')).toBeNull();
