@@ -61,9 +61,9 @@ motion:
 
 ## Tese
 
-A história do mundo é uma viagem: a linha do tempo é um cabo esticado de ponta a ponta no céu. Os marcos ficam pendurados nele como boias. O trecho escolhido desce para um painel que boia sobre o mar. A página fica sempre no mesmo lugar sob o mesmo céu. O que muda é a hora do dia, que é o tema.
+A história do mundo é uma viagem: a linha do tempo é um cabo esticado de ponta a ponta no céu. Os marcos ficam pendurados nele como boias. O ano escolhido desce para um painel que boia sobre o mar. A página fica sempre no mesmo lugar sob o mesmo céu. O que muda é a hora do dia, que é o tema.
 
-A composição vem do rascunho do dono no Figma: filtros à esquerda, controles no topo à direita, linha com marcas de régua, discos alternando em cima e embaixo e painel de detalhes embaixo, com os eventos em escada.
+A composição vem do rascunho do dono no Figma: filtros à esquerda, controles no topo à direita, linha com marcas de régua, discos alternando em cima e embaixo e painel de detalhes embaixo, com os eventos do ano empilhados.
 
 ## Temas
 
@@ -71,7 +71,7 @@ São três céus, todos pintados em `src/lib/scene.ts`, sem nenhuma imagem baixa
 
 - **Mar azul** (`azul`, claro): dia aberto, cúmulos de topo branco e base azulada, banco de nuvens no horizonte, mar faiscando e uma gaivota genérica cruzando devagar. O destaque é vermelho de bandeira.
 - **Mar dourado** (`ouro`, escuro): fim de tarde, sol encostado no horizonte, nuvens finas contra a luz e mar de escamas douradas que acendem e apagam. O destaque é ouro.
-- **Céu estrelado** (`estrelas`, escuro): lua cheia com crateras discretas, caminho de luz no mar, nuvens noturnas iluminadas por cima e uma estrela cadente de vez em quando. O destaque é luz de lanterna.
+- **Céu estrelado** (`estrelas`, escuro): lua crescente com as pontas para cima e para a direita, que remete à lua da obra (pedido do dono) mas é desenhada como uma fase natural da lua, sem copiar brasão. Tem também caminho de luz no mar, nuvens noturnas e uma estrela cadente de vez em quando. O destaque é luz de lanterna.
 
 O tema padrão segue `prefers-color-scheme`: claro vira `azul` e escuro vira `estrelas`. A escolha fica salva em `op-timeline:theme`. Os valores antigos `light` e `dark` são migrados.
 
@@ -85,27 +85,29 @@ As inspirações foram imagens de anime enviadas pelo dono. **Nenhuma delas é u
 4. **Evento oculto vira "Além do horizonte".** O disco fica tracejado, o título em itálico e nenhum texto real entra no DOM. Uma saga oculta vira "Mar ainda não navegado".
 5. **Dela Gothic One só em títulos curtos.** Corpo, discos e dados ficam em Archivo, com números tabulares (`.num`).
 6. **O texto sobre o céu sempre tem apoio.** Rótulos de saga e etiquetas ficam em pílulas de papel. Só a marca usa texto direto no céu, com sombra.
-7. **O movimento acompanha a navegação.** Os discos surgem com a rolagem (`animation-timeline: view(inline)`), o painel desce em escada a cada trecho novo e a troca de tema abre em círculo a partir do botão. Com `prefers-reduced-motion`, a cena pinta um quadro só e as animações somem.
+7. **O movimento acompanha a navegação.** Os discos surgem com a rolagem (`animation-timeline: view(inline)`), a lista do painel entra em cascata a cada ano novo e a troca de tema abre em círculo a partir do botão. Com `prefers-reduced-motion`, a cena pinta um quadro só e as animações somem.
 
 ## Componentes
 
 - **Cabeçalho:** botão de filtros, marca (sol nascendo sobre ondas, desenho original), pílula de spoiler com LED, pílula "Foco" com contador e as três janelinhas de tema.
 - **Mais filtros (rail):** ordem, quanto mostrar (Eras, Marcos, Eventos, Tudo), "Ir para" com as estações e o contador. Na área de trabalho é uma coluna recolhível. Com 900px ou menos vira gaveta com fundo escurecido.
-- **Linha:** cabo de 3px em `--line`.
+- **Linha:** cabo de 3px em `--line`. Na ordem da história ela é um eixo de anos que vai do primeiro registro até o presente.
+  - Os anos com acontecimentos ganham marca alta e o número em pílula.
+  - Os anos vazios viram uma régua fina de 3px por ano, com um traço mais alto por década e um rótulo a cada 50 anos.
   - Os marcos são discos com nome e ano.
   - Os eventos menores são marcas de régua, com etiqueta no hover, no foco e na seleção.
   - As eras são mastros com bandeira de ponta fendida.
   - As sagas são pílulas abaixo da linha.
   - As setas laterais somem com `pointer: coarse`.
 - **Painel:**
-  - Cabeçalho com a época do marco e a era, e abaixo a saga e a contagem.
-  - Botões Anterior e Próximo, que percorrem só os eventos legíveis.
-  - O detalhe à esquerda tem título, data, capítulo e episódio, confiança, resumo, mais detalhes, temas e "Fontes e confiança" em um `<details>`.
-  - A escada à direita tem os eventos do trecho em degraus.
+  - Cabeçalho "Ano 1498 C.M. · era", e abaixo as sagas e a contagem.
+  - Botões "Ano anterior" e "Próximo ano", que pulam os anos inteiramente protegidos.
+  - O detalhe à esquerda tem título, data, capítulo e episódio, confiança, resumo, mais detalhes, temas e a seção "Detalhes" (fontes, confiança, status), sempre aberta.
+  - À direita fica a lista completa daquele ano, empilhada e alinhada. Ela respeita o Foco, mas inclui o que o zoom tira da linha.
   - O bico no topo aponta para o centro da linha, onde fica o escolhido.
 
 ## Comportamento
 
-- Um **trecho** é um marco mais os eventos menores que vêm depois dele, sem atravessar saga (`layout.groups`).
-- Clicar, usar as setas do teclado ou usar Anterior e Próximo escolhe o evento e o centraliza.
-- Quando a rolagem é do usuário e ele para, o painel passa para o marco mais perto do centro, mas só se for de outro trecho.
+- O painel mostra um **ano** de cada vez (`layout.groups`, chave `date.ago`).
+- Clicar ou usar as setas do teclado na linha escolhe um evento. As setas laterais e os botões do painel trocam de ano.
+- Quando a rolagem é do usuário e ele para, o painel passa para o marco mais perto do centro, mas só se ele for de outro ano.

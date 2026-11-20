@@ -66,7 +66,7 @@ describe('layout horizontal', () => {
     const l = computeHorizontalLayout(data, st({ zoom: 2 }));
     const sides = l.items.filter((i) => i.kind === 'medallion').map((i) => (i as { side: string }).side);
     expect(sides.slice(0, 4)).toEqual(['top', 'bot', 'top', 'bot']);
-    expect(l.items[0]!.x).toBe(LAYOUT.start);
+    expect(l.items[0]).toMatchObject({ kind: 'year', x: LAYOUT.start + LAYOUT.yearLead });
   });
   it('zoom Eras não tem eventos', () => {
     const l = computeHorizontalLayout(data, st({ zoom: 1 }));
@@ -91,18 +91,35 @@ describe('layout horizontal', () => {
   });
 });
 
-describe('trechos do painel', () => {
-  it('cada evento exibido pertence a um trecho, e cada trecho começa num marco ou no início de uma saga', () => {
+describe('eixo de anos e painel por ano', () => {
+  it('a ordem da história cobre todos os anos, do primeiro registro até hoje', () => {
     const l = computeHorizontalLayout(data, st({ zoom: 4 }));
-    expect(Object.keys(l.groupOf).sort()).toEqual([...l.order].sort());
-    for (const g of l.groups) {
-      expect(g.ids[0]).toBe(g.anchor);
-      expect(g.ids.slice(1).every((id) => ev(id).imp !== 3)).toBe(true);
-      expect(new Set(g.ids.map((id) => ev(id).saga)).size).toBe(1);
+    const firstAgo = Math.max(...data.events.map((e) => e.date.ago));
+    const covered = new Set<number>();
+    for (const i of l.items) {
+      if (i.kind === 'year') covered.add(i.ago);
+      if (i.kind === 'gap') for (let a = i.fromAgo; a >= i.toAgo; a--) covered.add(a);
     }
+    for (let a = firstAgo; a >= 0; a--) expect(covered.has(a)).toBe(true);
   });
-  it('trecho de saga oculta não leva o nome da saga', () => {
+  it('ano vazio ocupa bem menos espaço que um ano com acontecimentos', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 4 }));
+    const gap = l.items.find((i) => i.kind === 'gap')!;
+    if (gap.kind !== 'gap') throw new Error();
+    expect((gap.end - gap.x) / (gap.fromAgo - gap.toAgo + 1)).toBe(LAYOUT.emptyYear);
+  });
+  it('cada ano do painel lista tudo daquele ano, mesmo o que o zoom tira da linha', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 2 }));
+    for (const g of l.groups) {
+      const all = data.events.filter((e) => e.date.ago === g.ago).map((e) => e.id).sort();
+      expect([...g.ids].sort()).toEqual(all);
+    }
+    expect(l.groups.map((g) => g.ago)).toEqual([...l.groups.map((g) => g.ago)].sort((a, b) => b - a));
+  });
+  it('ano todo protegido não mostra eras nem sagas', () => {
     const l = computeHorizontalLayout(data, st({ zoom: 4, spoilerOn: true, lastChapter: 0 }));
-    expect(l.groups.every((g) => g.sagaHidden && !data.sagas.some((s) => s.name === g.saga))).toBe(true);
+    expect(l.groups.every((g) => g.allHidden && g.eras.length === 0 && g.sagas.length === 0)).toBe(true);
+    const json = JSON.stringify(l.views);
+    expect(json).not.toContain(ev('e8').title);
   });
 });

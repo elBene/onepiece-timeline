@@ -186,35 +186,40 @@ export function mountScene(canvas: HTMLCanvasElement): void {
         const s = r() < 0.08 ? 1.6 : 0.5 + r() * 0.8;
         bgc.fillRect(r() * W, y, s, s);
       }
-      moon = { x: W * (W < 700 ? 0.8 : 0.78), y: H * 0.15, r: Math.min(W, H) * 0.06 };
-      const halo = bgc.createRadialGradient(moon.x, moon.y, moon.r, moon.x, moon.y, moon.r * 6);
-      halo.addColorStop(0, 'rgb(200 215 255 / .32)');
+      moon = { x: W * (W < 700 ? 0.8 : 0.78), y: H * 0.15, r: Math.min(W, H) * 0.075 };
+      const halo = bgc.createRadialGradient(moon.x - moon.r * 0.3, moon.y + moon.r * 0.2, moon.r * 0.6, moon.x, moon.y, moon.r * 5);
+      halo.addColorStop(0, 'rgb(200 215 255 / .24)');
       halo.addColorStop(1, 'rgb(200 215 255 / 0)');
       bgc.fillStyle = halo;
       bgc.fillRect(0, 0, W, horizon);
-      const disc = bgc.createRadialGradient(moon.x - moon.r * 0.3, moon.y - moon.r * 0.3, moon.r * 0.1, moon.x, moon.y, moon.r);
-      disc.addColorStop(0, '#f8faff');
-      disc.addColorStop(1, '#cfd9f2');
-      bgc.fillStyle = disc;
-      bgc.beginPath();
-      bgc.arc(moon.x, moon.y, moon.r, 0, Math.PI * 2);
-      bgc.fill();
-      bgc.fillStyle = 'rgb(120 135 175 / .16)';
-      for (const [dx, dy, s] of [[-0.3, -0.1, 0.22], [0.25, 0.2, 0.16], [0.05, -0.4, 0.12], [-0.1, 0.4, 0.1], [0.4, -0.25, 0.08]]) {
-        bgc.beginPath();
-        bgc.arc(moon.x + dx! * moon.r, moon.y + dy! * moon.r, s! * moon.r, 0, Math.PI * 2);
-        bgc.fill();
-      }
+      // Lua crescente: um disco recortado por outro, com as pontas viradas para cima e para a direita.
+      const size = Math.ceil(moon.r * 2 + 4);
+      const mc = document.createElement('canvas');
+      mc.width = mc.height = size;
+      const m = mc.getContext('2d')!;
+      const c = size / 2;
+      const disc = m.createRadialGradient(c - moon.r * 0.5, c + moon.r * 0.3, moon.r * 0.1, c, c, moon.r);
+      disc.addColorStop(0, '#fbfcff');
+      disc.addColorStop(1, '#d6def4');
+      m.fillStyle = disc;
+      m.beginPath();
+      m.arc(c, c, moon.r, 0, Math.PI * 2);
+      m.fill();
+      m.globalCompositeOperation = 'destination-out';
+      m.beginPath();
+      m.arc(c + moon.r * 0.42, c - moon.r * 0.3, moon.r * 0.84, 0, Math.PI * 2);
+      m.fill();
+      bgc.drawImage(mc, moon.x - c, moon.y - c);
       // Caminho de luz da lua no mar.
       const path = bgc.createLinearGradient(0, horizon, 0, H);
-      path.addColorStop(0, 'rgb(190 205 255 / .22)');
-      path.addColorStop(1, 'rgb(190 205 255 / .04)');
+      path.addColorStop(0, 'rgb(190 205 255 / .16)');
+      path.addColorStop(1, 'rgb(190 205 255 / .03)');
       bgc.fillStyle = path;
       bgc.beginPath();
-      bgc.moveTo(moon.x - moon.r * 0.8, horizon);
-      bgc.lineTo(moon.x + moon.r * 0.8, horizon);
-      bgc.lineTo(moon.x + W * 0.2, H);
-      bgc.lineTo(moon.x - W * 0.2, H);
+      bgc.moveTo(moon.x - moon.r * 0.7, horizon);
+      bgc.lineTo(moon.x + moon.r * 0.3, horizon);
+      bgc.lineTo(moon.x + W * 0.12, H);
+      bgc.lineTo(moon.x - W * 0.16, H);
       bgc.fill();
     }
 
@@ -262,7 +267,7 @@ export function mountScene(canvas: HTMLCanvasElement): void {
       const t = Math.pow(r(), theme === 'estrelas' ? 1.2 : 1.7);
       const y = horizon + 2 + t * (H - horizon);
       let x: number;
-      if (theme === 'estrelas') x = moon.x + gauss(r) * (moon.r * 0.8 + t * W * 0.16);
+      if (theme === 'estrelas') x = moon.x - moon.r * 0.2 + gauss(r) * (moon.r * 0.6 + t * W * 0.12);
       else if (theme === 'azul') x = r() < 0.6 ? W * 0.5 + gauss(r) * W * (0.18 + t * 0.2) : r() * W;
       else x = r() * W;
       const w = (theme === 'ouro' ? 4 : 2) + t * (theme === 'ouro' ? 30 : 16) * (0.4 + r());

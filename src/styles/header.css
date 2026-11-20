@@ -42,7 +42,7 @@
 .sw[aria-pressed='true']{box-shadow:0 0 0 2px var(--paper-solid),0 0 0 4px var(--accent)}
 .sw-azul{background:linear-gradient(#2c77c9,#9fd0f2 55%,#2b86c8 55%,#0b4a87)}
 .sw-ouro{background:radial-gradient(circle at 64% 52%,#fff1bf 0 12%,transparent 13%),linear-gradient(#2a1204,#c66d10 55%,#6b3a08 55%,#140801)}
-.sw-estrelas{background:radial-gradient(circle at 70% 28%,#eef2ff 0 13%,transparent 14%),linear-gradient(#03081c,#22386f 55%,#142652 55%,#030817)}
+.sw-estrelas{background:radial-gradient(circle at 75% 23%,#0a1430 0 11%,transparent 12%),radial-gradient(circle at 69% 29%,#eef2ff 0 14%,transparent 15%),linear-gradient(#03081c,#22386f 55%,#142652 55%,#030817)}
 
 /* Folhas (popover nativo): saem do botão; Esc e clique fora fecham. */
 .sheet{

@@ -1,13 +1,13 @@
 import type { Era, Saga, TimelineData, TimelineEvent } from './schema';
 import type { TimelineState } from './state';
 import { passesTags, passesZoom } from './filters';
-import { earliest, minCh, sortEvents } from './sort';
-import { compareDates } from './calendar';
+import { minCh, sortEvents } from './sort';
+import { CALENDAR, yearOf } from './calendar';
 import { HIDDEN_SAGA, isHidden, toView, type EventView } from './spoilers';
 
 /**
- * Posições em px no eixo da fita. O x 0 é o começo da fita; a vista acrescenta meia
- * tela de folga dos dois lados para que qualquer ponto possa passar pela cabeça de leitura.
+ * Posições em px no eixo da linha. O x 0 é o começo da linha; a vista acrescenta meia
+ * tela de folga dos dois lados para que qualquer ponto possa chegar ao centro.
  */
 export const LAYOUT = {
   start: 40,
@@ -20,49 +20,71 @@ export const LAYOUT = {
   /** Marcas na linha, como as de uma régua. */
   dotStep: { 2: 28, 1: 22 } as Record<number, number>,
   tailPadding: 60,
+  /** Ordem da história: cada ano sem nada registrado ocupa só isto (px). */
+  emptyYear: 3,
+  /** Folga antes do rótulo de um ano com acontecimentos, e espaço do rótulo até o primeiro item. */
+  yearLead: 24,
+  yearPad: 40,
+  yearTail: 16,
 } as const;
 
 export type LayoutItem =
   | { kind: 'era'; x: number; end: number; era: Era }
   | { kind: 'saga'; x: number; end: number; saga: Saga; name: string; hidden: boolean; subtitle: string }
+  /** Ano com acontecimentos (ordem da história). */
+  | { kind: 'year'; x: number; ago: number; label: string }
+  /** Sequência de anos sem nada registrado, desenhada como régua fina. fromAgo é o mais antigo. */
+  | { kind: 'gap'; x: number; end: number; fromAgo: number; toAgo: number }
   | { kind: 'medallion'; x: number; view: EventView; side: 'top' | 'bot' }
   | { kind: 'dot'; x: number; view: EventView; imp: 1 | 2 };
 
-/** Marca do dial: uma estação (era, ou saga na ordem de publicação). */
+/** Marca do "Ir para": uma estação (era, ou saga na ordem de publicação). */
 export interface Station {
   label: string;
   x: number;
 }
 
 /**
- * Trecho mostrado no painel: um marco e os acontecimentos menores que vêm logo depois dele,
- * sem atravessar a fronteira de uma saga. Os nomes já vêm censurados pela trava de spoilers.
+ * Ano mostrado no painel: tudo o que aconteceu nele (respeitando o Foco), mesmo o que o
+ * zoom esconde da linha. Os nomes já vêm censurados pela trava de spoilers.
  */
 export interface Group {
+  ago: number;
+  /** "Ano 1498 C.M." */
+  label: string;
   ids: string[];
-  /** Evento que dá título ao trecho: o marco, ou o primeiro evento quando a saga começa sem marco. */
-  anchor: string;
-  era: string;
-  saga: string;
-  sagaHidden: boolean;
+  /** Onde levar a linha ao escolher o ano. */
+  x: number;
+  eras: string[];
+  sagas: string[];
+  /** Tudo protegido: o painel não mostra nem o ano. */
+  allHidden: boolean;
 }
 
 export interface HorizontalLayout {
   items: LayoutItem[];
   width: number;
-  /** Ids dos eventos exibidos, na ordem em que aparecem (usado por Anterior/Próximo). */
+  /** Ids dos eventos na linha, na ordem em que aparecem. */
   order: string[];
-  /** Posição x (centro) de cada evento exibido. */
+  /** Posição x (centro) de cada evento na linha. */
   xById: Record<string, number>;
   stations: Station[];
   groups: Group[];
-  /** Índice do trecho (em groups) de cada evento exibido. */
+  /** Índice do ano (em groups) de cada evento listado no painel. */
   groupOf: Record<string, number>;
+  /** Versão censurada de cada evento listado no painel. */
+  views: Record<string, EventView>;
+}
+
+/** "1498", ou "−3459" para anos antes do começo do calendário (só aritmética, ver calendar.ts). */
+export function yearLabel(ago: number): string {
+  const y = yearOf(ago, 'kaienreki');
+  return y < 0 ? `−${-y}` : String(y);
 }
 
 export function computeHorizontalLayout(data: TimelineData, state: TimelineState): HorizontalLayout {
   const eraById = new Map(data.eras.map((e) => [e.id, e]));
-  // Agrupa uma vez: antes, cada comparação de ordenação refiltrava todos os eventos.
+  const sagaById = new Map(data.sagas.map((s) => [s.id, s]));
   const bySaga = new Map<string, TimelineEvent[]>();
   for (const e of data.events) {
     const list = bySaga.get(e.saga);
@@ -70,21 +92,11 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
     else bySaga.set(e.saga, [e]);
   }
   const eventsOf = (saga: Saga) => bySaga.get(saga.id) ?? [];
-  const byT = (a: Saga, b: Saga) => {
-    const ea = earliest(eventsOf(a));
-    const eb = earliest(eventsOf(b));
-    if (!ea || !eb) return (ea ? 0 : 1) - (eb ? 0 : 1);
-    return compareDates(ea.date, eb.date);
-  };
-  const byCh = (a: Saga, b: Saga) => minCh(eventsOf(a)) - minCh(eventsOf(b));
-
-  const groups: { era: Era | null; sagas: Saga[] }[] =
-    state.axis === 'chrono'
-      ? data.eras
-          .slice()
-          .sort((a, b) => a.order - b.order)
-          .map((era) => ({ era, sagas: data.sagas.filter((s) => s.era === era.id).sort(byT) }))
-      : [{ era: null, sagas: data.sagas.slice().sort(byCh) }];
+  const tagged = data.events.filter((e) => passesTags(e, state.tags));
+  const onLine = (e: TimelineEvent) => state.zoom !== 1 && passesZoom(e, state.zoom);
+  // Nome da saga também é spoiler: some quando nada dela (com o Foco atual) foi revelado.
+  const sagaHidden = (s: Saga) => eventsOf(s).filter((e) => passesTags(e, state.tags)).every((e) => isHidden(e, state));
+  const sagaName = (s: Saga) => (sagaHidden(s) ? HIDDEN_SAGA : s.name);
 
   const items: LayoutItem[] = [];
   const order: string[] = [];
@@ -92,61 +104,142 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
   const stations: Station[] = [];
   let x: number = LAYOUT.start;
   let majors = 0;
-  const panelGroups: Group[] = [];
-  const groupOf: Record<string, number> = {};
-  const visibleOf = (s: Saga) => eventsOf(s).filter((e) => passesTags(e, state.tags));
-  const hasVisible = (s: Saga) => visibleOf(s).length > 0;
 
-  for (const g of groups) {
-    if (!g.sagas.some(hasVisible)) continue;
-    let eraItem: Extract<LayoutItem, { kind: 'era' }> | undefined;
-    if (g.era) {
-      eraItem = { kind: 'era', x, end: x, era: g.era };
-      items.push(eraItem);
-      stations.push({ label: g.era.name, x });
-      x += LAYOUT.eraGap;
+  const placeEvent = (e: TimelineEvent) => {
+    const view = toView(e, state);
+    order.push(e.id);
+    if (e.imp === 3) {
+      const side = majors++ % 2 === 0 ? 'top' : 'bot';
+      const cx = x + LAYOUT.medallionOffset;
+      xById[e.id] = cx;
+      items.push({ kind: 'medallion', x: cx, view, side });
+      x += LAYOUT.medallionStep;
+    } else {
+      const cx = x + LAYOUT.dotOffset;
+      xById[e.id] = cx;
+      items.push({ kind: 'dot', x: cx, view, imp: e.imp as 1 | 2 });
+      x += LAYOUT.dotStep[e.imp]!;
     }
-    for (const saga of g.sagas) {
-      if (!hasVisible(saga)) continue;
-      // Nome da saga também é spoiler: some quando nada dela foi revelado ao leitor.
-      const hidden = visibleOf(saga).every((e) => isHidden(e, state));
-      const name = hidden ? HIDDEN_SAGA : saga.name;
-      const subtitle = g.era ? '' : (eraById.get(saga.era)?.name ?? '');
-      const sagaItem: Extract<LayoutItem, { kind: 'saga' }> = { kind: 'saga', x, end: x, saga, name, hidden, subtitle };
-      items.push(sagaItem);
-      if (!g.era && !hidden) stations.push({ label: saga.name, x });
-      x += LAYOUT.sagaGap;
-      if (state.zoom !== 1) {
-        const shown = sortEvents(eventsOf(saga), state.axis).filter(
-          (e: TimelineEvent) => passesTags(e, state.tags) && passesZoom(e, state.zoom),
-        );
-        let group: Group | null = null;
-        for (const e of shown) {
-          const view = toView(e, state);
-          order.push(e.id);
-          if (!group || e.imp === 3) {
-            group = { ids: [], anchor: e.id, era: eraById.get(saga.era)?.name ?? '', saga: name, sagaHidden: hidden };
-            panelGroups.push(group);
-          }
-          group.ids.push(e.id);
-          groupOf[e.id] = panelGroups.length - 1;
-          if (e.imp === 3) {
-            const side = majors++ % 2 === 0 ? 'top' : 'bot';
-            const cx = x + LAYOUT.medallionOffset;
-            xById[e.id] = cx;
-            items.push({ kind: 'medallion', x: cx, view, side });
-            x += LAYOUT.medallionStep;
-          } else {
-            const cx = x + LAYOUT.dotOffset;
-            xById[e.id] = cx;
-            items.push({ kind: 'dot', x: cx, view, imp: e.imp as 1 | 2 });
-            x += LAYOUT.dotStep[e.imp]!;
-          }
+  };
+  const yearX = new Map<number, number>();
+
+  if (state.axis === 'chrono') {
+    // Ordem da história: um eixo de anos, do primeiro registro até o presente.
+    const byYear = new Map<number, TimelineEvent[]>();
+    for (const e of sortEvents(tagged, 'chrono')) {
+      const list = byYear.get(e.date.ago);
+      if (list) list.push(e);
+      else byYear.set(e.date.ago, [e]);
+    }
+    const firstAgo = data.events.reduce((m, e) => Math.max(m, e.date.ago), 0);
+    const seenSaga = new Set<string>();
+    const seenEra = new Set<string>();
+    let gapFrom: number | null = null;
+    let gapX = 0;
+    const closeGap = (toAgo: number) => {
+      if (gapFrom === null) return;
+      items.push({ kind: 'gap', x: gapX, end: x, fromAgo: gapFrom, toAgo });
+      gapFrom = null;
+    };
+    for (let ago = firstAgo; ago >= 0; ago--) {
+      const evs = byYear.get(ago) ?? [];
+      const hasMarker = evs.some((e) => !seenSaga.has(e.saga));
+      if (!evs.some(onLine) && !hasMarker) {
+        if (gapFrom === null) {
+          gapFrom = ago;
+          gapX = x;
         }
+        x += LAYOUT.emptyYear;
+        continue;
       }
+      closeGap(ago + 1);
+      x += LAYOUT.yearLead;
+      yearX.set(ago, x);
+      items.push({ kind: 'year', x, ago, label: yearLabel(ago) });
+      x += LAYOUT.yearPad;
+      for (const e of evs) {
+        const saga = sagaById.get(e.saga);
+        if (saga && !seenSaga.has(saga.id)) {
+          seenSaga.add(saga.id);
+          const era = eraById.get(saga.era);
+          if (era && !seenEra.has(era.id)) {
+            seenEra.add(era.id);
+            items.push({ kind: 'era', x, end: x, era });
+            stations.push({ label: era.name, x });
+            x += LAYOUT.eraGap;
+          }
+          items.push({ kind: 'saga', x, end: x, saga, name: sagaName(saga), hidden: sagaHidden(saga), subtitle: '' });
+          x += LAYOUT.sagaGap;
+        }
+        if (onLine(e)) placeEvent(e);
+      }
+      x += LAYOUT.yearTail;
+    }
+    closeGap(0);
+  } else {
+    // Ordem de publicação: sagas na ordem em que foram publicadas, sem eixo de anos.
+    const byCh = (a: Saga, b: Saga) => minCh(eventsOf(a)) - minCh(eventsOf(b));
+    for (const saga of data.sagas.slice().sort(byCh)) {
+      const visible = eventsOf(saga).filter((e) => passesTags(e, state.tags));
+      if (!visible.length) continue;
+      const hidden = sagaHidden(saga);
+      const sagaItem: Extract<LayoutItem, { kind: 'saga' }> = {
+        kind: 'saga',
+        x,
+        end: x,
+        saga,
+        name: sagaName(saga),
+        hidden,
+        subtitle: eraById.get(saga.era)?.name ?? '',
+      };
+      items.push(sagaItem);
+      if (!hidden) stations.push({ label: saga.name, x });
+      x += LAYOUT.sagaGap;
+      for (const e of sortEvents(visible, 'pub')) if (onLine(e)) placeEvent(e);
       sagaItem.end = x - 40;
     }
-    if (eraItem) eraItem.end = x;
   }
-  return { items, width: x + LAYOUT.tailPadding, order, xById, stations, groups: panelGroups, groupOf };
+
+  // Painel: um grupo por ano que aparece na linha, com tudo o que aconteceu nele.
+  const groups: Group[] = [];
+  const groupOf: Record<string, number> = {};
+  const views: Record<string, EventView> = {};
+  const lineYears: number[] = [];
+  for (const id of order) {
+    const e = data.events.find((ev) => ev.id === id)!;
+    if (!lineYears.includes(e.date.ago)) lineYears.push(e.date.ago);
+  }
+  const yearOrder = state.axis === 'chrono' ? lineYears.slice().sort((a, b) => b - a) : lineYears;
+  for (const ago of yearOrder) {
+    const evs = sortEvents(
+      tagged.filter((e) => e.date.ago === ago),
+      'chrono',
+    );
+    const ids = evs.map((e) => e.id);
+    const firstOnLine = ids.find((id) => xById[id] !== undefined);
+    const eras: string[] = [];
+    const sagas: string[] = [];
+    for (const e of evs) {
+      views[e.id] = toView(e, state);
+      groupOf[e.id] = groups.length;
+      const saga = sagaById.get(e.saga);
+      if (!saga) continue;
+      const era = eraById.get(saga.era)?.name;
+      if (era && !eras.includes(era)) eras.push(era);
+      const name = sagaName(saga);
+      if (!sagas.includes(name)) sagas.push(name);
+    }
+    const allHidden = evs.every((e) => isHidden(e, state));
+    groups.push({
+      ago,
+      label: `Ano ${yearLabel(ago)} ${CALENDAR.kaienreki.abbr}`,
+      ids,
+      x: yearX.get(ago) ?? (firstOnLine ? xById[firstOnLine]! : 0),
+      eras: allHidden ? [] : eras,
+      sagas: allHidden ? [] : sagas,
+      allHidden,
+    });
+  }
+
+  return { items, width: x + LAYOUT.tailPadding, order, xById, stations, groups, groupOf, views };
 }

@@ -1,5 +1,6 @@
 import { h } from '../../lib/dom';
-import type { LayoutItem } from '../../lib/layout';
+import { LAYOUT, yearLabel, type LayoutItem } from '../../lib/layout';
+import { PRESENT } from '../../lib/calendar';
 
 type Of<K extends LayoutItem['kind']> = Extract<LayoutItem, { kind: K }>;
 
@@ -52,5 +53,37 @@ export function Tick(item: Of<'dot'>): HTMLElement {
       h('span', { class: 't-mark', 'aria-hidden': 'true' }),
       h('span', { class: 't-tip', 'aria-hidden': 'true' }, [h('b', {}, [view.title]), h('small', { class: 'num' }, [view.tip])]),
     ],
+  );
+}
+
+/** Ano com acontecimentos: marca alta e o número em pílula, acima da linha. */
+export function YearMark(item: Of<'year'>): HTMLElement {
+  return h('div', { class: 't-yr', style: pos(item.x) }, [h('span', { class: 't-yr-mark', 'aria-hidden': 'true' }), h('b', { class: 'num' }, [item.label])]);
+}
+
+const mod = (a: number, n: number) => ((a % n) + n) % n;
+
+/**
+ * Anos sem registro: régua fina, um traço por ano e um mais alto por década.
+ * Um rótulo a cada 50 anos, para que dê para se situar no meio de séculos vazios.
+ */
+export function Gap(item: Of<'gap'>): HTMLElement {
+  const w = LAYOUT.emptyYear;
+  const count = item.fromAgo - item.toAgo + 1;
+  const y0 = PRESENT.kaienreki - item.fromAgo;
+  const labels: HTMLElement[] = [];
+  const step = 50;
+  for (let k = mod(-y0, step); k < count; k += step) {
+    if (k * w < 30 || (count - k) * w < 30) continue;
+    labels.push(h('span', { class: 'num', style: `left:${k * w}px` }, [yearLabel(item.fromAgo - k)]));
+  }
+  return h(
+    'div',
+    {
+      class: 't-gap',
+      style: pos(item.x, `--w:${item.end - item.x}px;--dec:${mod(-y0, 10) * w}px;--yw:${w}px`),
+      'aria-hidden': 'true',
+    },
+    labels,
   );
 }

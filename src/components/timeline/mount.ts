@@ -3,10 +3,10 @@ import type { Store } from '../../lib/store';
 import type { TimelineState } from '../../lib/state';
 import { computeHorizontalLayout, type HorizontalLayout, type LayoutItem } from '../../lib/layout';
 import { toModalView } from '../../lib/modal';
-import { HIDDEN_SAGA, type EventView } from '../../lib/spoilers';
+import { HIDDEN_TITLE, type EventView } from '../../lib/spoilers';
 import { h } from '../../lib/dom';
 import { RENDERED_EVENT } from '../../lib/app';
-import { EraMark, Marker, SagaBand, Tick } from './nodes';
+import { EraMark, Gap, Marker, SagaBand, Tick, YearMark } from './nodes';
 
 export interface TimelineApi {
   /** Eventos exibidos, na ordem da linha. */
@@ -45,6 +45,10 @@ function extent(item: LayoutItem): [number, number] {
       return [item.x - 10, item.x + 180];
     case 'medallion':
       return [item.x - 80, item.x + 80];
+    case 'year':
+      return [item.x - 40, item.x + 60];
+    case 'gap':
+      return [item.x, item.end];
     default:
       return [item.x - 110, item.x + 110];
   }
@@ -54,6 +58,8 @@ function buildNode(item: LayoutItem): HTMLElement {
   if (item.kind === 'era') return EraMark(item);
   if (item.kind === 'saga') return SagaBand(item);
   if (item.kind === 'medallion') return Marker(item);
+  if (item.kind === 'year') return YearMark(item);
+  if (item.kind === 'gap') return Gap(item);
   return Tick(item);
 }
 
@@ -76,12 +82,10 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
   const reduceMq = matchMedia('(prefers-reduced-motion: reduce)');
   const line = h('div', { class: 't-line', 'aria-hidden': 'true' });
 
-  let layout: HorizontalLayout = { items: [], width: 0, order: [], xById: {}, stations: [], groups: [], groupOf: {} };
+  let layout: HorizontalLayout = { items: [], width: 0, order: [], xById: {}, stations: [], groups: [], groupOf: {}, views: {} };
   let state = store.get();
   const mounted = new Map<number, HTMLElement>();
   const itemIndexById = new Map<string, number>();
-  const viewById = new Map<string, EventView>();
-  const orderPos = new Map<string, number>();
   let readable: string[] = [];
   /** Botão da linha que está na ordem de Tab (um só). */
   let activeId: string | null = null;
@@ -232,10 +236,9 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
       v.tags.length ? h('ul', { class: 'pn-tags', 'aria-label': 'Temas' }, v.tags.map((t) => h('li', {}, [t]))) : null,
     ];
     if (v.facts.length) {
-      const src = v.facts.find((f) => f.label === 'Fonte')?.value ?? '';
       children.push(
-        h('details', { class: 'pn-facts' }, [
-          h('summary', {}, [h('span', {}, ['Fontes e confiança']), h('small', {}, [src])]),
+        h('section', { class: 'pn-facts', 'aria-label': 'Detalhes' }, [
+          h('h4', {}, ['Detalhes']),
           h('dl', {}, v.facts.map((f) => h('div', {}, [h('dt', {}, [f.label]), h('dd', {}, [f.value])]))),
         ]),
       );
@@ -267,11 +270,10 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     const group = layout.groups[gi];
     if (group && gi !== shownGroup) {
       shownGroup = gi;
-      const anchor = viewById.get(group.anchor);
-      const when = anchor && !anchor.hidden ? anchor.when : '';
-      pnHead.textContent = group.sagaHidden ? HIDDEN_SAGA : [when, group.era].filter(Boolean).join(' · ');
-      pnSub.textContent = group.sagaHidden ? countLabel(group.ids.length) : `${group.saga} · ${countLabel(group.ids.length)}`;
-      pnStair.replaceChildren(...group.ids.map((id, i) => stairItem(viewById.get(id)!, i)));
+      pnHead.textContent = group.allHidden ? HIDDEN_TITLE : [group.label, ...group.eras].join(' · ');
+      const n = countLabel(group.ids.length);
+      pnSub.textContent = group.allHidden ? n : [...group.sagas, n].join(' · ');
+      pnStair.replaceChildren(...group.ids.map((id, i) => stairItem(layout.views[id]!, i)));
       pnStair.classList.remove('in');
       if (animate && !reduceMq.matches) {
         void pnStair.offsetWidth;
@@ -288,9 +290,23 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
       void pnDetail.offsetWidth;
       pnDetail.classList.add('swap');
     }
-    const at = orderPos.get(selectedId) ?? -1;
-    pnPrev.disabled = !readable.some((id) => (orderPos.get(id) ?? 0) < at);
-    pnNext.disabled = !readable.some((id) => (orderPos.get(id) ?? 0) > at);
+    pnPrev.disabled = yearStep(-1) === null;
+    pnNext.disabled = yearStep(1) === null;
+  }
+
+  /** Ano anterior ou seguinte que tenha algo legível (anos todo protegidos ficam de fora). */
+  function yearStep(dir: 1 | -1): number | null {
+    if (!selectedId) return null;
+    const at = layout.groupOf[selectedId] ?? -1;
+    for (let g = at + dir; g >= 0 && g < layout.groups.length; g += dir) if (!layout.groups[g]!.allHidden) return g;
+    return null;
+  }
+
+  function selectYear(g: number) {
+    const group = layout.groups[g];
+    if (!group) return;
+    const id = group.ids.find((i) => !layout.views[i]?.hidden && layout.xById[i] !== undefined) ?? group.ids.find((i) => !layout.views[i]?.hidden) ?? group.ids[0];
+    if (id) select(id, { center: true });
   }
 
   function markSelectedOnLine() {
@@ -304,7 +320,7 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
   }
 
   function select(id: string, opts: { center?: boolean } = {}) {
-    if (!itemIndexById.has(id)) return;
+    if (layout.groupOf[id] === undefined) return;
     if (id !== selectedId) {
       selectedId = id;
       markSelectedOnLine();
@@ -342,16 +358,10 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     const keepFrac = layout.width ? centerX() / layout.width : 0;
     layout = computeHorizontalLayout(data, state);
     itemIndexById.clear();
-    viewById.clear();
-    orderPos.clear();
-    layout.order.forEach((id, i) => orderPos.set(id, i));
     layout.items.forEach((item, i) => {
-      if (item.kind === 'medallion' || item.kind === 'dot') {
-        itemIndexById.set(item.view.id, i);
-        viewById.set(item.view.id, item.view);
-      }
+      if (item.kind === 'medallion' || item.kind === 'dot') itemIndexById.set(item.view.id, i);
     });
-    readable = layout.order.filter((id) => !viewById.get(id)?.hidden);
+    readable = layout.order.filter((id) => !layout.views[id]?.hidden);
     if (activeId && !itemIndexById.has(activeId)) activeId = null;
     for (const el of mounted.values()) el.remove();
     mounted.clear();
@@ -367,9 +377,9 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
       const firstMajor = layout.items.find((i) => i.kind === 'medallion');
       if (firstMajor && firstMajor.kind === 'medallion') selectedId = firstMajor.view.id;
       target = selectedId ? layout.xById[selectedId]! : 0;
-    } else if (keepId && itemIndexById.has(keepId)) {
+    } else if (keepId && layout.groupOf[keepId] !== undefined) {
       selectedId = keepId;
-      target = layout.xById[keepId]!;
+      target = layout.xById[keepId] ?? layout.groups[layout.groupOf[keepId]!]!.x;
     } else {
       target = keepFrac * layout.width;
       selectedId = nearest(target, Infinity);
@@ -386,7 +396,8 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
   }
 
   function centerOn(id: string) {
-    const x = layout.xById[id];
+    // Eventos que o zoom tirou da linha levam ao ano deles.
+    const x = layout.xById[id] ?? layout.groups[layout.groupOf[id] ?? -1]?.x;
     if (x === undefined) return;
     quietUntil = performance.now() + 900;
     scroller.scrollTo({ left: x, behavior: behavior() });
@@ -503,12 +514,12 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     onScroll();
   });
 
-  /** Setas laterais: pulam para o marco seguinte (ou anterior). */
+  /** Setas laterais: pulam para o ano seguinte (ou anterior) com acontecimentos. */
   const jump = (dir: 1 | -1) => () => {
     const x = centerX();
-    const majors = layout.items.filter((i) => i.kind === 'medallion');
-    const target = dir > 0 ? majors.find((m) => m.x > x + 4) : [...majors].reverse().find((m) => m.x < x - 4);
-    if (target && target.kind === 'medallion') select(target.view.id, { center: true });
+    const years = layout.groups.map((g, i) => ({ x: g.x, i })).sort((a, b) => a.x - b.x);
+    const target = dir > 0 ? years.find((y) => y.x > x + 4) : [...years].reverse().find((y) => y.x < x - 4);
+    if (target) selectYear(target.i);
     else scroller.scrollTo({ left: dir > 0 ? layout.width : 0, behavior: behavior() });
   };
   prevBtn.addEventListener('click', jump(-1));
@@ -556,19 +567,14 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
   track.addEventListener('mouseout', reenableTip);
   track.addEventListener('focusout', reenableTip);
 
-  /* ---------- Painel: escada e Anterior/Próximo ---------- */
+  /* ---------- Painel: lista do ano e Ano anterior/Próximo ano ---------- */
   pnStair.addEventListener('click', (e) => {
     const btn = (e.target as Element).closest<HTMLElement>('button[data-id]');
     if (btn) select(btn.dataset.id!, { center: true });
   });
   const step = (dir: 1 | -1) => {
-    if (!selectedId) return;
-    const at = orderPos.get(selectedId) ?? -1;
-    const id =
-      dir > 0
-        ? readable.find((r) => (orderPos.get(r) ?? 0) > at)
-        : [...readable].reverse().find((r) => (orderPos.get(r) ?? 0) < at);
-    if (id) select(id, { center: true });
+    const g = yearStep(dir);
+    if (g !== null) selectYear(g);
   };
   pnPrev.addEventListener('click', () => step(-1));
   pnNext.addEventListener('click', () => step(1));

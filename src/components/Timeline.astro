@@ -42,13 +42,13 @@
 
   <section class="stage" aria-label="Linha do tempo">
     <div class="band">
-      <button type="button" class="side side-prev" data-prev aria-label="Marco anterior">
+      <button type="button" class="side side-prev" data-prev aria-label="Ano anterior">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
       </button>
       <div class="hz-scroll" id="linha-do-tempo" data-scroll>
         <div class="hz-track" data-track></div>
       </div>
-      <button type="button" class="side side-next" data-next aria-label="Próximo marco">
+      <button type="button" class="side side-next" data-next aria-label="Próximo ano">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
       </button>
     </div>
@@ -62,21 +62,21 @@
         <div class="pn-nav">
           <button type="button" class="btn btn-quiet" data-pn-prev>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            Anterior
+            Ano anterior
           </button>
           <button type="button" class="btn btn-quiet" data-pn-next>
-            Próximo
+            Próximo ano
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </button>
         </div>
       </header>
       <div class="pn-body">
         <div class="pn-detail" data-pn-detail aria-live="polite"></div>
-        <ol class="pn-stair" data-pn-stair aria-label="Acontecimentos deste trecho"></ol>
+        <ol class="pn-stair" data-pn-stair aria-label="Acontecimentos deste ano"></ol>
       </div>
     </section>
   </section>
-  <p class="sr" id="hz-help">Na linha, as setas esquerda e direita passam de um acontecimento ao outro e mostram os detalhes no painel abaixo.</p>
+  <p class="sr" id="hz-help">Na linha, as setas esquerda e direita passam de um acontecimento ao outro. O painel abaixo mostra tudo o que aconteceu no ano escolhido.</p>
 </div>
 
 <script>
