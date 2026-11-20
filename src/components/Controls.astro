@@ -91,8 +91,14 @@ const tagEntries = Object.entries(data.tags);
     spoilCh.disabled = !spoilOn.checked;
     store.set({ spoilerOn: spoilOn.checked });
   });
+  // Espera o usuário parar de digitar: cada mudança refaz a corda.
+  let chTimer: ReturnType<typeof setTimeout> | undefined;
   spoilCh.addEventListener('input', () => {
-    const v = parseInt(spoilCh.value, 10);
-    store.set({ lastChapter: Number.isNaN(v) ? 0 : v });
+    clearTimeout(chTimer);
+    chTimer = setTimeout(() => {
+      const v = parseInt(spoilCh.value, 10);
+      const next = Number.isNaN(v) ? 0 : v;
+      if (next !== store.get().lastChapter) store.set({ lastChapter: next });
+    }, 250);
   });
 </script>

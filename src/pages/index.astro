@@ -5,11 +5,14 @@ import Timeline from '../components/Timeline.astro';
 import EventModal from '../components/EventModal.astro';
 ---
 <Base title="Linha do Tempo de One Piece">
+  <a class="skip" href="#linha-do-tempo">Pular para a linha do tempo</a>
   <header class="intro">
     <h1>Linha do Tempo de One Piece</h1>
     <p>Do Século Vazio ao Egghead, em uma única linha. Afaste para ver as eras, aproxime para ler cada acontecimento, e esconda o que você ainda não leu ou assistiu.</p>
   </header>
-  <Controls />
-  <Timeline />
+  <main>
+    <Controls />
+    <Timeline />
+  </main>
   <EventModal />
 </Base>

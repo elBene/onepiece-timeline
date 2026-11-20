@@ -2,7 +2,15 @@ import { h, svg } from '../../lib/dom';
 import type { LayoutItem } from '../../lib/layout';
 import { ICON_PATHS } from '../../lib/theme';
 
+let wheelTemplate: SVGElement | undefined;
+
+/** O timão é igual para todos os marcos: monta uma vez e clona. */
 function wheelSvg(): SVGElement {
+  wheelTemplate ??= buildWheel();
+  return wheelTemplate.cloneNode(true) as SVGElement;
+}
+
+function buildWheel(): SVGElement {
   let spokes = '';
   for (let k = 0; k < 8; k++) {
     const a = (k * Math.PI) / 4;
@@ -13,10 +21,10 @@ function wheelSvg(): SVGElement {
   }
   return svg(
     `<svg class="wheel" viewBox="0 0 100 100" aria-hidden="true">${spokes}` +
-      `<circle cx="50" cy="50" r="43" fill="#0a1b28" stroke="currentColor" stroke-width="2"/>` +
+      `<circle class="w-face" cx="50" cy="50" r="43" stroke="currentColor" stroke-width="2"/>` +
       `<circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="8" opacity=".35"/>` +
       `<circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="104 104" transform="rotate(-90 50 50)"/>` +
-      `<circle cx="50" cy="50" r="25" fill="#102a3b"/></svg>`,
+      `<circle class="w-core" cx="50" cy="50" r="25"/></svg>`,
   );
 }
 

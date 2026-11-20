@@ -30,6 +30,8 @@ export const EventSchema = z.object({
   sum: z.string().min(1),
   more: z.string(),
   src: z.string(),
+  /** Só eventos verificados saem do modo rascunho. Ausente nos JSONs antigos = false. */
+  verified: z.boolean().default(false),
 });
 
 /** tags.json é um mapa id -> nome exibido. */

@@ -30,4 +30,13 @@ describe('toModalView', () => {
   it('id inexistente retorna null', () => {
     expect(toModalView(data, { spoilerOn: false, lastChapter: 1 }, 'nope')).toBeNull();
   });
+  it('status vem do campo verified, não de texto fixo', () => {
+    const base = data.events.find((x) => x.id === 'e8')!;
+    const status = (verified: boolean) => {
+      const d = { ...data, events: data.events.map((e) => (e.id === 'e8' ? { ...base, verified } : e)) };
+      return toModalView(d, { spoilerOn: false, lastChapter: 1 }, 'e8')!.facts.find((f) => f.label === 'Status')!.value;
+    };
+    expect(status(false)).toBe('rascunho a verificar');
+    expect(status(true)).toBe('verificado');
+  });
 });

@@ -81,18 +81,26 @@
     if (!fill(id)) return;
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
-    if (!wasOpen) $('[data-close]').focus();
+    if (!wasOpen) {
+      setBackgroundInert(true);
+      $('[data-close]').focus();
+    }
+  }
+
+  /** Com o popup aberto, o resto da página não recebe foco nem aparece para leitores de tela. */
+  function setBackgroundInert(on: boolean) {
+    document.querySelectorAll<HTMLElement>('.intro, main, footer, .skip').forEach((el) => (el.inert = on));
+    document.body.toggleAttribute('data-modal-open', on);
   }
 
   function close() {
     modal.hidden = true;
     document.body.style.overflow = '';
-    // Devolve o foco ao elemento do evento que estava aberto (pode ter mudado com Anterior/Próximo).
-    const current = currentId
-      ? document.querySelector<HTMLElement>(`[data-track] button[data-id="${currentId}"]`)
-      : null;
-    const target = current ?? lastFocus;
-    if (target && document.contains(target)) target.focus();
+    setBackgroundInert(false);
+    // Devolve o foco ao evento que estava aberto (pode ter mudado com Anterior/Próximo).
+    const api = getTimelineApi();
+    if (currentId && api) api.focusEvent(currentId);
+    else if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
     currentId = null;
     lastFocus = null;
   }

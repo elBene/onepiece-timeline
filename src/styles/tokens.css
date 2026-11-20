@@ -2,14 +2,49 @@
 :root {
   color-scheme: dark;
   --bg: #0a1b28;
+  --bg-rgb: 10 27 40;
   --bg2: #102a3b;
   --ink: #efe4cb;
+  --ink-soft: #cfc9b6;
   --muted: #9fb1ba;
   --gold: #e3aa2c;
+  --on-gold: #1b1305;
   --red: #e0502f;
   --sea: #3b8aa3;
+  --jade: #6fbf8e;
+  --rose: #c46b8a;
+  --violet: #8a7bd1;
   --line: #27475a;
   --card: #12303f;
+  --on-flag: #fff;
+  --shadow: rgb(0 0 0 / .45);
+
+  /* Corda trançada */
+  --rope-1: #c7a56a;
+  --rope-2: #8a6b3a;
+
+  /* Bandeiras das eras */
+  --era-void: #5b47a3;
+  --era-roger: #8f5a1c;
+  --era-gpe: #1d7188;
+  --era-default: #2d7088;
+
+  /* Ondas de fundo (de trás para frente) */
+  --wave-1: rgb(59 138 163 / .35);
+  --wave-2: rgb(37 100 125 / .4);
+  --wave-3: rgb(16 52 72 / .7);
+
+  /* Pergaminho: tinta escura sobre areia. Todos os pares passam de 4,5:1 até no canto mais escuro. */
+  --paper-1: #f6ead0;
+  --paper-2: #e6d2a2;
+  --paper-3: #cdb27a;
+  --paper-ink: #2b1c0c;
+  --paper-ink-2: #4a3820;
+  --paper-ink-3: #5a3f18;
+  --paper-ink-4: #4f3814;
+  --paper-red: #7d2512;
+  --paper-btn-ink: #efe0bd;
+
   --font-display: 'Pirata One', 'Georgia', serif;
   --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }

@@ -33,7 +33,14 @@ export interface HorizontalLayout {
 
 export function computeHorizontalLayout(data: TimelineData, state: TimelineState): HorizontalLayout {
   const eraById = new Map(data.eras.map((e) => [e.id, e]));
-  const eventsOf = (saga: Saga) => data.events.filter((e) => e.saga === saga.id);
+  // Agrupa uma vez: antes, cada comparação de ordenação refiltrava todos os eventos.
+  const bySaga = new Map<string, TimelineEvent[]>();
+  for (const e of data.events) {
+    const list = bySaga.get(e.saga);
+    if (list) list.push(e);
+    else bySaga.set(e.saga, [e]);
+  }
+  const eventsOf = (saga: Saga) => bySaga.get(saga.id) ?? [];
   const byT = (a: Saga, b: Saga) => minT(eventsOf(a)) - minT(eventsOf(b));
   const byCh = (a: Saga, b: Saga) => minCh(eventsOf(a)) - minCh(eventsOf(b));
 

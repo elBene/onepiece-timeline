@@ -1,7 +1,7 @@
 /* Barra de controles */
 .bar{
   position:relative;z-index:20;margin:18px auto 0;max-width:1100px;padding:14px 20px;
-  background:rgba(10,27,40,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  background:rgb(var(--bg-rgb) / .92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
   display:grid;gap:12px;
 }
 @media(min-width:900px){.bar{position:sticky;top:0}}
@@ -10,12 +10,25 @@
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
 .seg button{background:transparent;border:0;padding:6px 14px;color:var(--muted);font-size:.88rem}
 .seg button+button{border-left:1px solid var(--line)}
-.seg button[aria-pressed="true"]{background:var(--gold);color:#1b1305;font-weight:700}
+.seg button[aria-pressed="true"]{background:var(--gold);color:var(--on-gold);font-weight:700}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 12px;font-size:.82rem;color:var(--muted)}
-.chip[aria-pressed="true"]{border-color:var(--sea);background:rgba(59,138,163,.22);color:var(--ink)}
+.chip[aria-pressed="true"]{border-color:var(--sea);background:color-mix(in srgb,var(--sea) 22%,transparent);color:var(--ink)}
 .spoil{display:flex;align-items:center;gap:8px;font-size:.88rem}
 .spoil input[type=number]{width:84px;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:5px 8px;font:inherit}
 .spoil input[type=number]:disabled{opacity:.4}
 .count{margin-left:auto;font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
 @media(max-width:819px){.count{margin-left:0;width:100%}}
+/* Telas estreitas: cada grupo ocupa a largura toda e os rótulos longos quebram em vez de estourar. */
+@media(max-width:480px){
+  .bar{padding:12px 14px}
+  .lbl{min-width:0;width:100%}
+  .seg{display:flex;width:100%}
+  .seg button{flex:1;padding:6px 8px;font-size:.82rem;line-height:1.25}
+}
+@media(pointer:coarse){
+  .seg button{min-height:44px}
+  .chip{min-height:44px;padding:4px 14px}
+  .spoil input[type=number]{min-height:44px}
+  .spoil input[type=checkbox]{width:24px;height:24px}
+}

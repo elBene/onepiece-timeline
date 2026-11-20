@@ -9,14 +9,14 @@
   <button type="button" class="hz-nav next" data-next aria-label="Avançar na linha do tempo">
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
   </button>
-  <div class="hz-scroll" data-scroll tabindex="0" role="region" aria-label="Corda do tempo. Use as setas do teclado para rolar.">
+  <div class="hz-scroll" id="linha-do-tempo" data-scroll tabindex="0" role="region" aria-label="Corda do tempo. Use as setas do teclado para rolar.">
     <div class="hz-track" data-track></div>
   </div>
   <div class="hz-prog" data-prog aria-hidden="true">
     <i></i>
-    <svg class="ship-s" viewBox="0 0 40 40"><path d="M6 27h28l-4 7H11z" fill="#e0502f" stroke="#efe4cb" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 5v22" stroke="#efe4cb" stroke-width="2"/><path d="M21 7c8 4 10 10 10 17H21z" fill="#efe4cb"/><path d="M19 10c-5 3-7 8-7 14h7z" fill="#e3aa2c"/></svg>
+    <svg class="ship-s" viewBox="0 0 40 40"><path class="s-hull" d="M6 27h28l-4 7H11z"/><path class="s-mast" d="M20 5v22"/><path class="s-sail" d="M21 7c8 4 10 10 10 17H21z"/><path class="s-jib" d="M19 10c-5 3-7 8-7 14h7z"/></svg>
   </div>
-  <p class="hint">Arraste, use as setas ou Shift + rolagem para navegar. Passe o mouse (ou use Tab) nos pontos pequenos para ver o nome; clique em qualquer evento para abrir os detalhes.</p>
+  <p class="hint">Arraste ou role para navegar. Com o teclado, Tab entra nos eventos e as setas ← → percorrem um a um (Enter abre). Passe o mouse nos pontos pequenos para ver o nome; clique em qualquer evento para abrir os detalhes.</p>
 </section>
 
 <script>

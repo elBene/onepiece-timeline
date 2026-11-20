@@ -56,7 +56,7 @@ export function toModalView(
     facts: [
       { label: 'Fonte', value: e.src },
       { label: 'Confiança da data', value: e.conf },
-      { label: 'Status', value: 'rascunho a verificar' },
+      { label: 'Status', value: e.verified ? 'verificado' : 'rascunho a verificar' },
     ],
   };
 }
