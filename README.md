@@ -1,43 +1,27 @@
-# Astro Starter Kit: Minimal
+# Linha do Tempo de One Piece
 
-```sh
-npm create astro@latest -- --template minimal
+Site público e estático (Astro + TypeScript) com a linha do tempo do mundo de One Piece, em português do Brasil. Projeto de fã, sem fins oficiais.
+
+## Comandos
+
+```bash
+npm install
+npm run dev      # servidor local em localhost:4321
+npm test         # testes unitários (Vitest)
+npm run check    # tipos (astro check)
+npm run build    # gera ./dist (valida os JSONs com Zod)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Estrutura
 
-## 🚀 Project Structure
+- `src/data/`: `eras.json`, `sagas.json`, `events.json`, `tags.json`, validados por `src/lib/schema.ts` no build.
+- `src/lib/`: ordenação, filtros, spoilers, layout e popup (com testes).
+- `src/components/`: timeline horizontal, controles, popup, ondas.
+- `scripts/`: pipeline Python que gera rascunhos a partir do wiki (ver `scripts/README.md`).
+- `prototype.html`: protótipo de referência visual.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Dados
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Cada evento tem `src`, uma lista de fontes `{ type, ref, url? }` com `type` em `manga`, `anime`, `databook`, `sbs` ou `wiki`. Só eventos com `verified: true` saem do modo rascunho.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Os textos são resumos próprios; nenhuma imagem ou trecho da obra é usado. One Piece pertence a Eiichiro Oda, Shueisha e Toei Animation.

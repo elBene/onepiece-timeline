@@ -12,6 +12,10 @@ const data = parseTimelineData({ eras, sagas, events, tags });
 const noCh = { ...data, events: data.events.map((e) => (e.id === 'e3' ? { ...e, ch: null } : e)) };
 
 describe('toModalView', () => {
+  it('fonte estruturada vira texto legível', () => {
+    const fonte = toModalView(data, { spoilerOn: false, lastChapter: 0 }, 'e1')!.facts.find((f) => f.label === 'Fonte');
+    expect(fonte?.value).toBe('Mangá, cap. 395');
+  });
   it('evento visível traz texto, tags e fatos', () => {
     const v = toModalView(data, { spoilerOn: true, lastChapter: 100 }, 'e8')!;
     expect(v.hidden).toBe(false);
@@ -23,7 +27,7 @@ describe('toModalView', () => {
     const e = data.events.find((x) => x.id === 'e24')!;
     const v = toModalView(data, { spoilerOn: true, lastChapter: 100 }, 'e24')!;
     const json = JSON.stringify(v);
-    for (const s of [e.title, e.sum, e.more, e.when, e.src]) expect(json).not.toContain(s);
+    for (const s of [e.title, e.sum, e.more, e.when, ...e.src.map((x) => x.ref)]) expect(json).not.toContain(s);
     expect(v.tags).toEqual([]);
     expect(v.facts).toEqual([]);
   });

@@ -15,7 +15,12 @@
     "title": "O Século Vazio",
     "sum": "Cem anos somem dos registros. O que aconteceu nesse período segue sendo o maior mistério do mundo.",
     "more": "A data é inferida pelos próprios personagens. A principal fonte são os Poneglyphs, que o Governo Mundial trata como proibidos.",
-    "src": "Mangá, cap. 395"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 395"
+      }
+    ]
   },
   {
     "id": "e2",
@@ -32,7 +37,12 @@
     "title": "Joy Boy e a promessa",
     "sum": "Um homem deixa uma promessa a um povo do fundo do mar. Séculos depois, ela volta à história.",
     "more": "O vínculo entre Joy Boy e o Século Vazio ainda é apresentado de forma parcial.",
-    "src": "Mangá, cap. 649"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 649"
+      }
+    ]
   },
   {
     "id": "e3",
@@ -51,7 +61,12 @@
     "title": "Piratas de Rocks em God Valley",
     "sum": "Uma tripulação temida é derrotada numa ilha onde nobres do mundo se reuniam.",
     "more": "Capítulo de origem ainda a confirmar. Entrada pensada para testar o tratamento de dados incompletos.",
-    "src": "Mangá, cap. 1096"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1096"
+      }
+    ]
   },
   {
     "id": "e4",
@@ -69,7 +84,12 @@
     "title": "Roger completa a Grand Line",
     "sum": "A tripulação de Roger chega ao fim do mar mais perigoso do mundo e descobre o que ninguém mais viu.",
     "more": "Mostrado em flashback, bem depois do evento. Um bom exemplo de por que a ordem de publicação difere da cronologia.",
-    "src": "Mangá, cap. 968"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 968"
+      }
+    ]
   },
   {
     "id": "e5",
@@ -88,7 +108,12 @@
     "title": "A execução de Roger",
     "sum": "O Rei dos Piratas é executado em Loguetown e suas últimas palavras abrem a Grande Era dos Piratas.",
     "more": "Marco que define a divisão entre Era de Roger e Grande Era dos Piratas neste site.",
-    "src": "Mangá, cap. 1"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1"
+      }
+    ]
   },
   {
     "id": "e6",
@@ -107,7 +132,12 @@
     "title": "A queda de Ohara",
     "sum": "O Governo Mundial destrói uma ilha de arqueólogos. Só uma criança escapa.",
     "more": "Marca a origem de Nico Robin e liga a história ao Século Vazio.",
-    "src": "Mangá, cap. 395"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 395"
+      }
+    ]
   },
   {
     "id": "e7",
@@ -126,7 +156,12 @@
     "title": "O chapéu de palha",
     "sum": "Um menino come uma fruta misteriosa, um pirata paga caro por protegê-lo e deixa seu chapéu como promessa.",
     "more": "Momento fundador do protagonista, mostrado logo no primeiro capítulo.",
-    "src": "Mangá, cap. 1"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1"
+      }
+    ]
   },
   {
     "id": "e8",
@@ -143,7 +178,12 @@
     "title": "Luffy zarpa",
     "sum": "Aos 17 anos, Luffy sai de casa num barco minúsculo com um objetivo declarado: ser o Rei dos Piratas.",
     "more": "Ponto zero da cronologia principal.",
-    "src": "Mangá, cap. 1"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1"
+      }
+    ]
   },
   {
     "id": "e9",
@@ -160,7 +200,12 @@
     "title": "Os primeiros quatro tripulantes",
     "sum": "Um espadachim, uma navegadora, um atirador e um cozinheiro entram no bando ainda no mar mais calmo.",
     "more": "Os ingressos acontecem em momentos diferentes. A entrada junta todos para fins de visão geral.",
-    "src": "Mangá, caps. 3 a 95"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "caps. 3 a 95"
+      }
+    ]
   },
   {
     "id": "e10",
@@ -178,7 +223,12 @@
     "title": "Passagem por Loguetown",
     "sum": "A cidade onde Roger morreu é a última parada antes da Grand Line.",
     "more": "Evento menor, visível apenas em níveis de zoom mais próximos.",
-    "src": "Mangá, cap. 96"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 96"
+      }
+    ]
   },
   {
     "id": "e11",
@@ -195,7 +245,12 @@
     "title": "Crocodile cai em Alabasta",
     "sum": "Luffy derrota o chefe da Baroque Works e encerra a guerra civil que ele armou.",
     "more": "Fecha o primeiro grande conflito do bando na Grand Line.",
-    "src": "Mangá, cap. 210"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 210"
+      }
+    ]
   },
   {
     "id": "e12",
@@ -212,7 +267,12 @@
     "title": "O sino dourado do céu",
     "sum": "Numa ilha acima das nuvens, o bando resolve uma disputa antiga e faz um som ouvido de longe.",
     "more": "Arco de baixo impacto na trama principal, mas muito lembrado pelos fãs.",
-    "src": "Mangá, cap. 299"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 299"
+      }
+    ]
   },
   {
     "id": "e13",
@@ -230,7 +290,12 @@
     "title": "\"Eu quero viver!\"",
     "sum": "Diante de uma ilha em chamas, Robin pede ajuda pela primeira vez e o bando declara guerra ao governo.",
     "more": "Resolve o arco iniciado em Ohara. Link direto com o evento \"A queda de Ohara\".",
-    "src": "Mangá, cap. 398"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 398"
+      }
+    ]
   },
   {
     "id": "e14",
@@ -247,7 +312,12 @@
     "title": "Brook entra no bando",
     "sum": "Um músico que já não deveria estar vivo reencontra sua sombra e embarca com os Chapéus de Palha.",
     "more": "Completa a tripulação que seguirá até o timeskip.",
-    "src": "Mangá, cap. 489"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 489"
+      }
+    ]
   },
   {
     "id": "e15",
@@ -265,7 +335,12 @@
     "title": "O bando é separado",
     "sum": "Um ataque em Sabaody espalha cada tripulante para um canto distante do mundo.",
     "more": "Abre o arco que culmina em Marineford.",
-    "src": "Mangá, cap. 513"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 513"
+      }
+    ]
   },
   {
     "id": "e16",
@@ -283,7 +358,12 @@
     "title": "Luffy invade Impel Down",
     "sum": "Para salvar o irmão, Luffy entra sozinho na prisão mais vigiada do mundo.",
     "more": "Ponte entre a separação do bando e a guerra.",
-    "src": "Mangá, cap. 525"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 525"
+      }
+    ]
   },
   {
     "id": "e17",
@@ -302,7 +382,12 @@
     "title": "A morte de Ace",
     "sum": "No ponto mais alto da guerra, Ace protege Luffy e cai diante de todos.",
     "more": "Maior ponto de virada emocional da primeira metade da obra.",
-    "src": "Mangá, cap. 574"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 574"
+      }
+    ]
   },
   {
     "id": "e18",
@@ -320,7 +405,12 @@
     "title": "A queda de Barba Branca",
     "sum": "O maior pirata da época morre em batalha e deixa um recado que muda a ordem do mar.",
     "more": "Reconfigura o poder entre os piratas e o governo.",
-    "src": "Mangá, cap. 576"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 576"
+      }
+    ]
   },
   {
     "id": "e19",
@@ -337,7 +427,12 @@
     "title": "Dois anos depois",
     "sum": "Cada tripulante treina por conta própria e todos voltam ao ponto de encontro prontos para o Novo Mundo.",
     "more": "Divide a obra em duas metades para fins de cronologia.",
-    "src": "Mangá, cap. 598"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 598"
+      }
+    ]
   },
   {
     "id": "e20",
@@ -356,7 +451,12 @@
     "title": "Doflamingo cai em Dressrosa",
     "sum": "Um reino inteiro é libertado depois de uma batalha em várias frentes.",
     "more": "Um dos maiores arcos do Novo Mundo em número de personagens envolvidos.",
-    "src": "Mangá, cap. 790"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 790"
+      }
+    ]
   },
   {
     "id": "e21",
@@ -374,7 +474,12 @@
     "title": "Fuga do território de Big Mom",
     "sum": "O bando escapa de uma ilha de doces depois de uma missão de resgate.",
     "more": "Detalhe do arco Whole Cake, mostrado para teste de hierarquia.",
-    "src": "Mangá, cap. 902"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 902"
+      }
+    ]
   },
   {
     "id": "e22",
@@ -392,7 +497,12 @@
     "title": "A Reverie",
     "sum": "Líderes de vários reinos se encontram em Mary Geoise e o equilíbrio do mundo muda de lugar.",
     "more": "Evento político mais do que de combate.",
-    "src": "Mangá, cap. 905"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 905"
+      }
+    ]
   },
   {
     "id": "e23",
@@ -410,7 +520,12 @@
     "title": "Um novo despertar de Luffy",
     "sum": "No meio do confronto com um dos Imperadores, a fruta de Luffy revela uma forma inesperada.",
     "more": "Muda de forma permanente o que se espera dos combates.",
-    "src": "Mangá, cap. 1044"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1044"
+      }
+    ]
   },
   {
     "id": "e24",
@@ -428,7 +543,12 @@
     "title": "Kaido é derrotado",
     "sum": "Luffy vence um Imperador do Mar e o equilíbrio entre as potências piratas muda.",
     "more": "Encerra o arco de Wano e redefine o placar de poder.",
-    "src": "Mangá, cap. 1049"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1049"
+      }
+    ]
   },
   {
     "id": "e25",
@@ -446,6 +566,11 @@
     "title": "Chegada a Egghead",
     "sum": "Os Chapéus de Palha chegam à ilha do futuro, onde um cientista guarda segredos do mundo.",
     "more": "Arco mais recente do protótipo. Atualizar conforme novos capítulos forem publicados.",
-    "src": "Mangá, cap. 1061"
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1061"
+      }
+    ]
   }
 ]

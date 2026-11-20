@@ -43,4 +43,11 @@ describe('schema', () => {
     (f[0] as { conf: string }).conf = 'talvez';
     expect(() => parseTimelineData({ ...raw, events: f })).toThrow();
   });
+  it('rejeita fonte sem itens, com tipo desconhecido ou URL inválida', () => {
+    for (const src of [[], [{ type: 'blog', ref: 'x' }], [{ type: 'wiki', ref: 'x', url: 'nao-e-url' }]]) {
+      const e = clone(events);
+      (e[0] as { src: unknown }).src = src;
+      expect(() => parseTimelineData({ ...raw, events: e })).toThrow();
+    }
+  });
 });

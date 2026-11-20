@@ -16,6 +16,23 @@ export const SagaSchema = z.object({
 
 export const ConfidenceSchema = z.enum(['exata', 'estimada', 'inferida']);
 
+export const SourceTypeSchema = z.enum(['manga', 'anime', 'databook', 'sbs', 'wiki']);
+
+/** Fonte estruturada: tipo, referência (capítulo, episódio...) e URL quando houver. */
+export const SourceSchema = z.object({
+  type: SourceTypeSchema,
+  ref: z.string().min(1),
+  url: z.url().optional(),
+});
+
+export const SOURCE_LABEL: Record<z.infer<typeof SourceTypeSchema>, string> = {
+  manga: 'Mangá',
+  anime: 'Anime',
+  databook: 'Databook',
+  sbs: 'SBS',
+  wiki: 'Wiki',
+};
+
 export const EventSchema = z.object({
   id: z.string().min(1),
   saga: z.string().min(1),
@@ -29,7 +46,7 @@ export const EventSchema = z.object({
   title: z.string().min(1),
   sum: z.string().min(1),
   more: z.string(),
-  src: z.string(),
+  src: z.array(SourceSchema).min(1),
   /** Só eventos verificados saem do modo rascunho. Ausente nos JSONs antigos = false. */
   verified: z.boolean().default(false),
 });
@@ -40,6 +57,7 @@ export const TagsSchema = z.record(z.string(), z.string().min(1));
 export type Era = z.infer<typeof EraSchema>;
 export type Saga = z.infer<typeof SagaSchema>;
 export type TimelineEvent = z.infer<typeof EventSchema>;
+export type Source = z.infer<typeof SourceSchema>;
 export type Tags = z.infer<typeof TagsSchema>;
 
 export interface TimelineData {

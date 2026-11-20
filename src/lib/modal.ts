@@ -1,4 +1,4 @@
-import type { TimelineData } from './schema';
+import { SOURCE_LABEL, type TimelineData } from './schema';
 import type { TimelineState } from './state';
 import { chapterLabel, isHidden } from './spoilers';
 
@@ -54,7 +54,7 @@ export function toModalView(
     more: e.more,
     tags: e.tags.map((t) => data.tags[t] ?? t),
     facts: [
-      { label: 'Fonte', value: e.src },
+      { label: 'Fonte', value: e.src.map((x) => `${SOURCE_LABEL[x.type]}, ${x.ref}`).join(' · ') },
       { label: 'Confiança da data', value: e.conf },
       { label: 'Status', value: e.verified ? 'verificado' : 'rascunho a verificar' },
     ],
