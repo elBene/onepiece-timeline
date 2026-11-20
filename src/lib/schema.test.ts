@@ -1,0 +1,46 @@
+import { describe, expect, it } from 'vitest';
+import eras from '../data/eras.json';
+import sagas from '../data/sagas.json';
+import events from '../data/events.json';
+import tags from '../data/tags.json';
+import { parseTimelineData } from './schema';
+
+const raw = { eras, sagas, events, tags };
+const clone = <T>(v: T): T => JSON.parse(JSON.stringify(v));
+
+describe('schema', () => {
+  it('os JSONs do site são válidos', () => {
+    expect(() => parseTimelineData(raw)).not.toThrow();
+  });
+  it('verified ausente vira false', () => {
+    expect(parseTimelineData(raw).events.every((e) => e.verified === false)).toBe(true);
+  });
+  it('rejeita saga inexistente', () => {
+    const e = clone(events);
+    e[0].saga = 'nao_existe';
+    expect(() => parseTimelineData({ ...raw, events: e })).toThrow(/saga inexistente/);
+  });
+  it('rejeita tag inexistente', () => {
+    const e = clone(events);
+    e[0].tags = ['nao_existe'];
+    expect(() => parseTimelineData({ ...raw, events: e })).toThrow(/tag inexistente/);
+  });
+  it('rejeita id de evento duplicado', () => {
+    const e = clone(events);
+    e[1].id = e[0].id;
+    expect(() => parseTimelineData({ ...raw, events: e })).toThrow(/duplicado/);
+  });
+  it('rejeita era inexistente numa saga', () => {
+    const s = clone(sagas);
+    s[0].era = 'nao_existe';
+    expect(() => parseTimelineData({ ...raw, sagas: s })).toThrow(/era inexistente/);
+  });
+  it('rejeita importância e confiança inválidas', () => {
+    const e = clone(events);
+    (e[0] as { imp: number }).imp = 4;
+    expect(() => parseTimelineData({ ...raw, events: e })).toThrow();
+    const f = clone(events);
+    (f[0] as { conf: string }).conf = 'talvez';
+    expect(() => parseTimelineData({ ...raw, events: f })).toThrow();
+  });
+});

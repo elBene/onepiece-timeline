@@ -25,6 +25,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest -q test_parsing
+        working-directory: scripts
 
   build:
     needs: test
