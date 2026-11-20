@@ -3,6 +3,7 @@ import type { Store } from '../../lib/store';
 import type { TimelineState } from '../../lib/state';
 import { computeHorizontalLayout, type HorizontalLayout } from '../../lib/layout';
 import { h } from '../../lib/dom';
+import { RENDERED_EVENT } from '../../lib/app';
 import { EraFlag } from './EraFlag';
 import { SagaLabel } from './SagaLabel';
 import { EventMedallion } from './EventMedallion';
@@ -74,6 +75,7 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     track.replaceChildren(...nodes);
     setupReveal();
     updateProgress();
+    document.dispatchEvent(new CustomEvent(RENDERED_EVENT, { detail: { shown: layout.order.length } }));
   }
 
   function centerOn(id: string) {

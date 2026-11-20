@@ -21,13 +21,9 @@
 
 <script>
   import { data } from '../lib/data';
-  import { createStore } from '../lib/store';
-  import { initialState } from '../lib/state';
+  import { store, setTimelineApi } from '../lib/app';
   import { mountTimeline } from './timeline/mount';
 
   const root = document.querySelector<HTMLElement>('[data-timeline]')!;
-  const store = createStore(initialState);
-  const api = mountTimeline(root, data, store);
-  // Pontos de ligação para Controles e Popup (passo 3).
-  Object.assign(window, { __timeline: { store, api } });
+  setTimelineApi(mountTimeline(root, data, store));
 </script>
