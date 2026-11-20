@@ -1,7 +1,8 @@
 import type { Era, Saga, TimelineData, TimelineEvent } from './schema';
 import type { TimelineState } from './state';
 import { passesTags, passesZoom } from './filters';
-import { minCh, minT, sortEvents } from './sort';
+import { earliest, minCh, sortEvents } from './sort';
+import { compareDates } from './calendar';
 import { toView, type EventView } from './spoilers';
 import { DEFAULT_FLAG_COLOR, ERA_FLAG_COLORS, EVENT_ICONS, DEFAULT_ICON, SAGA_PALETTE } from './theme';
 
@@ -41,7 +42,12 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
     else bySaga.set(e.saga, [e]);
   }
   const eventsOf = (saga: Saga) => bySaga.get(saga.id) ?? [];
-  const byT = (a: Saga, b: Saga) => minT(eventsOf(a)) - minT(eventsOf(b));
+  const byT = (a: Saga, b: Saga) => {
+    const ea = earliest(eventsOf(a));
+    const eb = earliest(eventsOf(b));
+    if (!ea || !eb) return (ea ? 0 : 1) - (eb ? 0 : 1);
+    return compareDates(ea.date, eb.date);
+  };
   const byCh = (a: Saga, b: Saga) => minCh(eventsOf(a)) - minCh(eventsOf(b));
 
   const groups: { era: Era | null; sagas: Saga[] }[] =

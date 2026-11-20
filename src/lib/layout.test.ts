@@ -9,19 +9,20 @@ import { computeHorizontalLayout, LAYOUT } from './layout';
 import { sortEvents } from './sort';
 import { passesTags, passesZoom } from './filters';
 import { isHidden, toView } from './spoilers';
+import { formatWhen } from './calendar';
 
 const data = parseTimelineData({ eras, sagas, events, tags });
 const st = (patch: Partial<TimelineState> = {}): TimelineState => ({ ...initialState, ...patch });
 const ev = (id: string) => data.events.find((e) => e.id === id)!;
 
 describe('sort', () => {
-  it('ordem da história usa t', () => {
+  it('ordem da história usa a data (anos antes de hoje)', () => {
     const ids = sortEvents(data.events, 'chrono').map((e) => e.id);
     expect(ids[0]).toBe('e1');
     expect(ids.indexOf('e5')).toBeLessThan(ids.indexOf('e8'));
   });
   it('ordem de publicação usa capítulo e deixa sem capítulo por último', () => {
-    const ids = sortEvents(data.events.map((e) => (e.id === 'e3' ? { ...e, ch: null } : e)), 'pub').map((e) => e.id);
+    const ids = sortEvents(data.events.map((e) => (e.id === 'e3' ? { ...e, revealed: { ...e.revealed, ch: null } } : e)), 'pub').map((e) => e.id);
     expect(ids[ids.length - 1]).toBe('e3');
   });
 });
@@ -46,7 +47,7 @@ describe('spoilers', () => {
   it('oculta eventos depois do capítulo ou sem capítulo', () => {
     expect(isHidden(ev('e8'), on)).toBe(false);
     expect(isHidden(ev('e24'), on)).toBe(true);
-    expect(isHidden({ ...ev('e3'), ch: null }, on)).toBe(true);
+    expect(isHidden({ ...ev('e3'), revealed: { ...ev('e3').revealed, ch: null } }, on)).toBe(true);
     expect(isHidden(ev('e24'), { ...on, spoilerOn: false })).toBe(false);
   });
   it('a view de um evento oculto não contém texto real', () => {
@@ -54,7 +55,7 @@ describe('spoilers', () => {
     const json = JSON.stringify(toView(e, on));
     expect(json).not.toContain(e.title);
     expect(json).not.toContain(e.sum);
-    expect(json).not.toContain(e.when);
+    expect(json).not.toContain(formatWhen(e.date));
   });
 });
 

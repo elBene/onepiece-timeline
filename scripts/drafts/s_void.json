@@ -15,11 +15,19 @@
       "id": "draft_s_void_void-century_1",
       "saga": "s_void",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": null,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -29,7 +37,7 @@
           "type": "wiki",
           "ref": "Void Century",
           "url": "https://onepiece.fandom.com/wiki/Void_Century",
-          "revision": 2130802
+          "rev": 2130802
         }
       ],
       "hint": {

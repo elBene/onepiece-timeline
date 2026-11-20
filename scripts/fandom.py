@@ -70,5 +70,14 @@ def fetch_page(title: str, use_cache: bool = True) -> dict:
     }
 
 
+def fetch_wikitext(title: str, use_cache: bool = True) -> dict:
+    """Retorna {title, revid, wikitext} de uma página (segue redirecionamentos)."""
+    data = api_get(
+        {"action": "parse", "page": title, "prop": "wikitext|revid", "redirects": "1"},
+        use_cache=use_cache,
+    )["parse"]
+    return {"title": data["title"], "revid": data["revid"], "wikitext": data["wikitext"]}
+
+
 def page_url(title: str) -> str:
     return WIKI_URL + urllib.parse.quote(title.replace(" ", "_"), safe="_:()!',-")

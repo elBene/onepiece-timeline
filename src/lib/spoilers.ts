@@ -1,16 +1,22 @@
-import type { TimelineEvent } from './schema';
+import type { Revealed, TimelineEvent } from './schema';
 import type { TimelineState } from './state';
+import { formatWhen } from './calendar';
 
 export const HIDDEN_TITLE = 'Evento oculto';
 
 type SpoilerState = Pick<TimelineState, 'spoilerOn' | 'lastChapter'>;
 
-export function isHidden(e: Pick<TimelineEvent, 'ch'>, s: SpoilerState): boolean {
-  return s.spoilerOn && (e.ch === null || e.ch > s.lastChapter);
+/** A trava é o capítulo em que o evento é revelado, não a data em que acontece. */
+export function isHidden(e: { revealed: Pick<Revealed, 'ch'> }, s: SpoilerState): boolean {
+  return s.spoilerOn && (e.revealed.ch === null || e.revealed.ch > s.lastChapter);
 }
 
-export function chapterLabel(e: Pick<TimelineEvent, 'ch' | 'approx'>): string {
-  return e.ch === null ? 'cap. a confirmar' : (e.approx ? '≈ cap. ' : 'cap. ') + e.ch;
+export function chapterLabel(r: Pick<Revealed, 'ch' | 'approx'>): string {
+  return r.ch === null ? 'cap. a confirmar' : (r.approx ? '≈ cap. ' : 'cap. ') + r.ch;
+}
+
+export function episodeLabel(r: Pick<Revealed, 'ep'>): string {
+  return r.ep === null ? '' : `ep. ${r.ep}`;
 }
 
 /**
@@ -40,6 +46,7 @@ export function toView(e: TimelineEvent, s: SpoilerState): EventView {
       tip: 'Protegido contra spoilers',
     };
   }
-  const chapter = chapterLabel(e);
-  return { id: e.id, hidden: false, title: e.title, sum: e.sum, when: e.when, chapter, tip: `${e.when} · ${chapter}` };
+  const chapter = chapterLabel(e.revealed);
+  const when = formatWhen(e.date);
+  return { id: e.id, hidden: false, title: e.title, sum: e.sum, when, chapter, tip: `${when} · ${chapter}` };
 }

@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m unittest -q test_parsing
+      - run: python -m unittest discover -q -p "test_*.py"
         working-directory: scripts
 
   build:

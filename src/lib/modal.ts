@@ -1,6 +1,7 @@
-import { SOURCE_LABEL, type TimelineData } from './schema';
+import { CANON_LABEL, KIND_LABEL, SOURCE_LABEL, type TimelineData } from './schema';
 import type { TimelineState } from './state';
-import { chapterLabel, isHidden } from './spoilers';
+import { chapterLabel, episodeLabel, isHidden } from './spoilers';
+import { formatAgo, formatBothCalendars, formatWhen } from './calendar';
 
 const IMP_LABEL: Record<number, string> = { 3: 'Marco', 2: 'Evento', 1: 'Detalhe' };
 
@@ -43,20 +44,30 @@ export function toModalView(
       facts: [],
     };
   }
+  const ep = episodeLabel(e.revealed);
+  const facts = [
+    { label: 'Calendários', value: formatBothCalendars(e.date) },
+    { label: 'Distância', value: formatAgo(e.date) },
+    { label: 'Revelado em', value: [chapterLabel(e.revealed), ep].filter(Boolean).join(' · ') },
+    { label: 'Tipo', value: `${KIND_LABEL[e.kind]} · ${CANON_LABEL[e.canon]}` },
+    {
+      label: 'Fonte',
+      value: e.src.map((x) => `${SOURCE_LABEL[x.type]}, ${x.ref}${x.page ? `, p. ${x.page}` : ''}`).join(' · '),
+    },
+    { label: 'Confiança da data', value: e.date.conf },
+    ...e.conflicts.map((c) => ({ label: 'Divergência', value: c.note })),
+    { label: 'Status', value: e.verified ? 'verificado' : 'rascunho a verificar' },
+  ];
   return {
     id,
     hidden: false,
     ribbon,
     title: e.title,
-    when: e.when,
-    stampNote: `${chapterLabel(e)} · ${IMP_LABEL[e.imp]}`,
+    when: formatWhen(e.date),
+    stampNote: `${chapterLabel(e.revealed)} · ${IMP_LABEL[e.imp]}`,
     sum: e.sum,
     more: e.more,
     tags: e.tags.map((t) => data.tags[t] ?? t),
-    facts: [
-      { label: 'Fonte', value: e.src.map((x) => `${SOURCE_LABEL[x.type]}, ${x.ref}`).join(' · ') },
-      { label: 'Confiança da data', value: e.conf },
-      { label: 'Status', value: e.verified ? 'verificado' : 'rascunho a verificar' },
-    ],
+    facts,
   };
 }

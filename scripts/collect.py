@@ -39,7 +39,7 @@ def build_page_drafts(saga_id: str, title: str, refresh: bool) -> tuple[dict, li
         "type": "wiki",
         "ref": page["title"],
         "url": page_url(page["title"]),
-        "revision": page["revid"],
+        "rev": page["revid"],
     }
     base = f"draft_{saga_id}_{slug(page['title'])}"
     drafts = []
@@ -49,11 +49,15 @@ def build_page_drafts(saga_id: str, title: str, refresh: bool) -> tuple[dict, li
                 "id": f"{base}_{i}",
                 "saga": saga_id,
                 "imp": 2,
-                "t": None,
-                "when": "",
-                "ch": chapters["start"] if chapters else None,
-                "approx": True,
-                "conf": "estimada",
+                "kind": None,
+                "canon": "manga",
+                # ago = anos antes do presente pós-timeskip (C.M. 1541); os anos dos calendários são derivados no site
+                "date": {"ago": None, "precision": "ano", "conf": "estimada", "seq": 0},
+                "revealed": {
+                    "ch": chapters["start"] if chapters else None,
+                    "approx": True,
+                    "ep": episodes["start"] if episodes else None,
+                },
                 "tags": [],
                 "title": "",
                 "sum": "",

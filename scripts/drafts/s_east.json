@@ -86,11 +86,19 @@
       "id": "draft_s_east_romance-dawn-arc_1",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 1,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 1,
+        "approx": true,
+        "ep": 1
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -100,7 +108,7 @@
           "type": "wiki",
           "ref": "Romance Dawn Arc",
           "url": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
-          "revision": 2136311
+          "rev": 2136311
         }
       ],
       "hint": {
@@ -120,11 +128,19 @@
       "id": "draft_s_east_romance-dawn-arc_2",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 1,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 1,
+        "approx": true,
+        "ep": 1
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -134,7 +150,7 @@
           "type": "wiki",
           "ref": "Romance Dawn Arc",
           "url": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
-          "revision": 2136311
+          "rev": 2136311
         }
       ],
       "hint": {
@@ -154,11 +170,19 @@
       "id": "draft_s_east_romance-dawn-arc_3",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 1,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 1,
+        "approx": true,
+        "ep": 1
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -168,7 +192,7 @@
           "type": "wiki",
           "ref": "Romance Dawn Arc",
           "url": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
-          "revision": 2136311
+          "rev": 2136311
         }
       ],
       "hint": {
@@ -188,11 +212,19 @@
       "id": "draft_s_east_orange-town-arc_1",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 8,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 8,
+        "approx": true,
+        "ep": 4
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -202,7 +234,7 @@
           "type": "wiki",
           "ref": "Orange Town Arc",
           "url": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
-          "revision": 2136312
+          "rev": 2136312
         }
       ],
       "hint": {
@@ -222,11 +254,19 @@
       "id": "draft_s_east_orange-town-arc_2",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 8,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 8,
+        "approx": true,
+        "ep": 4
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -236,7 +276,7 @@
           "type": "wiki",
           "ref": "Orange Town Arc",
           "url": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
-          "revision": 2136312
+          "rev": 2136312
         }
       ],
       "hint": {
@@ -256,11 +296,19 @@
       "id": "draft_s_east_orange-town-arc_3",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 8,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 8,
+        "approx": true,
+        "ep": 4
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -270,7 +318,7 @@
           "type": "wiki",
           "ref": "Orange Town Arc",
           "url": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
-          "revision": 2136312
+          "rev": 2136312
         }
       ],
       "hint": {
@@ -290,11 +338,19 @@
       "id": "draft_s_east_syrup-village-arc_1",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 22,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 22,
+        "approx": true,
+        "ep": 9
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -304,7 +360,7 @@
           "type": "wiki",
           "ref": "Syrup Village Arc",
           "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
-          "revision": 2136313
+          "rev": 2136313
         }
       ],
       "hint": {
@@ -324,11 +380,19 @@
       "id": "draft_s_east_syrup-village-arc_2",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 22,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 22,
+        "approx": true,
+        "ep": 9
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -338,7 +402,7 @@
           "type": "wiki",
           "ref": "Syrup Village Arc",
           "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
-          "revision": 2136313
+          "rev": 2136313
         }
       ],
       "hint": {
@@ -358,11 +422,19 @@
       "id": "draft_s_east_syrup-village-arc_3",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 22,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 22,
+        "approx": true,
+        "ep": 9
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -372,7 +444,7 @@
           "type": "wiki",
           "ref": "Syrup Village Arc",
           "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
-          "revision": 2136313
+          "rev": 2136313
         }
       ],
       "hint": {
@@ -392,11 +464,19 @@
       "id": "draft_s_east_syrup-village-arc_4",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 22,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 22,
+        "approx": true,
+        "ep": 9
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -406,7 +486,7 @@
           "type": "wiki",
           "ref": "Syrup Village Arc",
           "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
-          "revision": 2136313
+          "rev": 2136313
         }
       ],
       "hint": {
@@ -426,11 +506,19 @@
       "id": "draft_s_east_baratie-arc_1",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 42,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 42,
+        "approx": true,
+        "ep": 19
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -440,7 +528,7 @@
           "type": "wiki",
           "ref": "Baratie Arc",
           "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
-          "revision": 2136314
+          "rev": 2136314
         }
       ],
       "hint": {
@@ -460,11 +548,19 @@
       "id": "draft_s_east_baratie-arc_2",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 42,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 42,
+        "approx": true,
+        "ep": 19
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -474,7 +570,7 @@
           "type": "wiki",
           "ref": "Baratie Arc",
           "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
-          "revision": 2136314
+          "rev": 2136314
         }
       ],
       "hint": {
@@ -494,11 +590,19 @@
       "id": "draft_s_east_baratie-arc_3",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 42,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 42,
+        "approx": true,
+        "ep": 19
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -508,7 +612,7 @@
           "type": "wiki",
           "ref": "Baratie Arc",
           "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
-          "revision": 2136314
+          "rev": 2136314
         }
       ],
       "hint": {
@@ -528,11 +632,19 @@
       "id": "draft_s_east_baratie-arc_4",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 42,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 42,
+        "approx": true,
+        "ep": 19
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -542,7 +654,7 @@
           "type": "wiki",
           "ref": "Baratie Arc",
           "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
-          "revision": 2136314
+          "rev": 2136314
         }
       ],
       "hint": {
@@ -562,11 +674,19 @@
       "id": "draft_s_east_arlong-park-arc_1",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 69,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 69,
+        "approx": true,
+        "ep": 31
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -576,7 +696,7 @@
           "type": "wiki",
           "ref": "Arlong Park Arc",
           "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
-          "revision": 2136316
+          "rev": 2136316
         }
       ],
       "hint": {
@@ -596,11 +716,19 @@
       "id": "draft_s_east_arlong-park-arc_2",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 69,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 69,
+        "approx": true,
+        "ep": 31
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -610,7 +738,7 @@
           "type": "wiki",
           "ref": "Arlong Park Arc",
           "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
-          "revision": 2136316
+          "rev": 2136316
         }
       ],
       "hint": {
@@ -630,11 +758,19 @@
       "id": "draft_s_east_arlong-park-arc_3",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 69,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 69,
+        "approx": true,
+        "ep": 31
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -644,7 +780,7 @@
           "type": "wiki",
           "ref": "Arlong Park Arc",
           "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
-          "revision": 2136316
+          "rev": 2136316
         }
       ],
       "hint": {
@@ -664,11 +800,19 @@
       "id": "draft_s_east_arlong-park-arc_4",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 69,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 69,
+        "approx": true,
+        "ep": 31
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -678,7 +822,7 @@
           "type": "wiki",
           "ref": "Arlong Park Arc",
           "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
-          "revision": 2136316
+          "rev": 2136316
         }
       ],
       "hint": {
@@ -698,11 +842,19 @@
       "id": "draft_s_east_loguetown-arc_1",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 96,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 96,
+        "approx": true,
+        "ep": 45
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -712,7 +864,7 @@
           "type": "wiki",
           "ref": "Loguetown Arc",
           "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
-          "revision": 2137694
+          "rev": 2137694
         }
       ],
       "hint": {
@@ -732,11 +884,19 @@
       "id": "draft_s_east_loguetown-arc_2",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 96,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 96,
+        "approx": true,
+        "ep": 45
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -746,7 +906,7 @@
           "type": "wiki",
           "ref": "Loguetown Arc",
           "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
-          "revision": 2137694
+          "rev": 2137694
         }
       ],
       "hint": {
@@ -766,11 +926,19 @@
       "id": "draft_s_east_loguetown-arc_3",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 96,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 96,
+        "approx": true,
+        "ep": 45
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -780,7 +948,7 @@
           "type": "wiki",
           "ref": "Loguetown Arc",
           "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
-          "revision": 2137694
+          "rev": 2137694
         }
       ],
       "hint": {
@@ -800,11 +968,19 @@
       "id": "draft_s_east_loguetown-arc_4",
       "saga": "s_east",
       "imp": 2,
-      "t": null,
-      "when": "",
-      "ch": 96,
-      "approx": true,
-      "conf": "estimada",
+      "kind": null,
+      "canon": "manga",
+      "date": {
+        "ago": null,
+        "precision": "ano",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": 96,
+        "approx": true,
+        "ep": 45
+      },
       "tags": [],
       "title": "",
       "sum": "",
@@ -814,7 +990,7 @@
           "type": "wiki",
           "ref": "Loguetown Arc",
           "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
-          "revision": 2137694
+          "rev": 2137694
         }
       ],
       "hint": {

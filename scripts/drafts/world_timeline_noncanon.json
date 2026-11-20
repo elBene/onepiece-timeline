@@ -1,0 +1,7586 @@
+{
+  "page": "World Timeline/Non-Canon",
+  "revision": 2133518,
+  "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon",
+  "license_note": "Fatos e links extraídos do One Piece Wiki (Fandom, CC BY-SA). Nenhum texto copiado.",
+  "reference": "date.ago = anos antes do presente pós-timeskip (Círculo Marítimo 1541 / Era do Céu 4131, SBS vol. 113).",
+  "stats": {
+    "events": 165,
+    "with_chapter": 0,
+    "with_episode": 19,
+    "without_source": 130,
+    "kinds": {
+      "?": 76,
+      "nascimento": 35,
+      "batalha": 21,
+      "morte": 16,
+      "guerra": 5,
+      "governo": 3,
+      "descoberta": 3,
+      "fruta": 2,
+      "viagem": 2,
+      "fundacao": 1,
+      "recompensa": 1
+    }
+  },
+  "events": [
+    {
+      "id": "wtnc_1590_2d3415f3",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1590,
+        "precision": "milenio",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Before_Void_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~1590",
+        "section": "Before Void Century",
+        "links": [
+          "Chiyobbaba"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "chin": "12"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1000_102d23ce",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1000,
+        "precision": "milenio",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Before_Void_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~1000",
+        "section": "Before Void Century",
+        "links": [
+          "Grand Line",
+          "Sealed",
+          "Great Tree"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "game": "UC1"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1000_7fa4ac2e",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1000,
+        "precision": "milenio",
+        "conf": "estimada",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Before_Void_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~1000",
+        "section": "Before Void Century",
+        "links": [
+          "Orb",
+          "Popora",
+          "Evil Guardian"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "UA",
+            "game": "UA"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1000_bfa415e2",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1000,
+        "precision": "milenio",
+        "conf": "estimada",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Before_Void_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~1000",
+        "section": "Before Void Century",
+        "links": [
+          "Gaburi"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "game": "UC2"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_931_b1655140",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 931,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Before_Void_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "931",
+        "section": "Before Void Century",
+        "links": [
+          "Chinco Sennin"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "chin": "extra"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_400_66ae02de",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 400,
+        "precision": "seculo",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 134
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 134"
+        }
+      ],
+      "hint": {
+        "year_label": "~400",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Odama",
+          "Kodama",
+          "Fireworks"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "e134",
+            "ep": "134"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_214_54533df6",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 214,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "214",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Lim"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_200_ef8e5461",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 200,
+        "precision": "seculo",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel kikoku, cap. 2"
+        }
+      ],
+      "hint": {
+        "year_label": "~200",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Kikoku",
+          "Welbems Island"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "novel": "kikoku",
+            "nchap": "2"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_200_b0d99eff",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 200,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "200",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Myskina Acier",
+          "Livia",
+          "Pure Gold",
+          "Myskina Olga",
+          "Pirate"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "hog"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_200_d99c41bd",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 200,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "200",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Bonbori",
+          "Alchemi"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "hog"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_200_fdf354e5",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 200,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "200",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Divine Breath",
+          "Waford",
+          "Blue Sea",
+          "World Government",
+          "Wandering Clan",
+          "Lim",
+          "Colossi"
+        ],
+        "kind_guess": "guerra",
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_144_eaa56282",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 144,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "144",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Ardel",
+          "Brigga",
+          "Laslo",
+          "Mahomick",
+          "Sheldon"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_115_9228f828",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 115,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "115",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Tongari Den Den Mushi"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_100_d0b3baa4",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 100,
+        "precision": "seculo",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~100",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Giant Warrior Pirates",
+          "Blyue",
+          "Dorry",
+          "Brogy"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "game": "RtL"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_100_f61b0199",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 100,
+        "precision": "seculo",
+        "conf": "estimada",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 317
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#After_Void_Century-Before_Current_Century",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 317"
+        }
+      ],
+      "hint": {
+        "year_label": "~100",
+        "section": "After Void Century-Before Current Century",
+        "links": [
+          "Aobire"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "e317",
+            "ep": "317"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_80_fc9139c7",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 80,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "80",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Nightin"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "3d2y"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_78_22a3c1d1",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 78,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "78",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Byrnndi World"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_77_05e3b041",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 77,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~77",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Buena Festa"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_75_32808949",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 75,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "75",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Barbara Troy"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "live13"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_74_436ed5b6",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 74,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "74",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Z"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "v1000",
+            "other": "1000"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_73_2d0ef797",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 73,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel law"
+        }
+      ],
+      "hint": {
+        "year_label": "73",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Ladoga",
+          "Swallow Island"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "law",
+            "novel": "law"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_66_a97dbe6c",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 66,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "66",
+        "section": "Past Century-Roger's Execution",
+        "links": [],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "v1000",
+            "other": "1000"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_60_c49f0e74",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 60,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~60",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Marine Ships",
+          "Rapanui Pasqua",
+          "Rainbow Mist"
+        ],
+        "kind_guess": "morte",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_60_e88b12ba",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 60,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~60",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Marine Academy"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "v1000",
+            "other": "1000"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_56_9d0f4946",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 56,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "56",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "G-5"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "filmz"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_50_0d957b6a",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 50,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 140
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 140"
+        }
+      ],
+      "hint": {
+        "year_label": "~50",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Pumpkin Pirates",
+          "Henzo",
+          "Wetton",
+          "Ruluka",
+          "Rainbow Mist",
+          "Ian"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "140"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_50_6f5a276f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 50,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~50",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Barbara Troy",
+          "Aqua Laguna"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "live13"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_46_e54c3f8f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 46,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "46",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Six Powers"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_45_8d0c1ea5",
+      "saga": null,
+      "imp": 2,
+      "kind": "nascimento",
+      "canon": null,
+      "date": {
+        "ago": 45,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "45",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Douglas Bullet"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_45_7cf27ce8",
+      "saga": null,
+      "imp": 2,
+      "kind": "nascimento",
+      "canon": null,
+      "date": {
+        "ago": 45,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "45",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Adio Suerte"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_43_0995a113",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 43,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "43",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Stella (Non-Canon)"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "v777",
+            "other": "777"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_41_79e7d015",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 41,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "41",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Gild Tesoro"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "wsj2016-27"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_40_80c458a1",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 40,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~40",
+        "section": "Past Century-Roger's Execution",
+        "links": [],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_40_96b30746",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 40,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "40",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Armament Haki",
+          "epithet"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_36_a7429f66",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 36,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "36",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Admiral"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_36_ad5eea67",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 36,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "36",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Douglas Gray"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_35_ecf14050",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 35,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel law"
+        }
+      ],
+      "hint": {
+        "year_label": "35",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Artur Bacca",
+          "Swallow Island",
+          "Wolf (Scientist)"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "law",
+            "novel": "law"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_35_b5a8fa9e",
+      "saga": null,
+      "imp": 2,
+      "kind": "nascimento",
+      "canon": null,
+      "date": {
+        "ago": 35,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "35",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Revina"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_35_10d90983",
+      "saga": null,
+      "imp": 2,
+      "kind": "nascimento",
+      "canon": null,
+      "date": {
+        "ago": 35,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "35",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Sekken De Tearai"
+        ],
+        "kind_guess": "nascimento",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_35_32582b7f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 35,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~35",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Liberta",
+          "Dressrosa",
+          "Scarlett"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_32_ce0271f0",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 32,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "32",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "pirate"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_32_2a0c2586",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 32,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "32",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Gasha Gasha no Mi"
+        ],
+        "kind_guess": "fruta",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_31_1bdc2354",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 31,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "31",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Galzburg"
+        ],
+        "kind_guess": "guerra",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_30_6118d8af",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 30,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~30",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Randolph (Non-Canon)",
+          "Governor",
+          "Marines",
+          "Jim"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "lastperformance"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_30_64e10f22",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 30,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "~30",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Barbara Troy",
+          "Aqua Laguna",
+          "Water 7"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "live13"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_30_613a2c56",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 30,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "30",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Marines",
+          "World Pirates",
+          "Byrnndi World"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "3d2y"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_30_3b21bf8c",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 30,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel law"
+        }
+      ],
+      "hint": {
+        "year_label": "30",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Grand Line"
+        ],
+        "kind_guess": "viagem",
+        "citations": [
+          {
+            "name": "law",
+            "novel": "law"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_30_4701ce74",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 30,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel law"
+        }
+      ],
+      "hint": {
+        "year_label": "30",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Ladoga",
+          "Swallow Island",
+          "Polar Tang"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "law",
+            "novel": "law"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_30_1631da6c",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 30,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "30",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Gol D. Roger"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_29_55a8d294",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 29,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "29",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Rokai",
+          "Ancient Gold",
+          "Woonan",
+          "Ancient Fragment"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "SSPC",
+            "game": "SSPC"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_29_2f7571bc",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 29,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "29",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Gild Tesoro"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_28_062d6a66",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 28,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "28",
+        "section": "Past Century-Roger's Execution",
+        "links": [],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_27_40e13534",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 27,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "27",
+        "section": "Past Century-Roger's Execution",
+        "links": [],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_26_55240241",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 26,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "26",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Crocodile"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "v10089",
+            "other": "10089"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_25_83ca1185",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 25,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "25",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Stella (Non-Canon)"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_25_8476a5e0",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 25,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Past_Century-Roger's_Execution",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "25",
+        "section": "Past Century-Roger's Execution",
+        "links": [
+          "Marine X"
+        ],
+        "kind_guess": "nascimento",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_24_b0604be9",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 24,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel logue"
+        }
+      ],
+      "hint": {
+        "year_label": "24",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Old Physiognomist",
+          "Gol D. Roger",
+          "Loguetown"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "novel": "logue"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_24_59836eb8",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 24,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "24",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Douglas Bullet"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_24_edb1a1fe",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 24,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "24",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Buena Festa"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_23_d55544c2",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 23,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "23",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Buster Call",
+          "Sengoku",
+          "Monkey D. Garp",
+          "Impel Down"
+        ],
+        "kind_guess": "batalha",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_22_39655210",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 22,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 446
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 446"
+        }
+      ],
+      "hint": {
+        "year_label": "22",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Olive",
+          "Impel Down",
+          "Hannyabal"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "446"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_22_95ea866e",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 22,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "22",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Gild Tesoro",
+          "World Noble",
+          "Stella (Non-Canon)"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_22_8ebb4240",
+      "saga": null,
+      "imp": 2,
+      "kind": "nascimento",
+      "canon": null,
+      "date": {
+        "ago": 22,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "22",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Shuraiya Bascùd"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_22_b2800244",
+      "saga": null,
+      "imp": 2,
+      "kind": "nascimento",
+      "canon": null,
+      "date": {
+        "ago": 22,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "22",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Ant De Bonham"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_21_e4446197",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 21,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "21",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Uta"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "4b",
+            "other": "4B"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_20_aa0baa60",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 20,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "20",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Stella (Non-Canon)"
+        ],
+        "kind_guess": "morte",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_20_499f613d",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 20,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "20",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Shimoi Zappa"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_19_e867f7f4",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 19,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "19",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Uta",
+          "Red Hair Pirates",
+          "Shanks"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "4b",
+            "other": "4B"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_19_78c03108",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 19,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "19",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Carina"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "v777",
+            "other": "777"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_17_50c9c049",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 17,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 780
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 780"
+        }
+      ],
+      "hint": {
+        "year_label": "17",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "All-Hunt Grount"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "ep": "780"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_16_a4e575cb",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 16,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "16",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Homey (Film Z)"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "zguide",
+            "other": "z guide"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_15_973673d8",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 15,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "15",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Fisher Tiger",
+          "Assault on Mary Geoise",
+          "Hoof of the Soaring Dragon"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_15_6b31e839",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 15,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "15",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Girl (One Piece Fan Letter)"
+        ],
+        "kind_guess": "nascimento",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_14_11524ef2",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 14,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "14",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Renny"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_13_7884c40e",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 13,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "13",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Adelle Bascùd"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "deadend"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_17b248be",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 1029
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 1029"
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 1030"
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Red Hair Pirates",
+          "Foosha Village",
+          "Uta",
+          "Monkey D. Luffy"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "1029",
+            "ep2": "1030"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_f09e345e",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Elegia",
+          "Tot Musica",
+          "Shanks",
+          "Gordon"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_2079290e",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 51
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 51"
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Carmen",
+          "Orbit",
+          "Sanji",
+          "All Blue"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "51"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_3d94c827",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Joke",
+          "Ocean's Navel",
+          "Hamu",
+          "Meroie"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "oceannavel"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_322d7892",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 4
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Randolph Theater",
+          "Fisherman Island"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "lastperformance"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_fa0f6bbb",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 5
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 499
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 499"
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Monkey D. Luffy",
+          "Portgas D. Ace",
+          "Sabo",
+          "Naguri",
+          "Dawn Island"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "499"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_0483e742",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 6
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Donquixote Pirates",
+          "Goru Goru no Mi",
+          "Gild Tesoro",
+          "Donquixote Doflamingo"
+        ],
+        "kind_guess": "fruta",
+        "citations": [
+          {
+            "name": "wsj2016-27"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_a98babae",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 7
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Marines",
+          "Jail Island",
+          "Dyna Stone",
+          "Barbados",
+          "Isaac",
+          "Jeanne"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "worldseeker",
+            "game": "WS"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_6d335841",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 8
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Goa Kingdom",
+          "Gray Terminal",
+          "Bolster"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_12_c936d657",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 12,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 9
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel ganzack"
+        }
+      ],
+      "hint": {
+        "year_label": "12",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Medaka"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "novel": "ganzack"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_11_5e8e7afd",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 11,
+        "precision": "decada",
+        "conf": "estimada",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel heroines"
+        }
+      ],
+      "hint": {
+        "year_label": "~11",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Bosao"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "heroines",
+            "novel": "heroines"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_11_1f47df43",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 11,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "11",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Meshi (Non-Canon)",
+          "Orbit",
+          "Cook Pirates"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_10_f9c7a449",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 10,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "10",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Gasparde Pirates",
+          "Elena",
+          "Salamander",
+          "Biera",
+          "Adelle Bascùd"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "deadend"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_10_3687c792",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 10,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 219
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 219"
+        }
+      ],
+      "hint": {
+        "year_label": "10",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Rittonto"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "219"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_10_01eec45d",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 10,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "10",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "World Government"
+        ],
+        "kind_guess": "governo",
+        "citations": [
+          {
+            "name": "worldseeker",
+            "game": "WS"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_10_82479c65",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 10,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel law"
+        }
+      ],
+      "hint": {
+        "year_label": "10",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Artur Bacca",
+          "Grand Line",
+          "Ladoga",
+          "Swallow Island",
+          "Trafalgar D. Water Law",
+          "Marines"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "law",
+            "novel": "law"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_10_8c6dde74",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 10,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 4
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel law"
+        }
+      ],
+      "hint": {
+        "year_label": "10",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Heart Pirates",
+          "Polar Tang"
+        ],
+        "kind_guess": "fundacao",
+        "citations": [
+          {
+            "name": "law",
+            "novel": "law"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_10_b74e5155",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 10,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 5
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "10",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Dwanger",
+          "Nafk",
+          "Drum Island",
+          "Wapol",
+          "Doctor Hunt"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_10_09754304",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 10,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 6
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "10",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Zomino"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "zguide",
+            "other": "z guide"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_9_bbf2c604",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 9,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "9",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Devil Fruit",
+          "Ain",
+          "Binz"
+        ],
+        "kind_guess": "batalha",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_9_46478500",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 9,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "9",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Bear King",
+          "Trump Pirates",
+          "Clockwork Island",
+          "Akisu",
+          "Borodo"
+        ],
+        "kind_guess": "governo",
+        "citations": [
+          {
+            "name": "clockwork"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_9_79c1e7e2",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 9,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "9",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Tanaka"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_9_6bbf95c6",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 9,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "9",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Purin"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "v1000",
+            "other": "1000"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_8_55e0339e",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 8,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "8",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Dice",
+          "Underworld",
+          "Gild Tesoro"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "v777",
+            "other": "777"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_8_773a5f4f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 8,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "8",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_8_e2ae6d70",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 8,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel heroines"
+        }
+      ],
+      "hint": {
+        "year_label": "8",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Fata"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {
+            "name": "heroines",
+            "novel": "heroines"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_7_f0b0f1a9",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 7,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel zoro"
+        }
+      ],
+      "hint": {
+        "year_label": "7",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Nazawaka City"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "zoro",
+            "novel": "zoro"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_7_61c1073b",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 7,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "7",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Barbara Troy",
+          "Blueno",
+          "Water 7"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "live13"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_6_9b015b22",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 6,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "6",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Blueno's Bar"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "live13"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_6_2f08984c",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 6,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "6",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Gran Tesoro",
+          "Baccarat"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "v777",
+            "other": "777"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_5_91be3412",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 5,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "5",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Battle Smasher"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_5_54654b92",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 5,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 750
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 750"
+        }
+      ],
+      "hint": {
+        "year_label": "5",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Bill",
+          "Silver Pirate Alliance"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "750"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_5_e128733f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 5,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "5",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Trip"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_4_e7597530",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 4,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel zoro"
+        }
+      ],
+      "hint": {
+        "year_label": "4",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Taketo Nazawa",
+          "Nazawaka City",
+          "Matsuba Nazawa"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "zoro",
+            "novel": "zoro"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_3_3ab25b36",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 3,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "3",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Saga",
+          "Asuka Island",
+          "Maya",
+          "Shichiseiken"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "holysword"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_3_12c2236a",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 3,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 134
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 134"
+        }
+      ],
+      "hint": {
+        "year_label": "3",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Kodama",
+          "Fireworks"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "e134",
+            "ep": "134"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_3_27769434",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 3,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel zoro"
+        }
+      ],
+      "hint": {
+        "year_label": "3",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Umeno Nazawa"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "zoro",
+            "novel": "zoro"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_3_f5113681",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 3,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 135
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 135"
+        },
+        {
+          "type": "novel",
+          "ref": "novel zoro"
+        }
+      ],
+      "hint": {
+        "year_label": "3",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Billy (Bandit)",
+          "Dick",
+          "Bounty"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "ep": "135"
+          },
+          {
+            "name": "zoro",
+            "novel": "zoro"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_3_648d7bb3",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 3,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 4
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Great_Pirate_Era-Before_Luffy's_Journey",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "3",
+        "section": "Great Pirate Era-Before Luffy's Journey",
+        "links": [
+          "Sekken De Tearai Jr."
+        ],
+        "kind_guess": "nascimento",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_4ec5d685",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 133
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 133"
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Tajio",
+          "Marines"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "133"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_5b354ef4",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Alvida Pirates",
+          "Wier"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_ce8a82ae",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Straw Hat Pirates",
+          "Ganzack Pirates"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_3c60b076",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Ancient Gold",
+          "Set Sail Pirates"
+        ],
+        "kind_guess": "viagem",
+        "citations": [
+          {
+            "name": "SSPC",
+            "game": "SSPC"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_b67a5ec4",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 4
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Trump Pirates",
+          "Clockwork Island"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "clockwork"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_c255993d",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 5
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Ocean's Navel",
+          "Hamu"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "oceannavel"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_656f6a6d",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 6
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 48
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 48"
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Gally Pirates",
+          "Loguetown",
+          "Grand Line",
+          "Smoker"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "48"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_ecb04f28",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 7
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Drayke Pirates",
+          "Silver Arrow Island",
+          "Rainbow Island",
+          "Atoli",
+          "Drayke",
+          "Rainbow King",
+          "Monkey D. Luffy",
+          "Dias"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "game": "LOTRI"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_0c7125ff",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 8
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 54
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 54"
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 61"
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Lost Island",
+          "Apis",
+          "Nelson Royal",
+          "Sennenryu"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "54",
+            "ep2": "61"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_121fd61f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 9
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Hercules",
+          "Grave Digger",
+          "Baroque Works",
+          "Whisky Peak"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "game": "FP"
+          },
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_2e9fd5fa",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 10
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Barbara Troy"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "live13"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_df79069f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 11
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Kirin Lion",
+          "Tony Tony Chopper",
+          "O-Kan Island",
+          "Battler",
+          "Mobanby"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_00a1aebc",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 12
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Great King of Angolmois"
+        ],
+        "kind_guess": "governo",
+        "citations": [
+          {
+            "game": "GLDAL"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_9dbabc37",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 13
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Simon",
+          "Simon Pirates",
+          "Shushibaruba",
+          "Niphtal",
+          "Zau Ra Zau",
+          "Kau Ra Kau"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "game": "nanatsu"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_8205104b",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 14
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Dead End Race",
+          "Hannabal",
+          "Partia",
+          "Gasparde Pirates"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "deadend"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_1f6af4e5",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 15
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Marines"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "holysword"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_b5cdbafe",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 16
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Omatsuri Island",
+          "Omatsuri",
+          "Lily Carnation"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_eeef6c41",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 17
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 317
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 317"
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Aobire",
+          "Aqua Laguna",
+          "Tsui Village"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "e317",
+            "ep": "317"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_86aa1969",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 18
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Sea Train",
+          "Jerry",
+          "Judo Island"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_03a95221",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 19
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Atoll",
+          "Deacon"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_d866f348",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 20
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Evil Guardian"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "UA",
+            "game": "UA"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_63a5cc93",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 21
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 335
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 335"
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Lovely Land",
+          "Hyokaido"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "335"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_addc64ef",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 22
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Shiki",
+          "Indigo",
+          "Merveille",
+          "East Blue"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_d460234f",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 23
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Uta",
+          "Den Den Mushi",
+          "Elegia"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_2a86e561",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 24
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Haraguroya's Owner",
+          "Sanji",
+          "Bounties"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_82678d54",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 25
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Patrick Redfield",
+          "Byrnndi World",
+          "Douglas Bullet",
+          "Impel Down",
+          "Impel Down Great Escape Incident",
+          "Marshall D. Teach"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "game": "UWR"
+          },
+          {
+            "name": "3d2y"
+          },
+          {
+            "name": "stampede"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_bdce594e",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 26
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Buena Festa",
+          "Pirates Festival"
+        ],
+        "kind_guess": "descoberta",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_7e3387a7",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 27
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Graydle",
+          "Summit War of Marineford"
+        ],
+        "kind_guess": "guerra",
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_5e68d1ba",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 28
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Bilić",
+          "Hand Island",
+          "Regis"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "epofluffy"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_2_cab9caa9",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 2,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 29
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Start_of_Luffy's_Journey-Summit_War_of_Marineford",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "2",
+        "section": "Start of Luffy's Journey-Summit War of Marineford",
+        "links": [
+          "Edward Newgate",
+          "Chameleone",
+          "Samba Island"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "PS12"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1_a2309fa9",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#During_the_Timeskip",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "1",
+        "section": "During the Timeskip",
+        "links": [
+          "Z",
+          "Warlord of the Sea",
+          "Neo Marines"
+        ],
+        "kind_guess": null,
+        "citations": []
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1_675a648a",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#During_the_Timeskip",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "1",
+        "section": "During the Timeskip",
+        "links": [
+          "Bad One Gracie",
+          "BIG Pirates",
+          "Marshall D. Teach",
+          "Payback War"
+        ],
+        "kind_guess": "guerra",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1_485371b7",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#During_the_Timeskip",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel heroines"
+        }
+      ],
+      "hint": {
+        "year_label": "1",
+        "section": "During the Timeskip",
+        "links": [
+          "Atori",
+          "Hiwa"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "heroines",
+            "novel": "heroines"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1_1cc2b766_3",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#During_the_Timeskip",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "1",
+        "section": "During the Timeskip",
+        "links": [],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "epofluffy"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1_c3a19f28",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 4
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#During_the_Timeskip",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "1",
+        "section": "During the Timeskip",
+        "links": [
+          "Tobo",
+          "Galley-La Company",
+          "Dressrosa"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_1_1cc2b766_5",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 1,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 5
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#During_the_Timeskip",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "1",
+        "section": "During the Timeskip",
+        "links": [],
+        "kind_guess": "descoberta",
+        "citations": [
+          {
+            "name": "red"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_f38a8c18",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 0
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Z",
+          "Neo Marines",
+          "Grand Reboot",
+          "New World",
+          "Marines"
+        ],
+        "kind_guess": "morte",
+        "citations": [
+          {
+            "name": "filmz"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_ce47afeb",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 1
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Koby",
+          "Helmeppo",
+          "Hand Island",
+          "Bilić"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "epofluffy"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_b4f74ec7",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 2
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "PS12"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_77ed4fc1",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 3
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 747
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 747"
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 750"
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Silver Mine",
+          "Bill",
+          "Monkey D. Luffy"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "ep": "747",
+            "ep2": "750"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_6333e542",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 4
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Gran Tesoro",
+          "Gild Tesoro",
+          "Carina"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "gold"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_1e945f3d",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 5
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Bounty Pirates",
+          "Levely",
+          "royal"
+        ],
+        "kind_guess": "recompensa",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_ccf88f56",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 6
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Vice Admiral",
+          "Balzac",
+          "Impel Down"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_7831961d",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 7
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": 830
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        },
+        {
+          "type": "anime",
+          "ref": "ep. 830"
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Organ Dealing Assassination Group",
+          "Charlotte Linlin",
+          "Tea Party",
+          "Charlotte Katakuri",
+          "Charlotte Oven",
+          "Charlotte Daifuku"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "ep": "830"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_a70da457",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 8
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Buena Festa",
+          "Pirates Festival",
+          "Douglas Bullet",
+          "Eternal Pose",
+          "Laugh Tale",
+          "Delta Island",
+          "Buster Call"
+        ],
+        "kind_guess": "batalha",
+        "citations": [
+          {
+            "name": "stampede"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_c9b9e0bf",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 9
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        },
+        {
+          "type": "novel",
+          "ref": "novel heroines"
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "G-5",
+          "Atori"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "heroines",
+            "novel": "heroines"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_1d5a698b",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 10
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Uta",
+          "Elegia",
+          "Uta World",
+          "Red Hair Pirates"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "name": "red"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_4533de9a",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 11
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Adio Suerte",
+          "Divine Breath",
+          "Waford",
+          "Large Mukashic Cube",
+          "Colossi"
+        ],
+        "kind_guess": "descoberta",
+        "citations": [
+          {
+            "name": "odyssey",
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_0278d79b",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 12
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Memoria",
+          "Lim",
+          "Rita Suerte"
+        ],
+        "kind_guess": null,
+        "citations": [
+          {
+            "game": "O"
+          }
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_ab975005",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 13
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Snitcher",
+          "Cross Guild",
+          "SWORD",
+          "Borsalino"
+        ],
+        "kind_guess": "guerra",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    },
+    {
+      "id": "wtnc_0_a7557d86",
+      "saga": null,
+      "imp": 2,
+      "kind": null,
+      "canon": null,
+      "date": {
+        "ago": 0,
+        "precision": "ano",
+        "conf": "exata",
+        "seq": 14
+      },
+      "revealed": {
+        "ch": null,
+        "approx": true,
+        "ep": null
+      },
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "World Timeline/Non-Canon",
+          "url": "https://onepiece.fandom.com/wiki/World_Timeline%2FNon-Canon#Current_Storyline",
+          "rev": 2133518
+        }
+      ],
+      "hint": {
+        "year_label": "0",
+        "section": "Current Storyline",
+        "links": [
+          "Chinpy",
+          "Makiguso Pirates",
+          "Yamada Shinichi",
+          "Dareyorimo Tsuyoi",
+          "Road Snake",
+          "Chin Piece"
+        ],
+        "kind_guess": "nascimento",
+        "citations": [
+          {}
+        ]
+      },
+      "verified": false
+    }
+  ]
+}

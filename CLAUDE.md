@@ -53,19 +53,22 @@ Cada evento em `events.json`:
 | `id` | identificador estável |
 | `saga` | id da saga (a era vem da saga) |
 | `imp` | 3 marco, 2 evento, 1 detalhe |
-| `t` | número usado só para ordenar na ordem da história |
-| `when` | texto de época exibido ao usuário |
-| `ch`, `approx` | capítulo de origem (null se desconhecido) e se é aproximado |
-| `conf` | confiança da data: exata, estimada ou inferida |
+| `kind` | tipo: nascimento, morte, batalha, guerra, fundacao, descoberta, fruta, recompensa, governo, viagem, incidente, outro |
+| `canon` | manga, sbs, databook, anime-only, filler, filme, novel |
+| `date` | quando aconteceu: `ago` (anos antes do presente pós-timeskip), `agoEnd` (fim de intervalo), `month`/`day`, `precision`, `conf` (exata, estimada, inferida), `seq` (desempate no mesmo ano) |
+| `revealed` | quando o leitor descobre: `ch` (null se desconhecido), `approx`, `ep`. É a trava de spoilers e a ordem de publicação |
 | `tags` | ids de tags |
 | `title`, `sum`, `more` | textos próprios, escritos pelo autor do site |
-| `src` | fonte principal |
+| `src` | fontes estruturadas (`type`, `ref`, `page`, `url`, `rev`) |
+| `conflicts` | divergências entre fontes (`note`, `src`) |
+
+**Calendários (SBS vol. 113):** presente pós-timeskip = Círculo Marítimo 1541 = Era do Céu 4131. Os anos são derivados de `date.ago` em `src/lib/calendar.ts`; nunca digite anos de calendário no JSON. Detalhes e fontes em `docs/fontes-de-dados.md`.
 
 Melhorias previstas, na ordem:
 1. Trocar `src` (texto) por lista estruturada: tipo (mangá, anime, databook, SBS, wiki), referência (capítulo ou episódio) e URL quando houver.
 2. Adicionar episódio do anime e marcar canon (mangá, anime, filler).
 3. Adicionar campo `verified` (boolean). Só eventos verificados saem do modo rascunho.
-4. Definir um calendário in-universe real (ano relativo à partida de Luffy) com `conf` por evento, substituindo `t` e `when` livres.
+4. ~~Definir um calendário in-universe real~~ Feito: `date.ago` + calendários derivados (Círculo Marítimo e Era do Céu).
 5. Pensar em personagens e locais como entidades ligadas aos eventos (filtros por personagem e ilha).
 
 ## Dados e fontes

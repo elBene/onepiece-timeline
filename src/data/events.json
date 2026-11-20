@@ -3,11 +3,20 @@
     "id": "e1",
     "saga": "s_void",
     "imp": 3,
-    "t": -800,
-    "when": "≈ 800 anos antes",
-    "ch": 395,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 900,
+      "agoEnd": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 395,
+      "approx": false,
+      "ep": 277
+    },
     "tags": [
       "passado",
       "marinha"
@@ -19,6 +28,10 @@
       {
         "type": "manga",
         "ref": "cap. 395"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 277"
       }
     ]
   },
@@ -26,11 +39,19 @@
     "id": "e2",
     "saga": "s_void",
     "imp": 2,
-    "t": -799,
-    "when": "≈ 800 anos antes",
-    "ch": 649,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 1
+    },
+    "revealed": {
+      "ch": 649,
+      "approx": false,
+      "ep": 569
+    },
     "tags": [
       "passado"
     ],
@@ -41,6 +62,10 @@
       {
         "type": "manga",
         "ref": "cap. 649"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 569"
       }
     ]
   },
@@ -48,11 +73,19 @@
     "id": "e3",
     "saga": "s_roger",
     "imp": 2,
-    "t": -38,
-    "when": "≈ 38 anos antes",
-    "ch": 1096,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "batalha",
+    "canon": "manga",
+    "date": {
+      "ago": 38,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 1096,
+      "approx": false,
+      "ep": 1130
+    },
     "tags": [
       "passado",
       "pirates",
@@ -65,6 +98,10 @@
       {
         "type": "manga",
         "ref": "cap. 1096"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 1130"
       }
     ]
   },
@@ -72,11 +109,19 @@
     "id": "e4",
     "saga": "s_roger",
     "imp": 3,
-    "t": -24,
-    "when": "≈ 24 anos antes",
-    "ch": 968,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "viagem",
+    "canon": "manga",
+    "date": {
+      "ago": 25,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 968,
+      "approx": false,
+      "ep": 969
+    },
     "tags": [
       "passado",
       "pirates"
@@ -88,6 +133,10 @@
       {
         "type": "manga",
         "ref": "cap. 968"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 969"
       }
     ]
   },
@@ -95,11 +144,19 @@
     "id": "e5",
     "saga": "s_orig",
     "imp": 3,
-    "t": -22,
-    "when": "22 anos antes",
-    "ch": 1,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "morte",
+    "canon": "manga",
+    "date": {
+      "ago": 24,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 1,
+      "approx": false,
+      "ep": 1
+    },
     "tags": [
       "passado",
       "pirates",
@@ -112,6 +169,10 @@
       {
         "type": "manga",
         "ref": "cap. 1"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 1"
       }
     ]
   },
@@ -119,11 +180,19 @@
     "id": "e6",
     "saga": "s_orig",
     "imp": 3,
-    "t": -20,
-    "when": "≈ 20 anos antes",
-    "ch": 395,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "incidente",
+    "canon": "manga",
+    "date": {
+      "ago": 22,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 395,
+      "approx": false,
+      "ep": 277
+    },
     "tags": [
       "passado",
       "marinha",
@@ -136,6 +205,10 @@
       {
         "type": "manga",
         "ref": "cap. 395"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 277"
       }
     ]
   },
@@ -143,11 +216,19 @@
     "id": "e7",
     "saga": "s_orig",
     "imp": 3,
-    "t": -10,
-    "when": "10 anos antes",
-    "ch": 1,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 12,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 1,
+      "approx": false,
+      "ep": 4
+    },
     "tags": [
       "passado",
       "strawhats",
@@ -160,6 +241,10 @@
       {
         "type": "manga",
         "ref": "cap. 1"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 4"
       }
     ]
   },
@@ -167,11 +252,19 @@
     "id": "e8",
     "saga": "s_east",
     "imp": 3,
-    "t": 0,
-    "when": "Início da jornada",
-    "ch": 1,
-    "approx": false,
-    "conf": "exata",
+    "kind": "viagem",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 1
+    },
+    "revealed": {
+      "ch": 1,
+      "approx": false,
+      "ep": 4
+    },
     "tags": [
       "strawhats"
     ],
@@ -182,6 +275,10 @@
       {
         "type": "manga",
         "ref": "cap. 1"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 4"
       }
     ]
   },
@@ -189,11 +286,19 @@
     "id": "e9",
     "saga": "s_east",
     "imp": 2,
-    "t": 0.1,
-    "when": "Início da jornada",
-    "ch": 95,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 2
+    },
+    "revealed": {
+      "ch": 95,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats"
     ],
@@ -211,11 +316,19 @@
     "id": "e10",
     "saga": "s_east",
     "imp": 1,
-    "t": 0.2,
-    "when": "Início da jornada",
-    "ch": 96,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "viagem",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 3
+    },
+    "revealed": {
+      "ch": 96,
+      "approx": false,
+      "ep": 45
+    },
     "tags": [
       "strawhats",
       "marinha"
@@ -227,6 +340,10 @@
       {
         "type": "manga",
         "ref": "cap. 96"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 45"
       }
     ]
   },
@@ -234,11 +351,19 @@
     "id": "e11",
     "saga": "s_alab",
     "imp": 2,
-    "t": 0.3,
-    "when": "Antes do timeskip",
-    "ch": 210,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "batalha",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 4
+    },
+    "revealed": {
+      "ch": 210,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats"
     ],
@@ -256,11 +381,19 @@
     "id": "e12",
     "saga": "s_sky",
     "imp": 1,
-    "t": 0.4,
-    "when": "Antes do timeskip",
-    "ch": 299,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 5
+    },
+    "revealed": {
+      "ch": 299,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats"
     ],
@@ -278,11 +411,19 @@
     "id": "e13",
     "saga": "s_w7",
     "imp": 3,
-    "t": 0.5,
-    "when": "Antes do timeskip",
-    "ch": 398,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "batalha",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 6
+    },
+    "revealed": {
+      "ch": 398,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "marinha"
@@ -301,11 +442,19 @@
     "id": "e14",
     "saga": "s_tb",
     "imp": 2,
-    "t": 0.6,
-    "when": "Antes do timeskip",
-    "ch": 489,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 7
+    },
+    "revealed": {
+      "ch": 489,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats"
     ],
@@ -323,11 +472,19 @@
     "id": "e15",
     "saga": "s_war",
     "imp": 3,
-    "t": 0.7,
-    "when": "Antes do timeskip",
-    "ch": 513,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "incidente",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 8
+    },
+    "revealed": {
+      "ch": 513,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "marinha"
@@ -346,11 +503,19 @@
     "id": "e16",
     "saga": "s_war",
     "imp": 2,
-    "t": 0.8,
-    "when": "Antes do timeskip",
-    "ch": 525,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "batalha",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 9
+    },
+    "revealed": {
+      "ch": 525,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "marinha"
@@ -369,11 +534,19 @@
     "id": "e17",
     "saga": "s_war",
     "imp": 3,
-    "t": 0.9,
-    "when": "Antes do timeskip",
-    "ch": 574,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "morte",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 10
+    },
+    "revealed": {
+      "ch": 574,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "pirates",
@@ -393,11 +566,19 @@
     "id": "e18",
     "saga": "s_war",
     "imp": 3,
-    "t": 0.95,
-    "when": "Antes do timeskip",
-    "ch": 576,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "morte",
+    "canon": "manga",
+    "date": {
+      "ago": 2,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 11
+    },
+    "revealed": {
+      "ch": 576,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "pirates",
       "marinha"
@@ -416,11 +597,19 @@
     "id": "e19",
     "saga": "s_new",
     "imp": 3,
-    "t": 1,
-    "when": "Dois anos depois",
-    "ch": 598,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 0,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 1
+    },
+    "revealed": {
+      "ch": 598,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats"
     ],
@@ -438,11 +627,19 @@
     "id": "e20",
     "saga": "s_new",
     "imp": 2,
-    "t": 3.1,
-    "when": "Após o timeskip",
-    "ch": 790,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "batalha",
+    "canon": "manga",
+    "date": {
+      "ago": 0,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 2
+    },
+    "revealed": {
+      "ch": 790,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "marinha",
@@ -462,11 +659,19 @@
     "id": "e21",
     "saga": "s_new",
     "imp": 1,
-    "t": 3.2,
-    "when": "Após o timeskip",
-    "ch": 902,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "viagem",
+    "canon": "manga",
+    "date": {
+      "ago": 0,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 3
+    },
+    "revealed": {
+      "ch": 902,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "pirates"
@@ -485,11 +690,19 @@
     "id": "e22",
     "saga": "s_new",
     "imp": 2,
-    "t": 3.3,
-    "when": "Após o timeskip",
-    "ch": 905,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "governo",
+    "canon": "manga",
+    "date": {
+      "ago": 0,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 4
+    },
+    "revealed": {
+      "ch": 905,
+      "approx": false,
+      "ep": 883
+    },
     "tags": [
       "marinha",
       "pirates"
@@ -501,6 +714,10 @@
       {
         "type": "manga",
         "ref": "cap. 905"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 883"
       }
     ]
   },
@@ -508,11 +725,19 @@
     "id": "e23",
     "saga": "s_wano",
     "imp": 3,
-    "t": 3.4,
-    "when": "Após o timeskip",
-    "ch": 1044,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "fruta",
+    "canon": "manga",
+    "date": {
+      "ago": 0,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 5
+    },
+    "revealed": {
+      "ch": 1044,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "pirates"
@@ -531,11 +756,19 @@
     "id": "e24",
     "saga": "s_wano",
     "imp": 3,
-    "t": 3.45,
-    "when": "Após o timeskip",
-    "ch": 1049,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "batalha",
+    "canon": "manga",
+    "date": {
+      "ago": 0,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 6
+    },
+    "revealed": {
+      "ch": 1049,
+      "approx": false,
+      "ep": 1076
+    },
     "tags": [
       "strawhats",
       "pirates"
@@ -547,6 +780,10 @@
       {
         "type": "manga",
         "ref": "cap. 1049"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 1076"
       }
     ]
   },
@@ -554,11 +791,19 @@
     "id": "e25",
     "saga": "s_egg",
     "imp": 2,
-    "t": 3.6,
-    "when": "Após o timeskip",
-    "ch": 1061,
-    "approx": false,
-    "conf": "estimada",
+    "kind": "viagem",
+    "canon": "manga",
+    "date": {
+      "ago": 0,
+      "precision": "ano",
+      "conf": "exata",
+      "seq": 7
+    },
+    "revealed": {
+      "ch": 1061,
+      "approx": false,
+      "ep": null
+    },
     "tags": [
       "strawhats",
       "marinha"

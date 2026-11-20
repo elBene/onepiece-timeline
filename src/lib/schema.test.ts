@@ -40,8 +40,18 @@ describe('schema', () => {
     (e[0] as { imp: number }).imp = 4;
     expect(() => parseTimelineData({ ...raw, events: e })).toThrow();
     const f = clone(events);
-    (f[0] as { conf: string }).conf = 'talvez';
+    (f[0] as { date: { conf: string } }).date.conf = 'talvez';
     expect(() => parseTimelineData({ ...raw, events: f })).toThrow();
+  });
+  it('rejeita tipo, canon e data inválidos', () => {
+    for (const patch of [{ kind: 'festa' }, { canon: 'fanfic' }, { date: { ago: -1, precision: 'ano', conf: 'exata' } }]) {
+      const e = clone(events);
+      Object.assign(e[0] as object, patch);
+      expect(() => parseTimelineData({ ...raw, events: e })).toThrow();
+    }
+  });
+  it('conflicts ausente vira lista vazia', () => {
+    expect(parseTimelineData(raw).events.every((e) => Array.isArray(e.conflicts))).toBe(true);
   });
   it('rejeita fonte sem itens, com tipo desconhecido ou URL inválida', () => {
     for (const src of [[], [{ type: 'blog', ref: 'x' }], [{ type: 'wiki', ref: 'x', url: 'nao-e-url' }]]) {
