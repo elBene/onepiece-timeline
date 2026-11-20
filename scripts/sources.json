@@ -1,0 +1,12 @@
+{
+  "_nota": "Mapa saga -> páginas do One Piece Wiki usadas como PISTA. Ids de saga vêm de src/data/sagas.json.",
+  "s_void": ["Void Century"],
+  "s_east": [
+    "Romance Dawn Arc",
+    "Orange Town Arc",
+    "Syrup Village Arc",
+    "Baratie Arc",
+    "Arlong Park Arc",
+    "Loguetown Arc"
+  ]
+}

@@ -1,0 +1,834 @@
+{
+  "saga": "s_east",
+  "license_note": "Fatos e links extraídos do One Piece Wiki (Fandom, CC BY-SA). Nenhum texto copiado.",
+  "pages": [
+    {
+      "page": "Romance Dawn Arc",
+      "revision": 2136311,
+      "chapters": {
+        "start": 1,
+        "end": 7
+      },
+      "episodes": {
+        "start": 1,
+        "end": 4
+      },
+      "stubs": 3
+    },
+    {
+      "page": "Orange Town Arc",
+      "revision": 2136312,
+      "chapters": {
+        "start": 8,
+        "end": 21
+      },
+      "episodes": {
+        "start": 4,
+        "end": 8
+      },
+      "stubs": 3
+    },
+    {
+      "page": "Syrup Village Arc",
+      "revision": 2136313,
+      "chapters": {
+        "start": 22,
+        "end": 41
+      },
+      "episodes": {
+        "start": 9,
+        "end": 18
+      },
+      "stubs": 4
+    },
+    {
+      "page": "Baratie Arc",
+      "revision": 2136314,
+      "chapters": {
+        "start": 42,
+        "end": 68
+      },
+      "episodes": {
+        "start": 19,
+        "end": 30
+      },
+      "stubs": 4
+    },
+    {
+      "page": "Arlong Park Arc",
+      "revision": 2136316,
+      "chapters": {
+        "start": 69,
+        "end": 95
+      },
+      "episodes": {
+        "start": 31,
+        "end": 44
+      },
+      "stubs": 4
+    },
+    {
+      "page": "Loguetown Arc",
+      "revision": 2137694,
+      "chapters": {
+        "start": 96,
+        "end": 100
+      },
+      "episodes": {
+        "start": 45,
+        "end": 45
+      },
+      "stubs": 4
+    }
+  ],
+  "events": [
+    {
+      "id": "draft_s_east_romance-dawn-arc_1",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 1,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Romance Dawn Arc",
+          "url": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "revision": 2136311
+        }
+      ],
+      "hint": {
+        "heading": "Romance Dawn: The Origin of an Adventure!",
+        "chapters": {
+          "start": 1,
+          "end": 7
+        },
+        "episodes": {
+          "start": 1,
+          "end": 4
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_romance-dawn-arc_2",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 1,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Romance Dawn Arc",
+          "url": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "revision": 2136311
+        }
+      ],
+      "hint": {
+        "heading": "On the High Seas: Luffy's First Voyage",
+        "chapters": {
+          "start": 1,
+          "end": 7
+        },
+        "episodes": {
+          "start": 1,
+          "end": 4
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_romance-dawn-arc_3",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 1,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Romance Dawn Arc",
+          "url": "https://onepiece.fandom.com/wiki/Romance_Dawn_Arc",
+          "revision": 2136311
+        }
+      ],
+      "hint": {
+        "heading": "The Oppressive Axe of the Marines: Recruiting a Swordsman",
+        "chapters": {
+          "start": 1,
+          "end": 7
+        },
+        "episodes": {
+          "start": 1,
+          "end": 4
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_orange-town-arc_1",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 8,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Orange Town Arc",
+          "url": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "revision": 2136312
+        }
+      ],
+      "hint": {
+        "heading": "The Thief and the Red-Nosed Pirate",
+        "chapters": {
+          "start": 8,
+          "end": 21
+        },
+        "episodes": {
+          "start": 4,
+          "end": 8
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_orange-town-arc_2",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 8,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Orange Town Arc",
+          "url": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "revision": 2136312
+        }
+      ],
+      "hint": {
+        "heading": "The Town's Last Citizen: Boodle the Mayor",
+        "chapters": {
+          "start": 8,
+          "end": 21
+        },
+        "episodes": {
+          "start": 4,
+          "end": 8
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_orange-town-arc_3",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 8,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Orange Town Arc",
+          "url": "https://onepiece.fandom.com/wiki/Orange_Town_Arc",
+          "revision": 2136312
+        }
+      ],
+      "hint": {
+        "heading": "Buggy's Flashy Finale: The Crew Departs",
+        "chapters": {
+          "start": 8,
+          "end": 21
+        },
+        "episodes": {
+          "start": 4,
+          "end": 8
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_syrup-village-arc_1",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 22,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Syrup Village Arc",
+          "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "revision": 2136313
+        }
+      ],
+      "hint": {
+        "heading": "Island of Rare Animals: The Man in the Treasure Chest",
+        "chapters": {
+          "start": 22,
+          "end": 41
+        },
+        "episodes": {
+          "start": 9,
+          "end": 18
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_syrup-village-arc_2",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 22,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Syrup Village Arc",
+          "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "revision": 2136313
+        }
+      ],
+      "hint": {
+        "heading": "Pirates are Coming! The Liar and the Deceiver",
+        "chapters": {
+          "start": 22,
+          "end": 41
+        },
+        "episodes": {
+          "start": 9,
+          "end": 18
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_syrup-village-arc_3",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 22,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Syrup Village Arc",
+          "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "revision": 2136313
+        }
+      ],
+      "hint": {
+        "heading": "Hold the Hill: Battle Against the Black Cat Pirates",
+        "chapters": {
+          "start": 22,
+          "end": 41
+        },
+        "episodes": {
+          "start": 9,
+          "end": 18
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_syrup-village-arc_4",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 22,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Syrup Village Arc",
+          "url": "https://onepiece.fandom.com/wiki/Syrup_Village_Arc",
+          "revision": 2136313
+        }
+      ],
+      "hint": {
+        "heading": "From Play Pirate to Real Pirate: The Straw Hats Depart",
+        "chapters": {
+          "start": 22,
+          "end": 41
+        },
+        "episodes": {
+          "start": 9,
+          "end": 18
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_baratie-arc_1",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 42,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Baratie Arc",
+          "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "revision": 2136314
+        }
+      ],
+      "hint": {
+        "heading": "Paying Dues: Of Bounty Hunters, Cooks, and Pirates",
+        "chapters": {
+          "start": 42,
+          "end": 68
+        },
+        "episodes": {
+          "start": 19,
+          "end": 30
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_baratie-arc_2",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 42,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Baratie Arc",
+          "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "revision": 2136314
+        }
+      ],
+      "hint": {
+        "heading": "Zoro's Ambition: The Ultimate Armada and the Ultimate Swordsman",
+        "chapters": {
+          "start": 42,
+          "end": 68
+        },
+        "episodes": {
+          "start": 19,
+          "end": 30
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_baratie-arc_3",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 42,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Baratie Arc",
+          "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "revision": 2136314
+        }
+      ],
+      "hint": {
+        "heading": "Defend the Baratie: The Chef and the Chore Boy's Battles",
+        "chapters": {
+          "start": 42,
+          "end": 68
+        },
+        "episodes": {
+          "start": 19,
+          "end": 30
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_baratie-arc_4",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 42,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Baratie Arc",
+          "url": "https://onepiece.fandom.com/wiki/Baratie_Arc",
+          "revision": 2136314
+        }
+      ],
+      "hint": {
+        "heading": "Keep Your Feet Dry: Sanji Joins the Straw Hats",
+        "chapters": {
+          "start": 42,
+          "end": 68
+        },
+        "episodes": {
+          "start": 19,
+          "end": 30
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_arlong-park-arc_1",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 69,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Arlong Park Arc",
+          "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "revision": 2136316
+        }
+      ],
+      "hint": {
+        "heading": "A Town Under Siege: In Pursuit of Nami",
+        "chapters": {
+          "start": 69,
+          "end": 95
+        },
+        "episodes": {
+          "start": 31,
+          "end": 44
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_arlong-park-arc_2",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 69,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Arlong Park Arc",
+          "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "revision": 2136316
+        }
+      ],
+      "hint": {
+        "heading": "A Mother's Love: The Navigator's Tragedy",
+        "chapters": {
+          "start": 69,
+          "end": 95
+        },
+        "episodes": {
+          "start": 31,
+          "end": 44
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_arlong-park-arc_3",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 69,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Arlong Park Arc",
+          "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "revision": 2136316
+        }
+      ],
+      "hint": {
+        "heading": "Helping a Friend: Straw Hat Pirates vs. Arlong Pirates",
+        "chapters": {
+          "start": 69,
+          "end": 95
+        },
+        "episodes": {
+          "start": 31,
+          "end": 44
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_arlong-park-arc_4",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 69,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Arlong Park Arc",
+          "url": "https://onepiece.fandom.com/wiki/Arlong_Park_Arc",
+          "revision": 2136316
+        }
+      ],
+      "hint": {
+        "heading": "Leaving with a Smile: The Navigator's Last Laugh",
+        "chapters": {
+          "start": 69,
+          "end": 95
+        },
+        "episodes": {
+          "start": 31,
+          "end": 44
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_loguetown-arc_1",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 96,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Loguetown Arc",
+          "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "revision": 2137694
+        }
+      ],
+      "hint": {
+        "heading": "Luffy's First Bounty: The Town of Beginnings and Endings",
+        "chapters": {
+          "start": 96,
+          "end": 100
+        },
+        "episodes": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_loguetown-arc_2",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 96,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Loguetown Arc",
+          "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "revision": 2137694
+        }
+      ],
+      "hint": {
+        "heading": "New and Old Faces: White Hunter Smoker and Buggy the Clown",
+        "chapters": {
+          "start": 96,
+          "end": 100
+        },
+        "episodes": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_loguetown-arc_3",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 96,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Loguetown Arc",
+          "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "revision": 2137694
+        }
+      ],
+      "hint": {
+        "heading": "The Unexpected Rescue: Enter Dragon",
+        "chapters": {
+          "start": 96,
+          "end": 100
+        },
+        "episodes": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      "verified": false
+    },
+    {
+      "id": "draft_s_east_loguetown-arc_4",
+      "saga": "s_east",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": 96,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Loguetown Arc",
+          "url": "https://onepiece.fandom.com/wiki/Loguetown_Arc",
+          "revision": 2137694
+        }
+      ],
+      "hint": {
+        "heading": "The Journey Continues: To the Grand Line!",
+        "chapters": {
+          "start": 96,
+          "end": 100
+        },
+        "episodes": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      "verified": false
+    }
+  ]
+}

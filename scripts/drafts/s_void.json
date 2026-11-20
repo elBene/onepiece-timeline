@@ -1,0 +1,43 @@
+{
+  "saga": "s_void",
+  "license_note": "Fatos e links extraídos do One Piece Wiki (Fandom, CC BY-SA). Nenhum texto copiado.",
+  "pages": [
+    {
+      "page": "Void Century",
+      "revision": 2130802,
+      "chapters": null,
+      "episodes": null,
+      "stubs": 1
+    }
+  ],
+  "events": [
+    {
+      "id": "draft_s_void_void-century_1",
+      "saga": "s_void",
+      "imp": 2,
+      "t": null,
+      "when": "",
+      "ch": null,
+      "approx": true,
+      "conf": "estimada",
+      "tags": [],
+      "title": "",
+      "sum": "",
+      "more": "",
+      "src": [
+        {
+          "type": "wiki",
+          "ref": "Void Century",
+          "url": "https://onepiece.fandom.com/wiki/Void_Century",
+          "revision": 2130802
+        }
+      ],
+      "hint": {
+        "heading": null,
+        "chapters": null,
+        "episodes": null
+      },
+      "verified": false
+    }
+  ]
+}
