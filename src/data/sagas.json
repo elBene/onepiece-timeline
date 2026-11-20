@@ -1,0 +1,62 @@
+[
+  {
+    "id": "s_void",
+    "era": "void",
+    "name": "Século Vazio"
+  },
+  {
+    "id": "s_roger",
+    "era": "roger",
+    "name": "Era de Roger"
+  },
+  {
+    "id": "s_orig",
+    "era": "gpe",
+    "name": "Origens"
+  },
+  {
+    "id": "s_east",
+    "era": "gpe",
+    "name": "East Blue"
+  },
+  {
+    "id": "s_alab",
+    "era": "gpe",
+    "name": "Alabasta"
+  },
+  {
+    "id": "s_sky",
+    "era": "gpe",
+    "name": "Skypiea"
+  },
+  {
+    "id": "s_w7",
+    "era": "gpe",
+    "name": "Water 7 e Enies Lobby"
+  },
+  {
+    "id": "s_tb",
+    "era": "gpe",
+    "name": "Thriller Bark"
+  },
+  {
+    "id": "s_war",
+    "era": "gpe",
+    "name": "Sabaody e Marineford"
+  },
+  {
+    "id": "s_new",
+    "era": "gpe",
+    "name": "Novo Mundo"
+  },
+  {
+    "id": "s_wano",
+    "era": "gpe",
+    "name": "Wano"
+  },
+  {
+    "id": "s_egg",
+    "era": "gpe",
+    "name": "Egghead"
+  }
+]

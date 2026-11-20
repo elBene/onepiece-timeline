@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linha do Tempo de One Piece</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+/* Plano: mapa náutico noturno. Eixo central (espinha) com cartas em dois lados; hierarquia Era > Saga > Evento por tamanho e cor. */
+:root{
+  color-scheme: dark;
+  --bg:#0a1b28;
+  --bg2:#102a3b;
+  --ink:#efe4cb;
+  --muted:#9fb1ba;
+  --gold:#e3aa2c;
+  --red:#e0502f;
+  --sea:#3b8aa3;
+  --line:#27475a;
+  --card:#12303f;
+  --font-display:'Pirata One','Georgia',serif;
+  --font-body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 60%,var(--bg) 100%);
+  color:var(--ink);font-family:var(--font-body);line-height:1.55;font-size:16px;
+  min-height:100%;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+#waves{position:fixed;left:0;right:0;bottom:0;width:100%;height:180px;pointer-events:none;z-index:0;opacity:.55}
+.wrap{position:relative;z-index:1}
+
+/* Cabeçalho e controles */
+.intro{max-width:1100px;margin:0 auto;padding:36px 20px 8px}
+.intro h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.05;margin:0 0 8px;color:var(--gold);letter-spacing:.5px}
+.intro p{margin:0;color:var(--muted);max-width:62ch;text-wrap:balance}
+.bar{
+  position:relative;z-index:20;margin:18px auto 0;max-width:1100px;padding:14px 20px;
+  background:rgba(10,27,40,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  display:grid;gap:12px;
+}
+@media(min-width:900px){.bar{position:sticky;top:0}}
+.row{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.lbl{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);min-width:64px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{background:transparent;border:0;padding:6px 14px;color:var(--muted);font-size:.88rem}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--gold);color:#1b1305;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 12px;font-size:.82rem;color:var(--muted)}
+.chip[aria-pressed="true"]{border-color:var(--sea);background:rgba(59,138,163,.22);color:var(--ink)}
+.spoil{display:flex;align-items:center;gap:8px;font-size:.88rem}
+.spoil input[type=number]{width:84px;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:5px 8px;font:inherit}
+.spoil input[type=number]:disabled{opacity:.4}
+.count{margin-left:auto;font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Trilho */
+.rail{position:relative;max-width:1100px;margin:0 auto;padding:24px 20px 140px;--p:0}
+.rail::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:var(--line)}
+.rail::after{content:"";position:absolute;top:0;left:50%;width:2px;margin-left:-1px;height:calc(var(--p) * 100%);background:linear-gradient(180deg,var(--gold),var(--red));box-shadow:0 0 12px rgba(227,170,44,.5)}
+.ship{position:absolute;left:50%;top:calc(var(--p) * 100%);width:38px;height:38px;margin:-19px 0 0 -19px;z-index:6;filter:drop-shadow(0 2px 6px rgba(0,0,0,.6))}
+@media(max-width:819px){
+  .rail::before,.rail::after{left:20px}
+  .ship{left:20px}
+}
+
+/* Era */
+.era{position:relative;z-index:3;margin:36px 0 28px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.era-bg{position:absolute;inset:-30% 0;background:var(--eg);will-change:transform}
+.era-ghost{position:absolute;right:16px;top:-8px;font-family:var(--font-display);font-size:clamp(4rem,14vw,9rem);line-height:1;color:rgba(255,255,255,.07);pointer-events:none;white-space:nowrap}
+.era-in{position:relative;padding:26px 24px 22px}
+.era-span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.era h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,4.5vw,2.8rem);margin:4px 0 6px;line-height:1.1}
+.era p{margin:0;max-width:60ch;color:#d5d0bf}
+.era-stats{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:.84rem;color:var(--muted)}
+.era-sagas{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.era-sagas span{border:1px solid rgba(239,228,203,.25);border-radius:999px;padding:3px 11px;font-size:.8rem}
+.era-open{margin-top:14px;background:var(--gold);color:#1b1305;border:0;border-radius:999px;padding:7px 16px;font-weight:700;font-size:.88rem}
+
+/* Saga */
+.saga{position:relative;z-index:3;margin:30px 0 14px;display:flex;justify-content:center}
+.saga-pill{background:var(--bg);border:1px solid var(--sea);border-radius:10px;padding:8px 18px;text-align:center}
+.saga-pill b{font-family:var(--font-display);font-weight:400;font-size:1.35rem;color:var(--ink);display:block;line-height:1.15}
+.saga-pill small{color:var(--muted);font-size:.78rem}
+.saga-pill em{font-style:normal;display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+@media(max-width:819px){.saga{justify-content:flex-start;padding-left:40px}.saga-pill{text-align:left}}
+
+/* Eventos */
+.ev{position:relative;width:50%;padding:0 38px 26px 0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ev.R{margin-left:50%;padding:0 0 26px 38px}
+.ev.pre{transform:translateY(22px) scale(.97)}
+.dot{position:absolute;top:18px;right:-8px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--sea);z-index:4}
+.ev.R .dot{right:auto;left:-8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--sea);transform:translateY(-2px)}
+.meta{display:flex;justify-content:space-between;gap:10px;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-family:var(--font-display);font-weight:400;font-size:1.3rem;line-height:1.2;margin:4px 0 4px;text-wrap:balance}
+.card .sum{margin:0;font-size:.93rem;color:#d7d2c2}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.tag{font-size:.7rem;padding:2px 9px;border-radius:999px;background:rgba(59,138,163,.18);color:#bfe0ea}
+.more{margin-top:10px;background:none;border:0;padding:0;color:var(--gold);font-size:.82rem;text-decoration:underline;text-underline-offset:3px}
+.detail{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:.84rem;color:var(--muted);display:grid;gap:4px}
+.detail b{color:var(--ink);font-weight:500}
+
+/* Importância: marco (3), evento (2), detalhe (1) */
+.imp3 .card{border-color:var(--gold);background:linear-gradient(135deg,#19394a,var(--card));padding:18px 20px;box-shadow:0 8px 28px rgba(0,0,0,.35)}
+.imp3 .card h3{font-size:1.75rem;color:var(--gold)}
+.imp3 .card .sum{font-size:1rem}
+.imp3 .dot{width:24px;height:24px;top:14px;right:-12px;border-color:var(--gold);background:var(--red)}
+.ev.R.imp3 .dot{left:-12px;right:auto}
+.imp1 .card{padding:10px 14px;background:transparent;border-style:dashed}
+.imp1 .card h3{font-size:1.08rem}
+.imp1 .card .sum{font-size:.84rem}
+.imp1 .dot{width:10px;height:10px;top:20px;right:-5px;border-width:2px}
+.ev.R.imp1 .dot{left:-5px;right:auto}
+
+/* Spoiler */
+.ev.hid h3,.ev.hid .sum{filter:blur(7px);user-select:none}
+.ev.hid .note{display:block}
+.note{display:none;font-size:.8rem;color:var(--red);margin-top:6px}
+
+.empty{position:relative;z-index:3;text-align:center;color:var(--muted);padding:60px 0}
+.hint{font-size:.78rem;color:var(--muted);padding:6px 0 0}
+
+@media(max-width:819px){
+  .ev,.ev.R{width:100%;margin-left:0;padding:0 0 22px 40px}
+  .dot,.ev.R .dot{left:13px;right:auto}
+  .imp3 .dot,.ev.R.imp3 .dot{left:9px}
+  .imp1 .dot,.ev.R.imp1 .dot{left:16px}
+  .count{margin-left:0;width:100%}
+}
+footer{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:10px 20px 60px;font-size:.78rem;color:var(--muted)}
+footer p{max-width:80ch;margin:0 0 6px}
+[hidden]{display:none!important}
+
+/* ---------- Vista horizontal ---------- */
+.hz{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:18px 12px 120px}
+.hz-scroll{overflow-x:auto;overflow-y:hidden;cursor:grab;scrollbar-width:thin;scrollbar-color:var(--line) transparent;border:1px solid var(--line);border-radius:14px;background:rgba(10,27,40,.55)}
+.hz-scroll.drag{cursor:grabbing;user-select:none}
+.hz-track{position:relative;height:600px}
+.rope{position:absolute;left:0;right:0;top:297px;height:7px;background:repeating-linear-gradient(115deg,#c7a56a 0 5px,#8a6b3a 5px 10px);box-shadow:0 2px 6px rgba(0,0,0,.45)}
+.hz-nav{position:absolute;top:310px;z-index:30;width:42px;height:42px;border-radius:50%;border:2px solid var(--gold);background:var(--bg);color:var(--gold);display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.hz-nav:hover{background:var(--gold);color:#1b1305}
+.hz-nav.prev{left:22px}.hz-nav.next{right:22px}
+.hz-prog{position:relative;height:6px;margin:26px 10px 0;border-radius:3px;background:var(--line);--hp:0}
+.hz-prog i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--hp) * 100%);background:linear-gradient(90deg,var(--gold),var(--red));border-radius:3px}
+.ship-s{position:absolute;top:-17px;left:calc(var(--hp) * 100%);width:28px;height:28px;margin-left:-14px}
+
+.hz-era{position:absolute;top:0;width:0;height:100%;z-index:3}
+.hz-era>*{position:absolute}
+.hz-era .mast{left:-1.5px;top:36px;height:262px;border-left:3px solid var(--c)}
+.hz-era .flag{left:2px;top:36px;width:232px;padding:9px 30px 9px 14px;background:var(--c);color:#fff;clip-path:polygon(0 0,100% 0,93% 50%,100% 100%,0 100%)}
+.flag small{display:block;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;opacity:.9;line-height:1.3}
+.flag b{font-family:var(--font-display);font-weight:400;font-size:1.45rem;line-height:1.1}
+.hz-saga{position:absolute;top:300px;width:0;z-index:2}
+.hz-saga .lab{position:absolute;left:-1px;top:8px;width:136px;padding-left:9px;border-left:2px solid var(--sea)}
+.lab b{display:block;font-family:var(--font-display);font-weight:400;font-size:1.15rem;line-height:1.15}
+.lab small{color:var(--muted);font-size:.72rem}
+
+.hz-ev{position:absolute;top:0;width:0;height:100%;z-index:4}
+.hz-ev>*{position:absolute}
+.med{width:96px;height:96px;left:-48px;color:var(--c);cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.hz-ev.top .med{top:62px}.hz-ev.bot .med{top:442px}
+.med:hover{transform:scale(1.1) rotate(8deg)}
+.wheel{width:100%;height:100%;display:block}
+.med .ic{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-display);font-size:2rem}
+.med .ic svg{width:34px;height:34px}
+.conn{left:-1.5px;width:0;border-left:3px dotted var(--c)}
+.hz-ev.top .conn{top:158px;height:128px}.hz-ev.bot .conn{top:314px;height:128px}
+.node{left:-14px;top:286px;width:28px;height:28px;border-radius:50%;border:2px solid var(--c);background:var(--bg);transition:transform .3s}
+.node::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--c)}
+.txt{left:20px;width:200px;text-align:left;background:none;border:0;padding:0;color:var(--ink);cursor:pointer}
+.hz-ev.top .txt{top:166px}.hz-ev.bot .txt{top:326px}
+.txt .when{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c);font-weight:700}
+.txt h4{font-family:var(--font-display);font-weight:400;font-size:1.3rem;line-height:1.15;margin:2px 0 4px}
+.txt p{margin:0;font-size:.8rem;line-height:1.4;color:#cfc9b6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.txt:hover h4{color:var(--c)}
+.hz-ev.hid .txt h4,.hz-ev.hid .txt p{filter:blur(6px)}
+
+.dot-h{position:absolute;top:286px;width:28px;height:28px;background:none;border:0;padding:0;z-index:5;cursor:pointer;--c:var(--gold)}
+.dot-h::before{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px;border-radius:50%;border:2px solid var(--c);background:var(--bg);transition:transform .2s,background .2s}
+.dot-h.imp1::before{width:9px;height:9px;margin:-4.5px;background:var(--c)}
+.dot-h:hover::before,.dot-h:focus-visible::before{transform:scale(1.55);background:var(--c)}
+.dot-h:hover,.dot-h:focus-visible{z-index:60}
+.tip{position:absolute;left:50%;bottom:calc(100% + 2px);transform:translate(-50%,6px);width:max-content;max-width:230px;background:var(--bg);border:1px solid var(--c);border-radius:8px;padding:7px 11px;text-align:left;color:var(--ink);font-size:.82rem;line-height:1.3;opacity:0;visibility:hidden;transition:opacity .18s,transform .18s;pointer-events:none}
+.tip b{display:block;font-weight:500}
+.tip small{display:block;color:var(--muted);font-size:.72rem;margin-top:2px}
+.dot-h:hover .tip,.dot-h:focus-visible .tip{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+.hz-ev.pre .med{transform:scale(.55)}
+.hz-ev.pre .txt{transform:translateY(10px)}
+.dot-h.pre::before{transform:scale(0)}
+
+/* ---------- Janela de detalhe (pergaminho) ---------- */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(4,12,18,.8);backdrop-filter:blur(4px);display:grid;place-items:center;padding:20px}
+.modal-card{width:min(680px,100%);filter:drop-shadow(0 18px 34px rgba(0,0,0,.6));animation:pop .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{transform:translateY(26px) scale(.94);opacity:0}to{transform:none;opacity:1}}
+.paper{position:relative;max-height:88vh;overflow:auto;padding:40px 40px 28px;color:#2b1c0c;background:radial-gradient(ellipse at 25% 15%,#f6ead0,#e6d2a2 65%,#cdb27a)}
+.m-close{position:absolute;top:18px;right:22px;width:34px;height:34px;border-radius:50%;border:2px solid #2b1c0c;background:transparent;color:#2b1c0c;display:grid;place-items:center}
+.m-close:hover{background:#2b1c0c;color:#efe0bd}
+.m-ribbon{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8f2d16;font-weight:700;padding-right:44px}
+.paper h2{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,6vw,2.9rem);line-height:1.05;margin:8px 0 16px;text-wrap:balance}
+.m-stamp{display:inline-flex;flex-direction:column;align-items:flex-start;border:3px double #b03a1c;color:#b03a1c;padding:6px 16px;transform:rotate(-2deg);margin-bottom:16px}
+.m-stamp span{font-family:var(--font-display);font-size:1.7rem;line-height:1.1}
+.m-stamp small{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.m-sum{font-size:1.08rem;margin:0 0 10px}
+.m-more{margin:0 0 14px;color:#4a3820}
+.m-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.m-tags span{background:rgba(90,55,20,.14);color:#4a3010;border-radius:999px;padding:3px 12px;font-size:.78rem}
+.m-src{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 20px;padding:12px 0;border-top:1px solid rgba(90,55,20,.35);border-bottom:1px solid rgba(90,55,20,.35)}
+.m-src dt{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5a2a}
+.m-src dd{margin:2px 0 0;font-size:.9rem}
+.m-nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.m-nav button{background:#2b1c0c;color:#efe0bd;border:0;border-radius:999px;padding:8px 18px;font-weight:700;font-size:.88rem}
+.m-nav button:disabled{opacity:.35;cursor:default}
+.m-nav span{font-size:.82rem;color:#6b4e22;font-variant-numeric:tabular-nums}
+.paper :focus-visible{outline-color:#8f2d16}
+@media(max-width:560px){.paper{padding:34px 22px 22px}.hz-nav{display:none}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ev,.card,.med,.node,.dot-h::before,.tip{transition:none}
+  .ev.pre{transform:none}
+  .modal-card{animation:none}
+}
+</style>
+</head>
+<body>
+<canvas id="waves" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header class="intro">
+    <h1>Linha do Tempo de One Piece</h1>
+    <p>Do Século Vazio ao Egghead, em uma única linha. Afaste para ver as eras, aproxime para ler cada acontecimento, e esconda o que você ainda não leu ou assistiu.</p>
+  </header>
+
+  <section class="bar" aria-label="Controles da linha do tempo">
+    <div class="row">
+      <span class="lbl">Vista</span>
+      <div class="seg" id="view">
+        <button type="button" data-v="v" aria-pressed="true">Vertical</button>
+        <button type="button" data-v="hz" aria-pressed="false">Horizontal</button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="lbl">Ordem</span>
+      <div class="seg" id="axis">
+        <button type="button" data-v="chrono" aria-pressed="true">Ordem da história</button>
+        <button type="button" data-v="pub" aria-pressed="false">Ordem de publicação</button>
+      </div>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="row">
+      <span class="lbl">Zoom</span>
+      <div class="seg" id="zoom">
+        <button type="button" data-v="1" aria-pressed="false">Eras</button>
+        <button type="button" data-v="2" aria-pressed="false">Marcos</button>
+        <button type="button" data-v="3" aria-pressed="true">Eventos</button>
+        <button type="button" data-v="4" aria-pressed="false">Tudo</button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="lbl">Filtro</span>
+      <div class="chips" id="tags"></div>
+    </div>
+    <div class="row">
+      <span class="lbl">Spoilers</span>
+      <label class="spoil"><input type="checkbox" id="spoilOn"> Esconder o que vem depois do capítulo</label>
+      <label class="spoil"><span class="sr" style="position:absolute;left:-9999px">Capítulo atual</span><input type="number" id="spoilCh" min="1" max="1200" value="100" disabled aria-label="Último capítulo lido"></label>
+    </div>
+  </section>
+
+  <main class="rail" id="rail">
+    <svg class="ship" viewBox="0 0 40 40" aria-hidden="true">
+      <path d="M6 27h28l-4 7H11z" fill="#e0502f" stroke="#efe4cb" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M20 5v22" stroke="#efe4cb" stroke-width="2"/>
+      <path d="M21 7c8 4 10 10 10 17H21z" fill="#efe4cb"/>
+      <path d="M19 10c-5 3-7 8-7 14h7z" fill="#e3aa2c"/>
+    </svg>
+    <div id="tl"></div>
+  </main>
+
+  <section class="hz" id="hz" hidden aria-label="Linha do tempo horizontal">
+    <button type="button" class="hz-nav prev" id="hzPrev" aria-label="Voltar na linha do tempo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" class="hz-nav next" id="hzNext" aria-label="Avançar na linha do tempo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    <div class="hz-scroll" id="hzScroll"><div class="hz-track" id="hzTrack"></div></div>
+    <div class="hz-prog" id="hzProg" aria-hidden="true"><i></i>
+      <svg class="ship-s" viewBox="0 0 40 40"><path d="M6 27h28l-4 7H11z" fill="#e0502f" stroke="#efe4cb" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 5v22" stroke="#efe4cb" stroke-width="2"/><path d="M21 7c8 4 10 10 10 17H21z" fill="#efe4cb"/><path d="M19 10c-5 3-7 8-7 14h7z" fill="#e3aa2c"/></svg>
+    </div>
+    <p class="hint">Arraste, use as setas ou Shift + rolagem para navegar. Passe o mouse nos pontos pequenos para ver o nome; clique em qualquer evento para abrir os detalhes.</p>
+  </section>
+
+  <footer>
+    <p><b>Protótipo.</b> Os eventos e capítulos abaixo são dados de exemplo escritos para validar o visual. Itens com "≈" no capítulo ou com data estimada ainda precisam ser conferidos nas fontes antes da publicação.</p>
+    <p>Projeto de fã, sem fins oficiais. One Piece pertence a Eiichiro Oda, Shueisha e Toei Animation. Os textos aqui são resumos próprios e não reproduzem a obra.</p>
+  </footer>
+</div>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="modal-card"><div class="paper" id="paper">
+    <button type="button" class="m-close" aria-label="Fechar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="m-ribbon" id="m-rib"></div>
+    <h2 id="m-title"></h2>
+    <div class="m-stamp"><span id="m-when"></span><small id="m-ch"></small></div>
+    <p class="m-sum" id="m-sum"></p>
+    <p class="m-more" id="m-more"></p>
+    <div class="m-tags" id="m-tags"></div>
+    <dl class="m-src" id="m-src"></dl>
+    <div class="m-nav">
+      <button type="button" id="m-prev">← Anterior</button>
+      <span id="m-pos"></span>
+      <button type="button" id="m-next">Próximo →</button>
+    </div>
+  </div></div>
+</div>
+
+<script>
+/* ---------- Dados de exemplo ---------- */
+const ERAS=[
+ {id:'void',name:'Era do Vazio',span:'≈ 800 anos antes da partida de Luffy',order:0,
+  desc:'Um século inteiro foi apagado da história oficial. Quase tudo que se sabe dele vem de pedras que o Governo Mundial proíbe de ler.',
+  bg:'radial-gradient(circle at 20% 30%,#4a3a78 0,transparent 55%),linear-gradient(135deg,#1c1535,#2a1f4d)',ghost:'800'},
+ {id:'roger',name:'Era de Roger',span:'≈ 40 a 22 anos antes',order:1,
+  desc:'O tempo dos grandes rivais no mar, quando uma tripulação lendária cruza a Grand Line inteira e muda o rumo do mundo.',
+  bg:'radial-gradient(circle at 80% 20%,#a8662a 0,transparent 55%),linear-gradient(135deg,#2c1d12,#4a2f1a)',ghost:'40'},
+ {id:'gpe',name:'Grande Era dos Piratas',span:'Desde 22 anos antes até hoje',order:2,
+  desc:'Começa com a última frase de um condenado e se espalha por todos os mares. É aqui que a jornada de Luffy acontece.',
+  bg:'radial-gradient(circle at 70% 30%,#2f87a0 0,transparent 55%),linear-gradient(135deg,#0d2a3b,#14455a)',ghost:'22'}
+];
+const SAGAS=[
+ {id:'s_void',era:'void',name:'Século Vazio'},
+ {id:'s_roger',era:'roger',name:'Era de Roger'},
+ {id:'s_orig',era:'gpe',name:'Origens'},
+ {id:'s_east',era:'gpe',name:'East Blue'},
+ {id:'s_alab',era:'gpe',name:'Alabasta'},
+ {id:'s_sky',era:'gpe',name:'Skypiea'},
+ {id:'s_w7',era:'gpe',name:'Water 7 e Enies Lobby'},
+ {id:'s_tb',era:'gpe',name:'Thriller Bark'},
+ {id:'s_war',era:'gpe',name:'Sabaody e Marineford'},
+ {id:'s_new',era:'gpe',name:'Novo Mundo'},
+ {id:'s_wano',era:'gpe',name:'Wano'},
+ {id:'s_egg',era:'gpe',name:'Egghead'}
+];
+/* imp: 3 marco, 2 evento, 1 detalhe. t: ordem interna (só para ordenar). approx: capítulo a confirmar. */
+const EVENTS=[
+ {id:'e1',saga:'s_void',imp:3,t:-800,when:'≈ 800 anos antes',ch:395,approx:true,conf:'estimada',tags:['passado','marinha'],
+  title:'O Século Vazio',sum:'Cem anos somem dos registros. O que aconteceu nesse período segue sendo o maior mistério do mundo.',
+  more:'A data é inferida pelos próprios personagens. A principal fonte são os Poneglyphs, que o Governo Mundial trata como proibidos.',src:'Mangá, cap. ≈395'},
+ {id:'e2',saga:'s_void',imp:2,t:-799,when:'≈ 800 anos antes',ch:623,approx:true,conf:'estimada',tags:['passado'],
+  title:'Joy Boy e a promessa',sum:'Um homem deixa uma promessa a um povo do fundo do mar. Séculos depois, ela volta à história.',
+  more:'O vínculo entre Joy Boy e o Século Vazio ainda é apresentado de forma parcial.',src:'Mangá, cap. ≈623'},
+ {id:'e3',saga:'s_roger',imp:2,t:-38,when:'≈ 38 anos antes',ch:null,approx:true,conf:'estimada',tags:['passado','pirates','marinha'],
+  title:'Piratas de Rocks em God Valley',sum:'Uma tripulação temida é derrotada numa ilha onde nobres do mundo se reuniam.',
+  more:'Capítulo de origem ainda a confirmar. Entrada pensada para testar o tratamento de dados incompletos.',src:'A confirmar'},
+ {id:'e4',saga:'s_roger',imp:3,t:-24,when:'≈ 24 anos antes',ch:967,approx:true,conf:'estimada',tags:['passado','pirates'],
+  title:'Roger completa a Grand Line',sum:'A tripulação de Roger chega ao fim do mar mais perigoso do mundo e descobre o que ninguém mais viu.',
+  more:'Mostrado em flashback, bem depois do evento. Um bom exemplo de por que a ordem de publicação difere da cronologia.',src:'Mangá, cap. ≈967'},
+ {id:'e5',saga:'s_orig',imp:3,t:-22,when:'22 anos antes',ch:1,approx:false,conf:'estimada',tags:['passado','pirates','marinha'],
+  title:'A execução de Roger',sum:'O Rei dos Piratas é executado em Loguetown e suas últimas palavras abrem a Grande Era dos Piratas.',
+  more:'Marco que define a divisão entre Era de Roger e Grande Era dos Piratas neste site.',src:'Mangá, cap. 1'},
+ {id:'e6',saga:'s_orig',imp:3,t:-20,when:'≈ 20 anos antes',ch:391,approx:true,conf:'estimada',tags:['passado','marinha','strawhats'],
+  title:'A queda de Ohara',sum:'O Governo Mundial destrói uma ilha de arqueólogos. Só uma criança escapa.',
+  more:'Marca a origem de Nico Robin e liga a história ao Século Vazio.',src:'Mangá, cap. ≈391'},
+ {id:'e7',saga:'s_orig',imp:3,t:-10,when:'10 anos antes',ch:1,approx:false,conf:'estimada',tags:['passado','strawhats','pirates'],
+  title:'O chapéu de palha',sum:'Um menino come uma fruta misteriosa, um pirata paga caro por protegê-lo e deixa seu chapéu como promessa.',
+  more:'Momento fundador do protagonista, mostrado logo no primeiro capítulo.',src:'Mangá, cap. 1'},
+ {id:'e8',saga:'s_east',imp:3,t:0,when:'Início da jornada',ch:1,approx:false,conf:'exata',tags:['strawhats'],
+  title:'Luffy zarpa',sum:'Aos 17 anos, Luffy sai de casa num barco minúsculo com um objetivo declarado: ser o Rei dos Piratas.',
+  more:'Ponto zero da cronologia principal.',src:'Mangá, cap. 1'},
+ {id:'e9',saga:'s_east',imp:2,t:0.1,when:'Início da jornada',ch:95,approx:true,conf:'estimada',tags:['strawhats'],
+  title:'Os primeiros quatro tripulantes',sum:'Um espadachim, uma navegadora, um atirador e um cozinheiro entram no bando ainda no mar mais calmo.',
+  more:'Os ingressos acontecem em momentos diferentes. A entrada junta todos para fins de visão geral.',src:'Mangá, cap. 3 a ≈95'},
+ {id:'e10',saga:'s_east',imp:1,t:0.2,when:'Início da jornada',ch:96,approx:true,conf:'estimada',tags:['strawhats','marinha'],
+  title:'Passagem por Loguetown',sum:'A cidade onde Roger morreu é a última parada antes da Grand Line.',
+  more:'Evento menor, visível apenas em níveis de zoom mais próximos.',src:'Mangá, cap. ≈96'},
+ {id:'e11',saga:'s_alab',imp:2,t:0.3,when:'Antes do timeskip',ch:201,approx:true,conf:'estimada',tags:['strawhats'],
+  title:'Crocodile cai em Alabasta',sum:'Luffy derrota o chefe da Baroque Works e encerra a guerra civil que ele armou.',
+  more:'Fecha o primeiro grande conflito do bando na Grand Line.',src:'Mangá, cap. ≈201'},
+ {id:'e12',saga:'s_sky',imp:1,t:0.4,when:'Antes do timeskip',ch:299,approx:true,conf:'estimada',tags:['strawhats'],
+  title:'O sino dourado do céu',sum:'Numa ilha acima das nuvens, o bando resolve uma disputa antiga e faz um som ouvido de longe.',
+  more:'Arco de baixo impacto na trama principal, mas muito lembrado pelos fãs.',src:'Mangá, cap. ≈299'},
+ {id:'e13',saga:'s_w7',imp:3,t:0.5,when:'Antes do timeskip',ch:398,approx:false,conf:'estimada',tags:['strawhats','marinha'],
+  title:'"Eu quero viver!"',sum:'Diante de uma ilha em chamas, Robin pede ajuda pela primeira vez e o bando declara guerra ao governo.',
+  more:'Resolve o arco iniciado em Ohara. Link direto com o evento "A queda de Ohara".',src:'Mangá, cap. 398'},
+ {id:'e14',saga:'s_tb',imp:2,t:0.6,when:'Antes do timeskip',ch:485,approx:true,conf:'estimada',tags:['strawhats'],
+  title:'Brook entra no bando',sum:'Um músico que já não deveria estar vivo reencontra sua sombra e embarca com os Chapéus de Palha.',
+  more:'Completa a tripulação que seguirá até o timeskip.',src:'Mangá, cap. ≈485'},
+ {id:'e15',saga:'s_war',imp:3,t:0.7,when:'Antes do timeskip',ch:513,approx:false,conf:'estimada',tags:['strawhats','marinha'],
+  title:'O bando é separado',sum:'Um ataque em Sabaody espalha cada tripulante para um canto distante do mundo.',
+  more:'Abre o arco que culmina em Marineford.',src:'Mangá, cap. 513'},
+ {id:'e16',saga:'s_war',imp:2,t:0.8,when:'Antes do timeskip',ch:525,approx:true,conf:'estimada',tags:['strawhats','marinha'],
+  title:'Luffy invade Impel Down',sum:'Para salvar o irmão, Luffy entra sozinho na prisão mais vigiada do mundo.',
+  more:'Ponte entre a separação do bando e a guerra.',src:'Mangá, cap. ≈525'},
+ {id:'e17',saga:'s_war',imp:3,t:0.9,when:'Antes do timeskip',ch:574,approx:true,conf:'estimada',tags:['strawhats','pirates','marinha'],
+  title:'A morte de Ace',sum:'No ponto mais alto da guerra, Ace protege Luffy e cai diante de todos.',
+  more:'Maior ponto de virada emocional da primeira metade da obra.',src:'Mangá, cap. ≈574'},
+ {id:'e18',saga:'s_war',imp:3,t:0.95,when:'Antes do timeskip',ch:576,approx:true,conf:'estimada',tags:['pirates','marinha'],
+  title:'A queda de Barba Branca',sum:'O maior pirata da época morre em batalha e deixa um recado que muda a ordem do mar.',
+  more:'Reconfigura o poder entre os piratas e o governo.',src:'Mangá, cap. ≈576'},
+ {id:'e19',saga:'s_new',imp:3,t:1,when:'Dois anos depois',ch:598,approx:true,conf:'estimada',tags:['strawhats'],
+  title:'Dois anos depois',sum:'Cada tripulante treina por conta própria e todos voltam ao ponto de encontro prontos para o Novo Mundo.',
+  more:'Divide a obra em duas metades para fins de cronologia.',src:'Mangá, cap. ≈598'},
+ {id:'e20',saga:'s_new',imp:2,t:3.1,when:'Após o timeskip',ch:782,approx:true,conf:'estimada',tags:['strawhats','marinha','pirates'],
+  title:'Doflamingo cai em Dressrosa',sum:'Um reino inteiro é libertado depois de uma batalha em várias frentes.',
+  more:'Um dos maiores arcos do Novo Mundo em número de personagens envolvidos.',src:'Mangá, cap. ≈782'},
+ {id:'e21',saga:'s_new',imp:1,t:3.2,when:'Após o timeskip',ch:902,approx:true,conf:'estimada',tags:['strawhats','pirates'],
+  title:'Fuga do território de Big Mom',sum:'O bando escapa de uma ilha de doces depois de uma missão de resgate.',
+  more:'Detalhe do arco Whole Cake, mostrado para teste de hierarquia.',src:'Mangá, cap. ≈902'},
+ {id:'e22',saga:'s_new',imp:2,t:3.3,when:'Após o timeskip',ch:904,approx:true,conf:'estimada',tags:['marinha','pirates'],
+  title:'A Reverie',sum:'Líderes de vários reinos se encontram em Mary Geoise e o equilíbrio do mundo muda de lugar.',
+  more:'Evento político mais do que de combate.',src:'Mangá, cap. ≈904'},
+ {id:'e23',saga:'s_wano',imp:3,t:3.4,when:'Após o timeskip',ch:1044,approx:true,conf:'estimada',tags:['strawhats','pirates'],
+  title:'Um novo despertar de Luffy',sum:'No meio do confronto com um dos Imperadores, a fruta de Luffy revela uma forma inesperada.',
+  more:'Muda de forma permanente o que se espera dos combates.',src:'Mangá, cap. ≈1044'},
+ {id:'e24',saga:'s_wano',imp:3,t:3.45,when:'Após o timeskip',ch:1049,approx:true,conf:'estimada',tags:['strawhats','pirates'],
+  title:'Kaido é derrotado',sum:'Luffy vence um Imperador do Mar e o equilíbrio entre as potências piratas muda.',
+  more:'Encerra o arco de Wano e redefine o placar de poder.',src:'Mangá, cap. ≈1049'},
+ {id:'e25',saga:'s_egg',imp:2,t:3.6,when:'Após o timeskip',ch:1060,approx:true,conf:'estimada',tags:['strawhats','marinha'],
+  title:'Chegada a Egghead',sum:'Os Chapéus de Palha chegam à ilha do futuro, onde um cientista guarda segredos do mundo.',
+  more:'Arco mais recente do protótipo. Atualizar conforme novos capítulos forem publicados.',src:'Mangá, cap. ≈1060'}
+];
+const TAGS={strawhats:'Chapéus de Palha',marinha:'Marinha e Governo',pirates:'Grandes piratas',passado:'Passado'};
+const IMP_LABEL={3:'Marco',2:'Evento',1:'Detalhe'};
+
+/* ---------- Estado ---------- */
+const S={view:'v',axis:'chrono',zoom:3,tags:new Set(),spoil:false,ch:100};
+const $=s=>document.querySelector(s);
+const eraById=Object.fromEntries(ERAS.map(e=>[e.id,e]));
+const sagaById=Object.fromEntries(SAGAS.map(s=>[s.id,s]));
+const minCh=a=>{const v=a.map(e=>e.ch).filter(c=>c!==null);return v.length?Math.min(...v):99999};
+const maxCh=a=>{const v=a.map(e=>e.ch).filter(c=>c!==null);return v.length?Math.max(...v):0};
+const minT=a=>Math.min(...a.map(e=>e.t));
+
+function passesTags(e){return S.tags.size===0||e.tags.some(t=>S.tags.has(t))}
+function passesZoom(e){return e.imp>=(S.zoom===2?3:S.zoom===3?2:1)}
+function isHidden(e){return S.spoil&&(e.ch===null||e.ch>S.ch)}
+function chLabel(e){return e.ch===null?'cap. a confirmar':(e.approx?'≈ cap. ':'cap. ')+e.ch}
+
+function card(e,i){
+  const side=i%2===0?'L':'R';
+  const hid=isHidden(e);
+  const tags=e.tags.map(t=>'<span class="tag">'+TAGS[t]+'</span>').join('');
+  const title=hid?'Evento oculto':e.title;
+  const sum=hid?'Este acontecimento aparece depois do capítulo '+S.ch+'. Desative a proteção para ver.':e.sum;
+  const detail=hid?'':
+   '<div class="detail" id="d-'+e.id+'" hidden>'+
+   '<span>'+e.more+'</span>'+
+   '<span><b>Quando:</b> '+e.when+' · confiança da data: '+e.conf+'</span>'+
+   '<span><b>Fonte:</b> '+e.src+' · <b>Status:</b> rascunho a verificar</span></div>';
+  const btn=hid?'':'<button type="button" class="more" data-d="d-'+e.id+'" aria-expanded="false" aria-controls="d-'+e.id+'">Fonte e detalhes</button>';
+  return '<article class="ev imp'+e.imp+' '+side+(hid?' hid':'')+'">'+
+    '<span class="dot"></span><div class="card">'+
+    '<div class="meta"><span>'+(hid?'• • •':e.when)+'</span><span>'+(hid?'':IMP_LABEL[e.imp]+' · '+chLabel(e))+'</span></div>'+
+    '<h3>'+title+'</h3><p class="sum">'+sum+'</p>'+
+    (hid?'':'<div class="tags">'+tags+'</div>')+btn+detail+'</div></article>';
+}
+
+function sagaBlock(saga,evs,counter,extraEra){
+  const all=EVENTS.filter(e=>e.saga===saga.id);
+  const vis=evs.filter(e=>passesTags(e)&&passesZoom(e));
+  const tagged=all.filter(passesTags);
+  if(tagged.length===0) return {html:'',n:0};
+  const chs=all.filter(e=>e.ch!==null);
+  const range=chs.length?'caps. '+minCh(all)+' a '+maxCh(all):'capítulos a confirmar';
+  const hiddenN=tagged.length-vis.length;
+  let h='<div class="saga"><div class="saga-pill"><b>'+saga.name+'</b><small>'+(extraEra?extraEra+' · ':'')+range+'</small>'+
+    (hiddenN>0&&vis.length===0?'<em>'+hiddenN+' evento(s) em níveis de zoom mais próximos</em>':'')+'</div></div>';
+  vis.forEach(e=>{h+=card(e,counter.n++)});
+  return {html:h,n:vis.length};
+}
+
+function render(){
+  const hzOn=S.view==='hz';
+  $('#rail').hidden=hzOn;$('#hz').hidden=!hzOn;
+  if(hzOn){renderHz();return}
+  const tl=$('#tl');let html='';let shown=0;const counter={n:0};
+  const sortEv=a=>a.slice().sort((x,y)=>S.axis==='pub'?((x.ch??99999)-(y.ch??99999)):(x.t-y.t||(x.ch??0)-(y.ch??0)));
+
+  if(S.axis==='chrono'){
+    ERAS.slice().sort((a,b)=>a.order-b.order).forEach(era=>{
+      const sagas=SAGAS.filter(s=>s.era===era.id);
+      const evAll=EVENTS.filter(e=>sagas.some(s=>s.id===e.saga));
+      if(!evAll.some(passesTags)) return;
+      const nEv=evAll.filter(passesTags).length;
+      html+='<section class="era" style="--eg:'+era.bg+'"><div class="era-bg" data-par="1"></div><div class="era-ghost">'+era.ghost+'</div><div class="era-in">'+
+        '<div class="era-span">'+era.span+'</div><h2>'+era.name+'</h2><p>'+era.desc+'</p>'+
+        '<div class="era-stats"><span>'+sagas.length+' saga(s)</span><span>'+nEv+' evento(s)</span></div>';
+      if(S.zoom===1){
+        html+='<div class="era-sagas">'+sagas.map(s=>'<span>'+s.name+'</span>').join('')+'</div>'+
+        '<button type="button" class="era-open" data-open="1">Ver marcos desta era</button>';
+      }
+      html+='</div></section>';
+      if(S.zoom===1) return;
+      sagas.slice().sort((a,b)=>minT(EVENTS.filter(e=>e.saga===a.id))-minT(EVENTS.filter(e=>e.saga===b.id))).forEach(s=>{
+        const r=sagaBlock(s,sortEv(EVENTS.filter(e=>e.saga===s.id)),counter,'');
+        html+=r.html;shown+=r.n;
+      });
+    });
+  }else{
+    SAGAS.slice().sort((a,b)=>minCh(EVENTS.filter(e=>e.saga===a.id))-minCh(EVENTS.filter(e=>e.saga===b.id))).forEach(s=>{
+      if(S.zoom===1) return;
+      const r=sagaBlock(s,sortEv(EVENTS.filter(e=>e.saga===s.id)),counter,eraById[s.era].name);
+      html+=r.html;shown+=r.n;
+    });
+    if(S.zoom===1) html+='<div class="empty">No modo "Eras" a ordem de publicação não se aplica. Escolha outro nível de zoom.</div>';
+  }
+  if(!html) html='<div class="empty">Nenhum evento com esse filtro.</div>';
+  tl.innerHTML=html;
+  $('#count').textContent=S.zoom===1&&S.axis==='chrono'?'3 eras':shown+' de '+EVENTS.length+' eventos exibidos';
+  prepReveal();onScroll();
+}
+
+/* ---------- Controles ---------- */
+function press(group,val){document.querySelectorAll(group+' button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===String(val))))}
+$('#axis').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.axis=b.dataset.v;press('#axis',S.axis);render()});
+$('#zoom').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.zoom=+b.dataset.v;press('#zoom',S.zoom);render()});
+$('#tags').innerHTML=Object.keys(TAGS).map(k=>'<button type="button" class="chip" data-k="'+k+'" aria-pressed="false">'+TAGS[k]+'</button>').join('');
+$('#tags').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const k=b.dataset.k;
+  S.tags.has(k)?S.tags.delete(k):S.tags.add(k);b.setAttribute('aria-pressed',String(S.tags.has(k)));render()});
+$('#spoilOn').addEventListener('change',e=>{S.spoil=e.target.checked;$('#spoilCh').disabled=!S.spoil;render()});
+$('#spoilCh').addEventListener('input',e=>{const v=parseInt(e.target.value,10);S.ch=isNaN(v)?0:v;render()});
+$('#tl').addEventListener('click',e=>{
+  const m=e.target.closest('.more');
+  if(m){const d=document.getElementById(m.dataset.d);const open=d.hidden;d.hidden=!open;m.setAttribute('aria-expanded',String(open));m.textContent=open?'Ocultar detalhes':'Fonte e detalhes';return}
+  if(e.target.closest('[data-open]')){S.zoom=2;press('#zoom',2);render();$('#tl').scrollIntoView({block:'start'})}
+});
+
+/* ---------- Animações ---------- */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let io;
+function prepReveal(){
+  if(io)io.disconnect();
+  if(reduce||!('IntersectionObserver' in window))return;
+  io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.remove('pre');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.ev').forEach(el=>{
+    if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}
+  });
+}
+let ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(()=>{
+    ticking=false;
+    const rail=$('#rail');if(rail.hidden)return;const r=rail.getBoundingClientRect();
+    const p=Math.min(1,Math.max(0,(innerHeight*.5-r.top)/r.height));
+    rail.style.setProperty('--p',p.toFixed(4));
+    if(reduce)return;
+    document.querySelectorAll('.era-bg').forEach(el=>{
+      const b=el.parentElement.getBoundingClientRect();
+      el.style.transform='translateY('+((b.top+b.height/2-innerHeight/2)*-0.12).toFixed(1)+'px)';
+    });
+  });
+}
+addEventListener('scroll',onScroll,{passive:true});
+addEventListener('resize',onScroll);
+
+/* Ondas no rodapé (canvas) */
+(function(){
+  const c=$('#waves'),x=c.getContext('2d');let w=0,h=0,t=0;
+  function size(){const d=devicePixelRatio||1;w=c.clientWidth;h=c.clientHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);draw()}
+  const layers=[{a:14,f:.012,s:.9,y:.55,c:'rgba(59,138,163,.35)'},{a:18,f:.008,s:.6,y:.68,c:'rgba(37,100,125,.4)'},{a:12,f:.016,s:1.2,y:.82,c:'rgba(16,52,72,.7)'}];
+  function draw(){
+    x.clearRect(0,0,w,h);
+    layers.forEach(l=>{
+      x.beginPath();x.moveTo(0,h);
+      for(let i=0;i<=w;i+=6){x.lineTo(i,h*l.y+Math.sin(i*l.f+t*l.s)*l.a)}
+      x.lineTo(w,h);x.closePath();x.fillStyle=l.c;x.fill();
+    });
+  }
+  function loop(){t+=.02;draw();requestAnimationFrame(loop)}
+  addEventListener('resize',size);size();
+  if(!reduce)requestAnimationFrame(loop);
+})();
+
+/* ---------- Vista horizontal ---------- */
+const ICONS={
+ crown:'M3 18h18l-1.5-10-4.5 4-3-7-3 7-4.5-4z',
+ flame:'M12 3c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4 0-7 1-10z',
+ hat:'M3 15c0-1.2 4-2.2 9-2.2s9 1 9 2.2-4 2.8-9 2.8-9-1.6-9-2.8z M7.5 13.6C7.5 9 9.5 6.5 12 6.5s4.5 2.5 4.5 7.1',
+ ship:'M4 16h16l-3 4H7z M12 3v13 M12 4.5c4 2 6 5 6 9h-6',
+ scroll:'M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M8 9h8 M8 13h8 M8 17h4',
+ compass:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M15.5 8.5l-2 5-5 2 2-5z',
+ swords:'M6 4l12 12 M18 4L6 16 M4 8l4-4 M20 8l-4-4',
+ star:'M12 3l2.2 6.3L21 12l-6.8 2.7L12 21l-2.2-6.3L3 12l6.8-2.7z',
+ anchor:'M12 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4z M12 7v14 M5 13a7 7 0 0 0 14 0 M8 11h8'
+};
+const EV_ICON={e1:'scroll',e4:'compass',e5:'crown',e6:'flame',e7:'hat',e8:'ship',e13:'flame',e15:'compass',e17:'swords',e18:'anchor',e19:'hat',e23:'star',e24:'swords'};
+const PAL=['#e0502f','#e3aa2c','#3b8aa3','#6fbf8e','#c46b8a','#8a7bd1'];
+const FLAGC={void:'#5b47a3',roger:'#8f5a1c',gpe:'#1d7188'};
+const EV=Object.fromEntries(EVENTS.map(e=>[e.id,e]));
+let hzOrder=[];
+
+function sortEvents(a){return a.slice().sort((x,y)=>S.axis==='pub'?((x.ch??99999)-(y.ch??99999)):(x.t-y.t||(x.ch??0)-(y.ch??0)))}
+function iconSvg(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+ICONS[n]+'"/></svg>'}
+function wheelSvg(){
+  let p='';
+  for(let k=0;k<8;k++){const a=k*Math.PI/4;
+    p+='<line x1="'+(50+43*Math.cos(a)).toFixed(1)+'" y1="'+(50+43*Math.sin(a)).toFixed(1)+'" x2="'+(50+49*Math.cos(a)).toFixed(1)+'" y2="'+(50+49*Math.sin(a)).toFixed(1)+'" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>';}
+  return '<svg class="wheel" viewBox="0 0 100 100" aria-hidden="true">'+p+
+   '<circle cx="50" cy="50" r="43" fill="#0a1b28" stroke="currentColor" stroke-width="2"/>'+
+   '<circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="8" opacity=".35"/>'+
+   '<circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="104 104" transform="rotate(-90 50 50)"/>'+
+   '<circle cx="50" cy="50" r="25" fill="#102a3b"/></svg>';
+}
+
+function renderHz(){
+  const parts=[];let x=80,maj=0,shown=0;hzOrder=[];
+  const pass=e=>passesTags(e)&&(S.zoom===2?e.imp===3:S.zoom>=3);
+  const byT=s=>minT(EVENTS.filter(e=>e.saga===s.id));
+  const byC=s=>minCh(EVENTS.filter(e=>e.saga===s.id));
+  const groups=[];
+  if(S.axis==='chrono'){
+    ERAS.slice().sort((a,b)=>a.order-b.order).forEach(era=>{
+      groups.push({era,sagas:SAGAS.filter(s=>s.era===era.id).sort((a,b)=>byT(a)-byT(b))});
+    });
+  }else{
+    groups.push({era:null,sagas:SAGAS.slice().sort((a,b)=>byC(a)-byC(b))});
+  }
+  groups.forEach(g=>{
+    if(!g.sagas.some(s=>EVENTS.some(ev=>ev.saga===s.id&&passesTags(ev))))return;
+    if(g.era){
+      parts.push('<div class="hz-era" style="left:'+x+'px;--c:'+FLAGC[g.era.id]+'"><span class="mast"></span><div class="flag"><small>'+g.era.span+'</small><b>'+g.era.name+'</b></div></div>');
+      x+=270;
+    }
+    g.sagas.forEach(s=>{
+      const all=EVENTS.filter(ev=>ev.saga===s.id);
+      if(!all.some(passesTags))return;
+      const col=PAL[SAGAS.indexOf(s)%PAL.length];
+      const sub=g.era?'':eraById[s.era].name;
+      parts.push('<div class="hz-saga" style="left:'+x+'px"><div class="lab"><b>'+s.name+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div></div>');
+      x+=150;
+      if(S.zoom===1)return;
+      sortEvents(all).filter(pass).forEach(e=>{
+        const hid=isHidden(e);
+        hzOrder.push(e.id);shown++;
+        const when=hid?'• • •':e.when;
+        if(e.imp===3){
+          const side=(maj++%2===0)?'top':'bot';
+          const cx=x+55;
+          const ic=hid?'<span class="ic">?</span>':'<span class="ic">'+iconSvg(EV_ICON[e.id]||'star')+'</span>';
+          parts.push('<div class="hz-ev imp3 '+side+(hid?' hid':'')+'" style="left:'+cx+'px;--c:'+col+'">'+
+            '<div class="med" data-id="'+e.id+'">'+wheelSvg()+ic+'</div>'+
+            '<span class="conn"></span><span class="node"></span>'+
+            '<button type="button" class="txt" data-id="'+e.id+'"><span class="when">'+when+'</span><h4>'+(hid?'Evento oculto':e.title)+'</h4><p>'+(hid?'Aparece depois do capítulo '+S.ch+'.':e.sum)+'</p></button></div>');
+          x+=290;
+        }else{
+          const cx=x+22;
+          parts.push('<button type="button" class="dot-h imp'+e.imp+'" data-id="'+e.id+'" style="left:'+(cx-14)+'px;--c:'+col+'" aria-label="'+(hid?'Evento oculto':e.title)+'">'+
+            '<span class="tip"><b>'+(hid?'Evento oculto':e.title)+'</b><small>'+(hid?'Protegido contra spoilers':when+' · '+chLabel(e))+'</small></span></button>');
+          x+=e.imp===2?48:36;
+        }
+      });
+    });
+  });
+  const track=$('#hzTrack');
+  track.style.width=(x+160)+'px';
+  track.innerHTML='<div class="rope"></div>'+(parts.join('')||'<div class="empty">Nenhum evento com esse filtro.</div>');
+  $('#count').textContent=S.zoom===1?'visão geral de eras e sagas':shown+' de '+EVENTS.length+' eventos exibidos';
+  hzReveal();hzProg();
+}
+
+let hzIO;
+function hzReveal(){
+  if(hzIO)hzIO.disconnect();
+  if(reduce||!('IntersectionObserver' in window))return;
+  const sc=$('#hzScroll');
+  hzIO=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.remove('pre');hzIO.unobserve(en.target)}}),{root:sc});
+  const base=sc.getBoundingClientRect().left;
+  document.querySelectorAll('#hzTrack .hz-ev,#hzTrack .dot-h').forEach(el=>{
+    if(el.getBoundingClientRect().left-base>sc.clientWidth){el.classList.add('pre');hzIO.observe(el)}
+  });
+}
+function hzProg(){
+  const sc=$('#hzScroll'),m=sc.scrollWidth-sc.clientWidth;
+  $('#hzProg').style.setProperty('--hp',m>0?(sc.scrollLeft/m).toFixed(4):0);
+}
+function centerOn(id){
+  const sc=$('#hzScroll'),el=sc.querySelector('[data-id="'+id+'"]');if(!el)return;
+  const host=el.closest('.hz-ev')||el;
+  const left=parseFloat(host.style.left)+(el.classList.contains('dot-h')?14:0);
+  sc.scrollTo({left:left-sc.clientWidth/2,behavior:reduce?'auto':'smooth'});
+}
+(function(){
+  const sc=$('#hzScroll');let down=false,sx=0,sl=0,moved=false;
+  sc.addEventListener('scroll',hzProg,{passive:true});
+  addEventListener('resize',hzProg);
+  sc.addEventListener('pointerdown',e=>{if(e.button!==0||e.pointerType==='touch')return;down=true;moved=false;sx=e.clientX;sl=sc.scrollLeft});
+  sc.addEventListener('pointermove',e=>{
+    if(!down)return;const dx=e.clientX-sx;
+    if(!moved&&Math.abs(dx)>5){moved=true;sc.classList.add('drag');try{sc.setPointerCapture(e.pointerId)}catch(_){}}
+    if(moved)sc.scrollLeft=sl-dx;
+  });
+  const end=()=>{if(!down)return;down=false;sc.classList.remove('drag');if(moved)setTimeout(()=>{moved=false},0)};
+  sc.addEventListener('pointerup',end);sc.addEventListener('pointercancel',end);
+  sc.addEventListener('click',e=>{if(moved){e.stopPropagation();e.preventDefault()}},true);
+  sc.addEventListener('wheel',e=>{
+    if(Math.abs(e.deltaY)<=Math.abs(e.deltaX))return;
+    const max=sc.scrollWidth-sc.clientWidth;
+    if((e.deltaY>0&&sc.scrollLeft<max-1)||(e.deltaY<0&&sc.scrollLeft>1)){e.preventDefault();sc.scrollLeft+=e.deltaY}
+  },{passive:false});
+  $('#hzPrev').addEventListener('click',()=>sc.scrollBy({left:-sc.clientWidth*.7,behavior:reduce?'auto':'smooth'}));
+  $('#hzNext').addEventListener('click',()=>sc.scrollBy({left:sc.clientWidth*.7,behavior:reduce?'auto':'smooth'}));
+  $('#hzTrack').addEventListener('click',e=>{const t=e.target.closest('[data-id]');if(t)openModal(t.dataset.id)});
+})();
+$('#view').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.view=b.dataset.v;press('#view',S.view);render()});
+
+/* ---------- Janela de detalhe ---------- */
+let curId=null,lastFocus=null;
+(function(){ // borda rasgada do pergaminho
+  const pts=[];const n=34;
+  for(let i=0;i<=n;i++){pts.push((i*100/n).toFixed(2)+'% '+(2+Math.abs(Math.sin(i*2.7))*5).toFixed(1)+'px')}
+  for(let i=n;i>=0;i--){pts.push((i*100/n).toFixed(2)+'% calc(100% - '+(2+Math.abs(Math.cos(i*3.1))*5).toFixed(1)+'px)')}
+  $('#paper').style.clipPath='polygon('+pts.join(',')+')';
+})();
+function openModal(id){
+  const e=EV[id];if(!e)return;
+  const m=$('#modal');
+  if(m.hidden)lastFocus=document.activeElement;
+  curId=id;
+  const saga=sagaById[e.saga],era=eraById[saga.era],hid=isHidden(e);
+  $('#m-rib').textContent='Registro do diário de bordo · '+era.name+' · '+saga.name;
+  $('#m-title').textContent=hid?'Evento oculto':e.title;
+  $('#m-when').textContent=hid?'• • •':e.when;
+  $('#m-ch').textContent=hid?'protegido':chLabel(e)+' · '+IMP_LABEL[e.imp];
+  $('#m-sum').textContent=hid?'Este acontecimento aparece depois do capítulo '+S.ch+'. Desative a proteção contra spoilers para ver.':e.sum;
+  $('#m-more').textContent=hid?'':e.more;
+  $('#m-tags').innerHTML=hid?'':e.tags.map(t=>'<span>'+TAGS[t]+'</span>').join('');
+  $('#m-src').innerHTML=hid?'':'<div><dt>Fonte</dt><dd>'+e.src+'</dd></div><div><dt>Confiança da data</dt><dd>'+e.conf+'</dd></div><div><dt>Status</dt><dd>rascunho a verificar</dd></div>';
+  const i=hzOrder.indexOf(id);
+  $('#m-pos').textContent=i>=0?(i+1)+' de '+hzOrder.length:'';
+  $('#m-prev').disabled=i<=0;
+  $('#m-next').disabled=i<0||i>=hzOrder.length-1;
+  m.hidden=false;document.body.style.overflow='hidden';
+  $('#paper').scrollTop=0;
+  if(!m.dataset.open){m.dataset.open='1';$('.m-close').focus()}
+}
+function closeModal(){
+  const m=$('#modal');m.hidden=true;delete m.dataset.open;document.body.style.overflow='';
+  if(lastFocus&&document.contains(lastFocus)&&lastFocus.focus)lastFocus.focus();
+  lastFocus=null;
+}
+function step(d){
+  const i=hzOrder.indexOf(curId),n=i+d;
+  if(i<0||n<0||n>=hzOrder.length)return;
+  openModal(hzOrder[n]);centerOn(hzOrder[n]);
+}
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal'||e.target.closest('.m-close'))closeModal()});
+$('#m-prev').addEventListener('click',()=>step(-1));
+$('#m-next').addEventListener('click',()=>step(1));
+document.addEventListener('keydown',e=>{
+  const m=$('#modal');if(m.hidden)return;
+  if(e.key==='Escape')closeModal();
+  else if(e.key==='ArrowRight')step(1);
+  else if(e.key==='ArrowLeft')step(-1);
+  else if(e.key==='Tab'){
+    const f=[...m.querySelectorAll('button:not([disabled])')];if(!f.length)return;
+    const first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
+});
+
+render();
+</script>
+</body>
+</html>
