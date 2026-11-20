@@ -90,3 +90,19 @@ describe('layout horizontal', () => {
     expect(json).toContain(ev('e8').title);
   });
 });
+
+describe('trechos do painel', () => {
+  it('cada evento exibido pertence a um trecho, e cada trecho começa num marco ou no início de uma saga', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 4 }));
+    expect(Object.keys(l.groupOf).sort()).toEqual([...l.order].sort());
+    for (const g of l.groups) {
+      expect(g.ids[0]).toBe(g.anchor);
+      expect(g.ids.slice(1).every((id) => ev(id).imp !== 3)).toBe(true);
+      expect(new Set(g.ids.map((id) => ev(id).saga)).size).toBe(1);
+    }
+  });
+  it('trecho de saga oculta não leva o nome da saga', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 4, spoilerOn: true, lastChapter: 0 }));
+    expect(l.groups.every((g) => g.sagaHidden && !data.sagas.some((s) => s.name === g.saga))).toBe(true);
+  });
+});

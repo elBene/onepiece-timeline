@@ -1,12 +1,12 @@
 ---
 import '@fontsource-variable/archivo/wdth.css';
-import '@fontsource-variable/martian-mono/wdth.css';
+import '@fontsource/dela-gothic-one/latin-400.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import '../styles/header.css';
-import '../styles/horizontal.css';
-import '../styles/controls.css';
-import '../styles/modal.css';
+import '../styles/rail.css';
+import '../styles/timeline.css';
+import '../styles/panel.css';
 
 interface Props {
   title: string;
@@ -21,21 +21,29 @@ const icon = `${import.meta.env.BASE_URL}/favicon.svg`.replace(/\/{2,}/g, '/');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#ecebe6" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#2c77c9" />
     <link rel="icon" type="image/svg+xml" href={icon} />
     <title>{title}</title>
     <script is:inline>
-      // Aplica o tema antes da pintura, para não piscar.
+      // Aplica o tema antes da pintura, para não piscar. Temas antigos (claro/escuro) viram dia/noite.
       (function () {
         var t = null;
         try { t = localStorage.getItem('op-timeline:theme'); } catch (e) {}
-        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (t === 'light') t = 'azul';
+        if (t === 'dark') t = 'estrelas';
+        if (t !== 'azul' && t !== 'ouro' && t !== 'estrelas') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'estrelas' : 'azul';
         document.documentElement.dataset.theme = t;
+        var c = { azul: '#2c77c9', ouro: '#2a1204', estrelas: '#03081c' }[t];
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', c);
+        new MutationObserver(function () {
+          var n = { azul: '#2c77c9', ouro: '#2a1204', estrelas: '#03081c' }[document.documentElement.dataset.theme];
+          if (n) document.querySelector('meta[name="theme-color"]').setAttribute('content', n);
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
       })();
     </script>
   </head>
   <body>
+    <canvas class="scene" data-scene aria-hidden="true"></canvas>
     <div class="page">
       <slot />
       <footer class="foot">
@@ -43,5 +51,10 @@ const icon = `${import.meta.env.BASE_URL}/favicon.svg`.replace(/\/{2,}/g, '/');
         <p>Projeto de fã, sem fins oficiais. One Piece pertence a Eiichiro Oda, Shueisha e Toei Animation. Os textos são resumos próprios e não reproduzem a obra.</p>
       </footer>
     </div>
+    <script>
+      import { mountScene } from '../lib/scene';
+      const c = document.querySelector<HTMLCanvasElement>('[data-scene]');
+      if (c) mountScene(c);
+    </script>
   </body>
 </html>

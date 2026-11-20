@@ -1,46 +1,40 @@
-import { h, svg } from '../../lib/dom';
-import { spiralSvg } from '../../lib/glyphs';
+import { h } from '../../lib/dom';
 import type { LayoutItem } from '../../lib/layout';
 
 type Of<K extends LayoutItem['kind']> = Extract<LayoutItem, { kind: K }>;
 
 const pos = (x: number, extra = '') => `--x:${x}px;${extra}`;
 
-/** Era: nome enorme e apagado no fundo, como uma estação no dial. */
+/** Era: um mastro alto na linha com o nome hasteado. */
 export function EraMark(item: Of<'era'>): HTMLElement {
-  return h('div', { class: 't-era', style: pos(item.x, `--w:${Math.max(240, item.end - item.x - 160)}px`), 'data-ghost': item.era.name }, [
-    h('h2', {}, [item.era.name]),
-    h('p', { class: 'mono' }, [item.era.span]),
+  return h('div', { class: 't-era', style: pos(item.x) }, [
+    h('span', { class: 't-mast', 'aria-hidden': 'true' }),
+    h('div', { class: 't-era-flag' }, [h('h2', {}, [item.era.name]), h('p', {}, [item.era.span])]),
   ]);
 }
 
-/** Saga: faixa de frequência sob a fita. O nome some quando nada dela foi revelado. */
+/** Saga: rótulo discreto logo abaixo da linha. O nome some quando nada dela foi revelado. */
 export function SagaBand(item: Of<'saga'>): HTMLElement {
-  return h('div', { class: `t-saga${item.hidden ? ' is-hidden' : ''}`, style: pos(item.x, `--w:${Math.max(60, item.end - item.x)}px`) }, [
-    h('span', { class: 't-saga-rule', 'aria-hidden': 'true' }),
+  return h('div', { class: `t-saga${item.hidden ? ' is-hidden' : ''}`, style: pos(item.x) }, [
     h('h3', {}, [item.name]),
-    item.subtitle ? h('p', { class: 'mono' }, [item.subtitle]) : null,
+    item.subtitle ? h('p', {}, [item.subtitle]) : null,
   ]);
 }
 
-/** Marco (importância 3): transmissão completa, presa à fita por uma haste cujo traço é a confiança da data. */
-export function Transmission(item: Of<'medallion'>): HTMLElement {
+/** Marco (importância 3): disco com nome e ano, preso à linha por uma haste. O traço da haste é a confiança da data. */
+export function Marker(item: Of<'medallion'>): HTMLElement {
   const { view } = item;
-  const body = view.hidden
-    ? [h('h4', {}, [view.title]), h('span', { class: 't-static static', 'aria-hidden': 'true' })]
-    : [
-        h('h4', {}, [view.title]),
-        h('span', { class: 't-when mono' }, [svg(spiralSvg('t-spiral')), view.when, h('span', { class: 't-ch' }, [view.chapter])]),
-        h('p', {}, [view.sum]),
-      ];
+  const label = view.hidden ? view.title : `${view.title}, ${view.when}, ${view.chapter}`;
   return h('div', { class: `t-ev ${item.side} conf-${view.conf}${view.hidden ? ' is-hidden' : ''}`, style: pos(item.x), 'data-ev': view.id }, [
     h('span', { class: 't-stem', 'aria-hidden': 'true' }),
-    h('span', { class: 't-node', 'aria-hidden': 'true' }),
-    h('button', { type: 'button', class: 't-txt', 'data-id': view.id, 'aria-describedby': 'hz-help' }, body),
+    h('button', { type: 'button', class: 't-disc', 'data-id': view.id, 'aria-label': label, 'aria-describedby': 'hz-help' }, [
+      h('span', { class: 't-title', 'aria-hidden': 'true' }, [view.title]),
+      view.when ? h('span', { class: 't-year num', 'aria-hidden': 'true' }, [view.when]) : null,
+    ]),
   ]);
 }
 
-/** Acontecimento menor: marca na fita. A etiqueta aparece no hover, no foco e quando passa pela cabeça de leitura. */
+/** Acontecimento menor: marca de régua na linha. A etiqueta aparece no hover, no foco e quando escolhido. */
 export function Tick(item: Of<'dot'>): HTMLElement {
   const { view } = item;
   return h(
@@ -56,7 +50,7 @@ export function Tick(item: Of<'dot'>): HTMLElement {
     },
     [
       h('span', { class: 't-mark', 'aria-hidden': 'true' }),
-      h('span', { class: 't-tip', 'aria-hidden': 'true' }, [h('b', {}, [view.title]), h('small', { class: 'mono' }, [view.tip])]),
+      h('span', { class: 't-tip', 'aria-hidden': 'true' }, [h('b', {}, [view.title]), h('small', { class: 'num' }, [view.tip])]),
     ],
   );
 }

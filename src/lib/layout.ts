@@ -11,13 +11,15 @@ import { HIDDEN_SAGA, isHidden, toView, type EventView } from './spoilers';
  */
 export const LAYOUT = {
   start: 40,
-  eraGap: 360,
-  sagaGap: 180,
-  medallionOffset: 40,
-  medallionStep: 330,
-  dotOffset: 22,
-  dotStep: { 2: 60, 1: 46 } as Record<number, number>,
-  tailPadding: 40,
+  eraGap: 220,
+  sagaGap: 150,
+  medallionOffset: 70,
+  /** Marcos alternam em cima e embaixo: vizinhos podem ficar mais perto que o diâmetro. */
+  medallionStep: 150,
+  dotOffset: 16,
+  /** Marcas na linha, como as de uma régua. */
+  dotStep: { 2: 28, 1: 22 } as Record<number, number>,
+  tailPadding: 60,
 } as const;
 
 export type LayoutItem =
@@ -32,6 +34,19 @@ export interface Station {
   x: number;
 }
 
+/**
+ * Trecho mostrado no painel: um marco e os acontecimentos menores que vêm logo depois dele,
+ * sem atravessar a fronteira de uma saga. Os nomes já vêm censurados pela trava de spoilers.
+ */
+export interface Group {
+  ids: string[];
+  /** Evento que dá título ao trecho: o marco, ou o primeiro evento quando a saga começa sem marco. */
+  anchor: string;
+  era: string;
+  saga: string;
+  sagaHidden: boolean;
+}
+
 export interface HorizontalLayout {
   items: LayoutItem[];
   width: number;
@@ -40,6 +55,9 @@ export interface HorizontalLayout {
   /** Posição x (centro) de cada evento exibido. */
   xById: Record<string, number>;
   stations: Station[];
+  groups: Group[];
+  /** Índice do trecho (em groups) de cada evento exibido. */
+  groupOf: Record<string, number>;
 }
 
 export function computeHorizontalLayout(data: TimelineData, state: TimelineState): HorizontalLayout {
@@ -74,6 +92,8 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
   const stations: Station[] = [];
   let x: number = LAYOUT.start;
   let majors = 0;
+  const panelGroups: Group[] = [];
+  const groupOf: Record<string, number> = {};
   const visibleOf = (s: Saga) => eventsOf(s).filter((e) => passesTags(e, state.tags));
   const hasVisible = (s: Saga) => visibleOf(s).length > 0;
 
@@ -100,9 +120,16 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
         const shown = sortEvents(eventsOf(saga), state.axis).filter(
           (e: TimelineEvent) => passesTags(e, state.tags) && passesZoom(e, state.zoom),
         );
+        let group: Group | null = null;
         for (const e of shown) {
           const view = toView(e, state);
           order.push(e.id);
+          if (!group || e.imp === 3) {
+            group = { ids: [], anchor: e.id, era: eraById.get(saga.era)?.name ?? '', saga: name, sagaHidden: hidden };
+            panelGroups.push(group);
+          }
+          group.ids.push(e.id);
+          groupOf[e.id] = panelGroups.length - 1;
           if (e.imp === 3) {
             const side = majors++ % 2 === 0 ? 'top' : 'bot';
             const cx = x + LAYOUT.medallionOffset;
@@ -121,5 +148,5 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
     }
     if (eraItem) eraItem.end = x;
   }
-  return { items, width: x + LAYOUT.tailPadding, order, xById, stations };
+  return { items, width: x + LAYOUT.tailPadding, order, xById, stations, groups: panelGroups, groupOf };
 }

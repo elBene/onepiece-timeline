@@ -1,46 +1,83 @@
 ---
-// Casca estática da vista horizontal. Os nós da fita são criados no cliente
-// (src/components/timeline/mount.ts) para que textos de eventos ocultos nunca entrem no DOM.
+// Casca estática: painel "Mais filtros", faixa da linha (no céu) e painel de detalhes (sobre o mar).
+// Os nós da linha e o conteúdo do painel são criados no cliente (src/components/timeline/mount.ts)
+// a partir de modelos já censurados, para que textos de eventos ocultos nunca entrem no DOM.
 ---
-<section class="hz" id="timeline" data-timeline aria-label="Linha do tempo">
-  <div class="dial" data-dial role="slider" tabindex="0" aria-label="Sintonia da linha do tempo"
-    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="">
-    <div class="dial-scale" aria-hidden="true"></div>
-    <div class="dial-window" data-dial-window aria-hidden="true"></div>
-    <div class="dial-stations" data-dial-stations aria-hidden="true"></div>
-    <div class="dial-needle" data-dial-needle aria-hidden="true"></div>
-  </div>
-
-  <div class="hz-view">
-    <div class="hz-scroll" id="linha-do-tempo" data-scroll>
-      <div class="hz-track" data-track></div>
-    </div>
-    <div class="head" aria-hidden="true"></div>
-  </div>
-
-  <div class="bar" data-bar>
-    <div class="seg" role="group" aria-label="Quanto mostrar" data-group="zoom">
-      <button type="button" data-v="1" aria-pressed="false">Eras</button>
-      <button type="button" data-v="2" aria-pressed="false">Marcos</button>
-      <button type="button" data-v="3" aria-pressed="true">Eventos</button>
-      <button type="button" data-v="4" aria-pressed="false">Tudo</button>
-    </div>
-    <div class="seg" role="group" aria-label="Ordem" data-group="axis">
-      <button type="button" data-v="chrono" aria-pressed="true">História</button>
-      <button type="button" data-v="pub" aria-pressed="false">Publicação</button>
-    </div>
-    <p class="count mono" data-count aria-live="polite"></p>
-    <div class="arrows">
-      <button type="button" class="icon-btn" data-prev aria-label="Voltar na linha do tempo">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-      </button>
-      <button type="button" class="icon-btn" data-next aria-label="Avançar na linha do tempo">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+<div class="tl" data-timeline>
+  <aside class="rail" id="rail" data-rail aria-labelledby="rail-h">
+    <div class="rail-head">
+      <h2 id="rail-h">Mais filtros</h2>
+      <button type="button" class="icon-btn rail-close" data-rail-close aria-label="Fechar filtros">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
       </button>
     </div>
-  </div>
-  <p class="sr" id="hz-help">Na fita, as setas esquerda e direita passam de um acontecimento ao outro; Enter abre os detalhes.</p>
-</section>
+
+    <div class="rail-group">
+      <h3 id="rail-axis">Ordem</h3>
+      <div class="seg" role="group" aria-labelledby="rail-axis" data-group="axis">
+        <button type="button" data-v="chrono" aria-pressed="true">História</button>
+        <button type="button" data-v="pub" aria-pressed="false">Publicação</button>
+      </div>
+    </div>
+
+    <div class="rail-group">
+      <h3 id="rail-zoom">Mostrar</h3>
+      <div class="seg seg-grid" role="group" aria-labelledby="rail-zoom" data-group="zoom">
+        <button type="button" data-v="1" aria-pressed="false">Eras</button>
+        <button type="button" data-v="2" aria-pressed="false">Marcos</button>
+        <button type="button" data-v="3" aria-pressed="true">Eventos</button>
+        <button type="button" data-v="4" aria-pressed="false">Tudo</button>
+      </div>
+    </div>
+
+    <nav class="rail-group rail-nav" aria-labelledby="rail-go">
+      <h3 id="rail-go">Ir para</h3>
+      <div class="stations" data-stations></div>
+    </nav>
+
+    <p class="rail-count num" data-count aria-live="polite"></p>
+    <p class="rail-note">Versão em desenvolvimento: eventos em rascunho e capítulos com “≈” ainda estão sendo conferidos.</p>
+  </aside>
+  <div class="rail-scrim" data-rail-scrim hidden></div>
+
+  <section class="stage" aria-label="Linha do tempo">
+    <div class="band">
+      <button type="button" class="side side-prev" data-prev aria-label="Marco anterior">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+      <div class="hz-scroll" id="linha-do-tempo" data-scroll>
+        <div class="hz-track" data-track></div>
+      </div>
+      <button type="button" class="side side-next" data-next aria-label="Próximo marco">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+    </div>
+
+    <section class="panel" data-panel aria-labelledby="pn-head">
+      <header class="pn-top">
+        <div>
+          <h2 id="pn-head" data-pn-head></h2>
+          <p class="pn-sub" data-pn-sub></p>
+        </div>
+        <div class="pn-nav">
+          <button type="button" class="btn btn-quiet" data-pn-prev>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            Anterior
+          </button>
+          <button type="button" class="btn btn-quiet" data-pn-next>
+            Próximo
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+        </div>
+      </header>
+      <div class="pn-body">
+        <div class="pn-detail" data-pn-detail aria-live="polite"></div>
+        <ol class="pn-stair" data-pn-stair aria-label="Acontecimentos deste trecho"></ol>
+      </div>
+    </section>
+  </section>
+  <p class="sr" id="hz-help">Na linha, as setas esquerda e direita passam de um acontecimento ao outro e mostram os detalhes no painel abaixo.</p>
+</div>
 
 <script>
   import { data } from '../lib/data';
@@ -49,12 +86,13 @@
   import type { Axis, Zoom } from '../lib/state';
 
   const root = document.querySelector<HTMLElement>('[data-timeline]')!;
+  const rail = root.querySelector<HTMLElement>('[data-rail]')!;
+  const scrim = root.querySelector<HTMLElement>('[data-rail-scrim]')!;
+  const count = rail.querySelector<HTMLElement>('[data-count]')!;
 
-  const bar = root.querySelector<HTMLElement>('[data-bar]')!;
-  const count = bar.querySelector<HTMLElement>('[data-count]')!;
-
+  /* ---------- Mais filtros ---------- */
   function press(group: string, value: string) {
-    bar
+    rail
       .querySelectorAll<HTMLElement>(`[data-group="${group}"] button`)
       .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === value)));
   }
@@ -63,23 +101,73 @@
     press('zoom', String(s.zoom));
     press('axis', s.axis);
   }
-  bar.querySelector('[data-group="zoom"]')!.addEventListener('click', (e) => {
+  rail.querySelector('[data-group="zoom"]')!.addEventListener('click', (e) => {
     const b = (e.target as Element).closest<HTMLElement>('button');
     if (b) store.set({ zoom: Number(b.dataset.v) as Zoom });
   });
-  bar.querySelector('[data-group="axis"]')!.addEventListener('click', (e) => {
+  rail.querySelector('[data-group="axis"]')!.addEventListener('click', (e) => {
     const b = (e.target as Element).closest<HTMLElement>('button');
     if (b) store.set({ axis: b.dataset.v as Axis });
   });
   document.addEventListener(RENDERED_EVENT, (e) => {
     const { shown, hidden } = (e as CustomEvent<{ shown: number; hidden: number }>).detail;
     const s = store.get();
+    const n = shown - hidden;
     if (s.zoom === 1) count.textContent = 'Só eras e sagas';
-    else if (shown === 0) count.textContent = 'Nenhuma transmissão nesses temas';
-    else count.textContent = `${shown - hidden} ${shown - hidden === 1 ? 'transmissão' : 'transmissões'}` + (hidden ? ` · ${hidden} fora de alcance` : '');
+    else if (shown === 0) count.textContent = 'Nenhum acontecimento com esse foco';
+    else count.textContent = `${n} ${n === 1 ? 'acontecimento' : 'acontecimentos'}` + (hidden ? ` · ${hidden} além do horizonte` : '');
   });
   store.subscribe(sync);
   sync();
+
+  /* ---------- Abrir e fechar o painel lateral ---------- */
+  const narrow = matchMedia('(max-width: 900px)');
+  const KEY = 'op-timeline:rail';
+  let saved: string | null = null;
+  try {
+    saved = localStorage.getItem(KEY);
+  } catch {
+    /* sem armazenamento */
+  }
+  let open = narrow.matches ? false : saved !== 'closed';
+  let lastToggle: HTMLElement | null = null;
+
+  function apply() {
+    document.body.classList.toggle('rail-open', open);
+    rail.inert = !open;
+    scrim.hidden = !(open && narrow.matches);
+    document.querySelectorAll('[data-rail-toggle]').forEach((b) => b.setAttribute('aria-expanded', String(open)));
+  }
+  function setOpen(v: boolean, from?: HTMLElement | null) {
+    open = v;
+    apply();
+    if (!narrow.matches) {
+      try {
+        localStorage.setItem(KEY, v ? 'open' : 'closed');
+      } catch {
+        /* sem armazenamento */
+      }
+    }
+    if (v) {
+      lastToggle = from ?? null;
+      rail.querySelector<HTMLElement>('button')?.focus({ preventScroll: true });
+    } else if (from !== undefined) lastToggle?.focus({ preventScroll: true });
+  }
+  document.addEventListener('click', (e) => {
+    const t = (e.target as Element).closest<HTMLElement>('[data-rail-toggle]');
+    if (t) setOpen(!open, t);
+  });
+  rail.querySelector('[data-rail-close]')!.addEventListener('click', () => setOpen(false, null));
+  scrim.addEventListener('click', () => setOpen(false, null));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && open && narrow.matches) setOpen(false, null);
+  });
+  narrow.addEventListener('change', () => {
+    open = narrow.matches ? false : saved !== 'closed';
+    apply();
+  });
+  apply();
+
   // Monta por último: o contador já está ouvindo a primeira renderização.
   setTimelineApi(mountTimeline(root, data, store));
 </script>

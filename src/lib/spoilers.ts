@@ -3,8 +3,8 @@ import type { TimelineState } from './state';
 import { formatWhen } from './calendar';
 import { maxCh, minCh } from './sort';
 
-export const HIDDEN_TITLE = 'Sinal fora de alcance';
-export const HIDDEN_SAGA = 'Frequência fora de alcance';
+export const HIDDEN_TITLE = 'Além do horizonte';
+export const HIDDEN_SAGA = 'Mar ainda não navegado';
 
 type SpoilerState = Pick<TimelineState, 'spoilerOn' | 'lastChapter'> &
   Partial<Pick<TimelineState, 'spoilerMode' | 'lastEpisode'>>;
@@ -60,6 +60,9 @@ export interface EventView {
   sum: string;
   when: string;
   chapter: string;
+  /** "ep. 4", ou vazio. */
+  episode: string;
+  imp: 1 | 2 | 3;
   /** Linha secundária da etiqueta das marcas pequenas. */
   tip: string;
   /** Confiança da data; 'oculta' quando o evento está protegido. */
@@ -72,14 +75,27 @@ export function toView(e: TimelineEvent, s: SpoilerState): EventView {
       id: e.id,
       hidden: true,
       title: HIDDEN_TITLE,
-      sum: 'Esta transmissão chega depois do ponto em que você está.',
+      sum: 'Acontece depois do ponto em que você está na história.',
       when: '',
       chapter: '',
+      episode: '',
+      imp: e.imp as 1 | 2 | 3,
       tip: 'Protegido contra spoilers',
       conf: 'oculta',
     };
   }
   const chapter = chapterLabel(e.revealed);
   const when = formatWhen(e.date);
-  return { id: e.id, hidden: false, title: e.title, sum: e.sum, when, chapter, tip: `${when} · ${chapter}`, conf: e.date.conf };
+  return {
+    id: e.id,
+    hidden: false,
+    title: e.title,
+    sum: e.sum,
+    when,
+    chapter,
+    episode: episodeLabel(e.revealed),
+    imp: e.imp as 1 | 2 | 3,
+    tip: `${when} · ${chapter}`,
+    conf: e.date.conf,
+  };
 }

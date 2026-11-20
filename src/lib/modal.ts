@@ -13,6 +13,10 @@ export interface ModalView {
   title: string;
   when: string;
   stampNote: string;
+  /** "cap. 1" ou "≈ cap. 1"; vazio quando oculto. */
+  chapter: string;
+  /** "ep. 4"; vazio quando não há episódio ou quando oculto. */
+  episode: string;
   sum: string;
   more: string;
   tags: string[];
@@ -36,11 +40,13 @@ export function toModalView(
     return {
       id,
       hidden: true,
-      ribbon: 'Transmissão protegida',
+      ribbon: 'Protegido contra spoilers',
       title: HIDDEN_TITLE,
       when: '',
       stampNote: '',
-      sum: 'Esta transmissão chega depois do ponto em que você está. Avance o seu ponto em “Li até” para recebê-la.',
+      chapter: '',
+      episode: '',
+      sum: 'Este acontecimento chega depois do ponto em que você está na história. Avance o seu ponto em “Spoilers” para vê-lo.',
       more: '',
       tags: [],
       facts: [],
@@ -68,6 +74,8 @@ export function toModalView(
     title: e.title,
     when: formatWhen(e.date),
     stampNote: `${chapterLabel(e.revealed)} · ${IMP_LABEL[e.imp]}`,
+    chapter: chapterLabel(e.revealed),
+    episode: ep,
     sum: e.sum,
     more: e.more,
     tags: e.tags.map((t) => data.tags[t] ?? t),

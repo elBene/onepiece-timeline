@@ -1,17 +1,24 @@
 ---
 import { data } from '../lib/data';
 import { arcSagas } from '../lib/spoilers';
-import { SPIRAL_PATH } from '../lib/glyphs';
 import { maxCh } from '../lib/sort';
 
 const arcs = arcSagas(data);
 const tagEntries = Object.entries(data.tags);
 const home = import.meta.env.BASE_URL;
 const latestCh = maxCh(data.events);
+const themes = [
+  { id: 'azul', name: 'Mar azul' },
+  { id: 'ouro', name: 'Mar dourado' },
+  { id: 'estrelas', name: 'Céu estrelado' },
+];
 ---
 <header class="top">
+  <button type="button" class="icon-btn rail-toggle" data-rail-toggle aria-controls="rail" aria-expanded="true" aria-label="Mais filtros">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /><circle cx="16" cy="7" r="2" stroke="currentColor" stroke-width="1.8" /><circle cx="10" cy="17" r="2" stroke="currentColor" stroke-width="1.8" /></svg>
+  </button>
   <a class="brand" href={home}>
-    <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d={SPIRAL_PATH} stroke="currentColor" stroke-width="2.6" stroke-linecap="round" /></svg>
+    <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M9 17a7 7 0 0 1 14 0M3 17h26M6 22.5c2.5-2 5-2 7.5 0s5 2 7.5 0 4.5-1.6 6.5-.6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" /></svg>
     <span class="brand-name">Linha do Tempo <span>de One Piece</span></span>
   </a>
   <div class="top-actions">
@@ -20,12 +27,15 @@ const latestCh = maxCh(data.events);
       <span data-spoil-label>Até onde você chegou?</span>
     </button>
     <button type="button" class="pill" popovertarget="p-tags" aria-haspopup="dialog">
-      Temas<span class="pill-n mono" data-tags-n hidden></span>
+      Foco<span class="pill-n num" data-tags-n hidden></span>
     </button>
-    <button type="button" class="icon-btn" data-theme-toggle aria-label="Usar tema escuro">
-      <svg class="i-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></svg>
-      <svg class="i-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
-    </button>
+    <div class="themes" role="group" aria-label="Tema da página">
+      {themes.map((t) => (
+        <button type="button" class={`sw sw-${t.id}`} data-theme-set={t.id} aria-pressed="false" title={t.name}>
+          <span class="sr">{t.name}</span>
+        </button>
+      ))}
+    </div>
   </div>
 </header>
 
@@ -71,8 +81,8 @@ const latestCh = maxCh(data.events);
 </div>
 
 <div id="p-tags" class="sheet" popover role="dialog" aria-labelledby="p-tags-h" data-tags-sheet>
-  <h2 id="p-tags-h">Temas</h2>
-  <p class="sheet-lead">Mostra os acontecimentos de qualquer tema marcado.</p>
+  <h2 id="p-tags-h">Foco da linha do tempo</h2>
+  <p class="sheet-lead">Mostra só os acontecimentos dos grupos marcados. Sem nada marcado, mostra tudo.</p>
   <div class="checks" data-tags>
     {tagEntries.map(([id, name]) => (
       <label class="check"><input type="checkbox" value={id} /><span>{name}</span></label>
@@ -93,29 +103,34 @@ const latestCh = maxCh(data.events);
   const $ = <T extends Element>(s: string) => document.querySelector<T>(s)!;
 
   /* ---------- Tema ---------- */
-  const themeBtn = $<HTMLButtonElement>('[data-theme-toggle]');
   const root = document.documentElement;
-  function syncThemeBtn() {
-    const dark = root.dataset.theme === 'dark';
-    themeBtn.setAttribute('aria-label', dark ? 'Usar tema claro' : 'Usar tema escuro');
+  const themeBtns = [...document.querySelectorAll<HTMLButtonElement>('[data-theme-set]')];
+  function syncTheme() {
+    themeBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.themeSet === root.dataset.theme)));
   }
-  themeBtn.addEventListener('click', () => {
-    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    const swap = () => {
-      root.dataset.theme = next;
-      syncThemeBtn();
-    };
-    // Troca com transição de vista quando existe; senão, a transição de cor do body cuida.
-    const d = document as Document & { startViewTransition?: (cb: () => void) => unknown };
-    if (d.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) d.startViewTransition(swap);
-    else swap();
-    try {
-      localStorage.setItem('op-timeline:theme', next);
-    } catch {
-      /* sem armazenamento: vale só nesta visita */
-    }
-  });
-  syncThemeBtn();
+  themeBtns.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const next = btn.dataset.themeSet!;
+      if (next === root.dataset.theme) return;
+      const swap = () => {
+        root.dataset.theme = next;
+        syncTheme();
+      };
+      // A troca abre como um círculo a partir do botão: o céu novo se espalha.
+      const r = btn.getBoundingClientRect();
+      root.style.setProperty('--vt-x', `${r.left + r.width / 2}px`);
+      root.style.setProperty('--vt-y', `${r.top + r.height / 2}px`);
+      const d = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+      if (d.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) d.startViewTransition(swap);
+      else swap();
+      try {
+        localStorage.setItem('op-timeline:theme', next);
+      } catch {
+        /* sem armazenamento: vale só nesta visita */
+      }
+    }),
+  );
+  syncTheme();
 
   /* ---------- Spoiler ---------- */
   const chip = $<HTMLButtonElement>('[data-spoil-chip]');
