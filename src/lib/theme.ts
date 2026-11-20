@@ -5,6 +5,7 @@ export const SAGA_PALETTE = ['var(--red)', 'var(--gold)', 'var(--sea)', 'var(--j
 
 /** Cor da bandeira de cada era. */
 export const ERA_FLAG_COLORS: Record<string, string> = {
+  antiga: 'var(--era-ancient)',
   void: 'var(--era-void)',
   roger: 'var(--era-roger)',
   gpe: 'var(--era-gpe)',
@@ -27,6 +28,6 @@ export const DEFAULT_ICON = 'star';
 
 /** Ícone por evento (marcos). Eventos sem entrada usam o padrão. */
 export const EVENT_ICONS: Record<string, string> = {
-  e1: 'scroll', e4: 'compass', e5: 'crown', e6: 'flame', e7: 'lantern', e8: 'ship', e13: 'flame',
+  e1: 'scroll', 'v-grande-guerra': 'swords', 'v-governo-mundial': 'crown', e4: 'compass', e5: 'crown', e6: 'flame', e7: 'lantern', e8: 'ship', e13: 'flame',
   e15: 'compass', e17: 'swords', e18: 'anchor', e19: 'lantern', e23: 'star', e24: 'swords',
 };

@@ -1,23 +1,30 @@
 [
   {
+    "id": "antiga",
+    "name": "Antiguidade",
+    "span": "≈ 5000 a 1000 anos atrás",
+    "order": 0,
+    "desc": "Milênios antes do século apagado. Restam palácios, árvores e ruínas cuja idade só se conhece por estimativa."
+  },
+  {
     "id": "void",
     "name": "Era do Vazio",
-    "span": "≈ 800 anos antes da partida de Luffy",
-    "order": 0,
+    "span": "≈ 900 a 800 anos atrás",
+    "order": 1,
     "desc": "Um século inteiro foi apagado da história oficial. Quase tudo que se sabe dele vem de pedras que o Governo Mundial proíbe de ler."
   },
   {
     "id": "roger",
     "name": "Era de Roger",
     "span": "≈ 40 a 22 anos antes",
-    "order": 1,
+    "order": 2,
     "desc": "O tempo dos grandes rivais no mar, quando uma tripulação lendária cruza a Grand Line inteira e muda o rumo do mundo."
   },
   {
     "id": "gpe",
     "name": "Grande Era dos Piratas",
     "span": "Desde 22 anos antes até hoje",
-    "order": 2,
+    "order": 3,
     "desc": "Começa com a última frase de um condenado e se espalha por todos os mares. É aqui que a jornada de Luffy acontece."
   }
 ]

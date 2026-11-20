@@ -18,7 +18,9 @@ const ev = (id: string) => data.events.find((e) => e.id === id)!;
 describe('sort', () => {
   it('ordem da história usa a data (anos antes de hoje)', () => {
     const ids = sortEvents(data.events, 'chrono').map((e) => e.id);
-    expect(ids[0]).toBe('e1');
+    expect(ids[0]).toBe('v-arvore-ohara');
+    expect(ids.indexOf('v-tontatta')).toBeLessThan(ids.indexOf('e1'));
+    expect(ids.indexOf('e1')).toBeLessThan(ids.indexOf('v-grande-guerra'));
     expect(ids.indexOf('e5')).toBeLessThan(ids.indexOf('e8'));
   });
   it('ordem de publicação usa capítulo e deixa sem capítulo por último', () => {
@@ -78,7 +80,7 @@ describe('layout horizontal', () => {
   it('filtro por tema remove eventos', () => {
     const all = computeHorizontalLayout(data, st({ zoom: 4 })).order.length;
     const some = computeHorizontalLayout(data, st({ zoom: 4, tags: new Set(['strawhats']) })).order.length;
-    expect(all).toBe(25);
+    expect(all).toBe(data.events.length);
     expect(some).toBeLessThan(all);
   });
   it('eventos ocultos não vazam texto para os itens do layout', () => {

@@ -10,7 +10,7 @@
       "agoEnd": 800,
       "precision": "seculo",
       "conf": "estimada",
-      "seq": 0
+      "seq": 1
     },
     "revealed": {
       "ch": 395,
@@ -42,10 +42,11 @@
     "kind": "outro",
     "canon": "manga",
     "date": {
-      "ago": 800,
+      "ago": 900,
+      "agoEnd": 800,
       "precision": "seculo",
-      "conf": "estimada",
-      "seq": 1
+      "conf": "inferida",
+      "seq": 5
     },
     "revealed": {
       "ch": 649,
@@ -66,6 +67,942 @@
       {
         "type": "anime",
         "ref": "ep. 569"
+      }
+    ]
+  },
+  {
+    "id": "v-arvore-ohara",
+    "saga": "s_antigo",
+    "imp": 1,
+    "kind": "fundacao",
+    "canon": "manga",
+    "date": {
+      "ago": 5000,
+      "precision": "milenio",
+      "conf": "estimada",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 392,
+      "approx": false,
+      "ep": 275
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "A Árvore do Conhecimento",
+    "sum": "Em Ohara, uma árvore gigantesca começa a crescer. Milênios depois, ela abriga a maior biblioteca do mundo.",
+    "more": "A idade da árvore vem do Yellow Databook, não do mangá. No mangá ela aparece no passado de Robin, em Ohara.",
+    "src": [
+      {
+        "type": "databook",
+        "ref": "Yellow Databook",
+        "page": "233"
+      },
+      {
+        "type": "manga",
+        "ref": "cap. 392"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 275"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Before_Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-alubarna",
+    "saga": "s_antigo",
+    "imp": 1,
+    "kind": "fundacao",
+    "canon": "manga",
+    "date": {
+      "ago": 4000,
+      "precision": "milenio",
+      "conf": "estimada",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 188,
+      "approx": false,
+      "ep": 115
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "O palácio de Alubarna",
+    "sum": "O palácio real de Alabasta é erguido. Quando Luffy chega ao reino, ele já carrega quatro mil anos de história.",
+    "more": "A idade é dita por soldados do reino durante a batalha de Alubarna.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 188",
+        "page": "2"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 115"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Before_Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-elbaf-instalacao",
+    "saga": "s_antigo",
+    "imp": 1,
+    "kind": "fundacao",
+    "canon": "manga",
+    "date": {
+      "ago": 3000,
+      "precision": "milenio",
+      "conf": "inferida",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 1144,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "Uma instalação esquecida em Elbaf",
+    "sum": "Muito antes do Século Vazio, alguém constrói em Elbaf uma estrutura de tecnologia avançada.",
+    "more": "A idade é uma estimativa feita por uma personagem ao examinar o lugar, não uma data registrada.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1144",
+        "page": "2-3"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Before_Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-shandora-auge",
+    "saga": "s_antigo",
+    "imp": 2,
+    "kind": "fundacao",
+    "canon": "manga",
+    "date": {
+      "ago": 1100,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 261,
+      "approx": false,
+      "ep": 172
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "O auge de Shandora",
+    "sum": "A Cidade do Ouro prospera numa ilha da Grand Line, guardando um texto que o mundo inteiro procura.",
+    "more": "A data vem de uma inscrição lida por Robin: a cidade prosperava havia mais de 1100 anos. Como a leitura acontece antes do timeskip, o número é um piso aproximado.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 261",
+        "page": "13"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 172"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Before_Void_Century",
+        "rev": 2137923
+      }
+    ],
+    "conflicts": [
+      {
+        "note": "O wiki lista a cidade como erguida há 1139 anos; o mangá só diz \"mais de 1100 anos\".",
+        "src": [
+          "wiki",
+          "manga"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v-zunesha-nasce",
+    "saga": "s_antigo",
+    "imp": 1,
+    "kind": "nascimento",
+    "canon": "manga",
+    "date": {
+      "ago": 1000,
+      "precision": "milenio",
+      "conf": "estimada",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 802,
+      "approx": false,
+      "ep": 751
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "O elefante que carrega uma ilha",
+    "sum": "Nasce o elefante colossal que, séculos depois, anda pelo mar com uma ilha inteira nas costas.",
+    "more": "A idade de cerca de mil anos é dada quando o bando chega a Zou.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 802",
+        "page": "16-17"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 751"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Before_Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-bracos-pernas",
+    "saga": "s_antigo",
+    "imp": 1,
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 1000,
+      "precision": "milenio",
+      "conf": "estimada",
+      "seq": 1
+    },
+    "revealed": {
+      "ch": 884,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "Uma briga de mil anos",
+    "sum": "Duas tribos de corpos alongados, uma de braços e outra de pernas, começam uma rivalidade que atravessa séculos.",
+    "more": "Vem de uma história de capa, não da trama principal.",
+    "src": [
+      {
+        "type": "cover_story",
+        "ref": "capa do cap. 884"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Before_Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-tontatta",
+    "saga": "s_void",
+    "imp": 1,
+    "kind": "incidente",
+    "canon": "manga",
+    "date": {
+      "ago": 900,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 718,
+      "approx": false,
+      "ep": 648
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "Os anões sob jugo",
+    "sum": "Uma família real de Dressrosa escraviza o povo pequeno que vive escondido nas florestas do reino.",
+    "more": "Os anões contam que essa história começou há mais de 900 anos.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 718",
+        "page": "7"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 648"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-joyboy-nika",
+    "saga": "s_void",
+    "imp": 3,
+    "kind": "fruta",
+    "canon": "manga",
+    "date": {
+      "ago": 900,
+      "agoEnd": 800,
+      "precision": "seculo",
+      "conf": "inferida",
+      "seq": 2
+    },
+    "revealed": {
+      "ch": 1114,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado",
+      "pirates"
+    ],
+    "title": "O primeiro pirata",
+    "sum": "Um homem come uma fruta lendária e vira o primeiro pirata da história. Seu nome atravessa os séculos como lenda.",
+    "more": "Revelado numa transmissão para o mundo inteiro. O momento exato dentro do Século Vazio não é conhecido.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1114",
+        "page": "14-15"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-grande-reino",
+    "saga": "s_void",
+    "imp": 2,
+    "kind": "governo",
+    "canon": "manga",
+    "date": {
+      "ago": 900,
+      "agoEnd": 800,
+      "precision": "seculo",
+      "conf": "inferida",
+      "seq": 3
+    },
+    "revealed": {
+      "ch": 395,
+      "approx": false,
+      "ep": 277
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "O Grande Reino",
+    "sum": "Uma civilização poderosa se espalha pelo mundo e constrói armas capazes de destruir ilhas inteiras.",
+    "more": "É a hipótese dos estudiosos de Ohara, reconstruída a partir dos Poneglyphs. O nome do reino nunca foi descoberto.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 395"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 277"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-emet",
+    "saga": "s_void",
+    "imp": 1,
+    "kind": "fundacao",
+    "canon": "manga",
+    "date": {
+      "ago": 900,
+      "agoEnd": 800,
+      "precision": "seculo",
+      "conf": "inferida",
+      "seq": 4
+    },
+    "revealed": {
+      "ch": 1067,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "O gigante de ferro",
+    "sum": "Durante o Século Vazio, é construído um enorme autômato de metal que séculos depois volta a se mover.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1067",
+        "page": "9-11"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-toki-nasce",
+    "saga": "s_void",
+    "imp": 1,
+    "kind": "nascimento",
+    "canon": "manga",
+    "date": {
+      "ago": 830,
+      "precision": "decada",
+      "conf": "inferida",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 964,
+      "approx": false,
+      "ep": 964
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "Nasce a viajante do tempo",
+    "sum": "Nasce uma mulher que, com o poder de saltar para o futuro, vai chegar a Wano oito séculos depois.",
+    "more": "Ela mesma conta, já nos tempos de Oden, que nasceu 800 anos antes. A data é calculada a partir disso.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 964",
+        "page": "17"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 964"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-shandora-queda",
+    "saga": "s_void",
+    "imp": 2,
+    "kind": "incidente",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 0
+    },
+    "revealed": {
+      "ch": 261,
+      "approx": false,
+      "ep": 172
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "Shandora desaparece",
+    "sum": "Depois de uma guerra, o povo da Cidade do Ouro some, e a cidade fica em ruínas.",
+    "more": "A data cai justamente dentro do século apagado da história, o que chama a atenção de Robin.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 261",
+        "page": "13"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 172"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-imu-gigantes",
+    "saga": "s_void",
+    "imp": 2,
+    "kind": "guerra",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 1
+    },
+    "revealed": {
+      "ch": 1186,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado",
+      "marinha"
+    ],
+    "title": "Os gigantes se rendem",
+    "sum": "Os gigantes de Elbaf são obrigados a se render depois que suas crianças são tomadas como reféns.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1186",
+        "page": "15-17"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-grande-guerra",
+    "saga": "s_void",
+    "imp": 3,
+    "kind": "guerra",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 2
+    },
+    "revealed": {
+      "ch": 1115,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado",
+      "marinha"
+    ],
+    "title": "A Grande Guerra",
+    "sum": "Uma aliança de vinte reis vence o Grande Reino e seu herói. A derrota encerra o Século Vazio.",
+    "more": "A existência de uma aliança vencedora já era teoria em Ohara (cap. 395). A derrota de Joy Boy só é contada no cap. 1115.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1115",
+        "page": "3-5"
+      },
+      {
+        "type": "manga",
+        "ref": "cap. 395"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 277"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-mar-sobe",
+    "saga": "s_void",
+    "imp": 2,
+    "kind": "incidente",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 3
+    },
+    "revealed": {
+      "ch": 1115,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "O mar sobe 200 metros",
+    "sum": "A guerra deixa uma marca permanente: o nível do mar sobe e engole os antigos continentes, sobrando só ilhas.",
+    "more": "O wiki não cita capítulo para esse trecho; a informação aparece no resumo do cap. 1115.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1115"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-poneglyphs",
+    "saga": "s_void",
+    "imp": 2,
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 4
+    },
+    "revealed": {
+      "ch": 818,
+      "approx": false,
+      "ep": 770
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "As armas somem, as pedras ficam",
+    "sum": "As armas ancestrais desaparecem. O que resta da civilização derrotada são blocos de pedra indestrutíveis gravados por uma família de artesãos.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 818",
+        "page": "13"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 770"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-plutao-wano",
+    "saga": "s_void",
+    "imp": 2,
+    "kind": "outro",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 5
+    },
+    "revealed": {
+      "ch": 1055,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "Uma arma sob Wano",
+    "sum": "Uma das armas ancestrais é escondida em cavernas debaixo de um país isolado.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1055",
+        "page": "10-11"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-governo-mundial",
+    "saga": "s_void",
+    "imp": 3,
+    "kind": "fundacao",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 6
+    },
+    "revealed": {
+      "ch": 497,
+      "approx": false,
+      "ep": 391
+    },
+    "tags": [
+      "passado",
+      "marinha"
+    ],
+    "title": "Nasce o Governo Mundial",
+    "sum": "Os reis vencedores fundam o Governo Mundial e se mudam para a cidade no alto da Red Line. Seus descendentes viram os Nobres Mundiais.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 497"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 391"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-censura",
+    "saga": "s_void",
+    "imp": 2,
+    "kind": "governo",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 7
+    },
+    "revealed": {
+      "ch": 395,
+      "approx": false,
+      "ep": 277
+    },
+    "tags": [
+      "passado",
+      "marinha"
+    ],
+    "title": "A história é apagada",
+    "sum": "O novo governo proíbe pesquisar e ler os Poneglyphs, e os cem anos anteriores somem dos registros.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 395"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 277"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-lili",
+    "saga": "s_void",
+    "imp": 1,
+    "kind": "incidente",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 8
+    },
+    "revealed": {
+      "ch": 1084,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado",
+      "marinha"
+    ],
+    "title": "A rainha que não voltou",
+    "sum": "Uma das fundadoras do governo some no caminho de volta para casa, em Alabasta.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1084",
+        "page": "6-8"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-riku-dressrosa",
+    "saga": "s_void",
+    "imp": 1,
+    "kind": "governo",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 9
+    },
+    "revealed": {
+      "ch": 722,
+      "approx": false,
+      "ep": 653
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "Nova família no trono de Dressrosa",
+    "sum": "A antiga família real parte para viver com os fundadores do governo, e uma nova família assume Dressrosa e pede perdão aos anões.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 722"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 653"
+      },
+      {
+        "type": "manga",
+        "ref": "cap. 726"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 658"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-zunesha-crime",
+    "saga": "s_void",
+    "imp": 1,
+    "kind": "incidente",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 10
+    },
+    "revealed": {
+      "ch": 1040,
+      "approx": false,
+      "ep": null
+    },
+    "tags": [
+      "passado"
+    ],
+    "title": "A condenação do elefante",
+    "sum": "O companheiro gigante de Joy Boy comete um crime e é condenado a caminhar pelo mar para sempre.",
+    "more": "",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 1040",
+        "page": "15"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
+      }
+    ]
+  },
+  {
+    "id": "v-enies-lobby",
+    "saga": "s_void",
+    "imp": 1,
+    "kind": "fundacao",
+    "canon": "manga",
+    "date": {
+      "ago": 800,
+      "precision": "seculo",
+      "conf": "estimada",
+      "seq": 11
+    },
+    "revealed": {
+      "ch": 426,
+      "approx": false,
+      "ep": 308
+    },
+    "tags": [
+      "passado",
+      "marinha"
+    ],
+    "title": "Enies Lobby",
+    "sum": "Começa a história da ilha judicial do governo, que passaria oito séculos sem ser invadida.",
+    "more": "O wiki associa a data à criação da Cipher Pol; o mangá só afirma os 800 anos de reputação da ilha.",
+    "src": [
+      {
+        "type": "manga",
+        "ref": "cap. 426",
+        "page": "6"
+      },
+      {
+        "type": "anime",
+        "ref": "ep. 308"
+      },
+      {
+        "type": "wiki",
+        "ref": "World Timeline",
+        "url": "https://onepiece.fandom.com/wiki/World_Timeline#Void_Century",
+        "rev": 2137923
       }
     ]
   },

@@ -58,5 +58,10 @@
     "id": "s_egg",
     "era": "gpe",
     "name": "Egghead"
+  },
+  {
+    "id": "s_antigo",
+    "era": "antiga",
+    "name": "Mundo antigo"
   }
 ]
