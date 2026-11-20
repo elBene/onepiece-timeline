@@ -17,47 +17,56 @@
   {
     "id": "s_east",
     "era": "gpe",
-    "name": "East Blue"
+    "name": "East Blue",
+    "arc": true
   },
   {
     "id": "s_alab",
     "era": "gpe",
-    "name": "Alabasta"
+    "name": "Alabasta",
+    "arc": true
   },
   {
     "id": "s_sky",
     "era": "gpe",
-    "name": "Skypiea"
+    "name": "Skypiea",
+    "arc": true
   },
   {
     "id": "s_w7",
     "era": "gpe",
-    "name": "Water 7 e Enies Lobby"
+    "name": "Water 7 e Enies Lobby",
+    "arc": true
   },
   {
     "id": "s_tb",
     "era": "gpe",
-    "name": "Thriller Bark"
+    "name": "Thriller Bark",
+    "arc": true
   },
   {
     "id": "s_war",
     "era": "gpe",
-    "name": "Sabaody e Marineford"
+    "name": "Sabaody e Marineford",
+    "arc": true
   },
   {
     "id": "s_new",
     "era": "gpe",
-    "name": "Novo Mundo"
+    "name": "Novo Mundo",
+    "arc": true
   },
   {
     "id": "s_wano",
     "era": "gpe",
-    "name": "Wano"
+    "name": "Wano",
+    "arc": true
   },
   {
     "id": "s_egg",
     "era": "gpe",
-    "name": "Egghead"
+    "name": "Egghead",
+    "arc": true
   },
   {
     "id": "s_antigo",

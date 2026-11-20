@@ -1,27 +1,30 @@
 ---
-// Casca do popup em pergaminho. O conteúdo é preenchido no cliente a partir de um
-// modelo já censurado (src/lib/modal.ts), então eventos ocultos nunca expõem o texto real.
+// Folha de transmissão. O conteúdo é preenchido no cliente a partir de um modelo já
+// censurado (src/lib/modal.ts), então eventos ocultos nunca expõem o texto real.
 ---
 <div class="modal" data-modal hidden role="dialog" aria-modal="true" aria-labelledby="m-title">
-  <div class="modal-card">
-    <div class="paper" data-paper>
-      <button type="button" class="m-close" data-close aria-label="Fechar">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  <article class="m-card" data-card>
+    <header class="m-head">
+      <button type="button" class="icon-btn m-close" data-close aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
       </button>
-      <div class="m-ribbon" data-ribbon></div>
+    </header>
+    <div class="m-body" data-body>
       <h2 id="m-title" data-title></h2>
-      <div class="m-stamp"><span data-when></span><small data-stamp-note></small></div>
+      <p class="m-when mono"><span class="m-conf" data-conf aria-hidden="true"></span><span data-when></span><span class="m-note" data-stamp-note></span></p>
+      <p class="m-ribbon" data-ribbon></p>
+      <div class="m-static static" data-static aria-hidden="true" hidden></div>
       <p class="m-sum" data-sum></p>
       <p class="m-more" data-more></p>
-      <div class="m-tags" data-tags></div>
-      <dl class="m-src" data-facts></dl>
-      <div class="m-nav">
-        <button type="button" data-prev>← Anterior</button>
-        <span data-pos></span>
-        <button type="button" data-next>Próximo →</button>
-      </div>
+      <ul class="m-tags" data-tags></ul>
+      <dl class="m-facts" data-facts></dl>
     </div>
-  </div>
+    <footer class="m-nav">
+      <button type="button" class="btn btn-quiet" data-prev>Anterior</button>
+      <span class="mono" data-pos></span>
+      <button type="button" class="btn btn-quiet" data-next>Próxima</button>
+    </footer>
+  </article>
 </div>
 
 <script>
@@ -32,23 +35,16 @@
   import { h } from '../lib/dom';
 
   const modal = document.querySelector<HTMLElement>('[data-modal]')!;
-  const paper = modal.querySelector<HTMLElement>('[data-paper]')!;
+  const card = modal.querySelector<HTMLElement>('[data-card]')!;
+  const body = modal.querySelector<HTMLElement>('[data-body]')!;
   const $ = (s: string) => modal.querySelector<HTMLElement>(s)!;
   const prevBtn = $('[data-prev]') as HTMLButtonElement;
   const nextBtn = $('[data-next]') as HTMLButtonElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   let currentId: string | null = null;
   let lastFocus: HTMLElement | null = null;
+  /** Anterior/Próxima percorrem só o que o leitor pode ler. */
   let order: string[] = [];
-
-  // Borda rasgada do pergaminho.
-  {
-    const pts: string[] = [];
-    const n = 34;
-    for (let i = 0; i <= n; i++) pts.push(`${((i * 100) / n).toFixed(2)}% ${(2 + Math.abs(Math.sin(i * 2.7)) * 5).toFixed(1)}px`);
-    for (let i = n; i >= 0; i--)
-      pts.push(`${((i * 100) / n).toFixed(2)}% calc(100% - ${(2 + Math.abs(Math.cos(i * 3.1)) * 5).toFixed(1)}px)`);
-    paper.style.clipPath = `polygon(${pts.join(',')})`;
-  }
 
   function fill(id: string) {
     const v = toModalView(data, store.get(), id);
@@ -57,9 +53,13 @@
     $('[data-title]').textContent = v.title;
     $('[data-when]').textContent = v.when;
     $('[data-stamp-note]').textContent = v.stampNote;
+    $('[data-conf]').className = `m-conf conf-${v.conf}`;
+    $('[data-conf]').hidden = v.hidden;
+    $('[data-static]').hidden = !v.hidden;
     $('[data-sum]').textContent = v.sum;
     $('[data-more]').textContent = v.more;
-    $('[data-tags]').replaceChildren(...v.tags.map((t) => h('span', {}, [t])));
+    $('[data-more]').hidden = !v.more;
+    $('[data-tags]').replaceChildren(...v.tags.map((t) => h('li', {}, [t])));
     $('[data-facts]').replaceChildren(
       ...v.facts.map((f) => h('div', {}, [h('dt', {}, [f.label]), h('dd', {}, [f.value])])),
     );
@@ -67,15 +67,19 @@
     $('[data-pos]').textContent = i >= 0 ? `${i + 1} de ${order.length}` : '';
     prevBtn.disabled = i <= 0;
     nextBtn.disabled = i < 0 || i >= order.length - 1;
+    card.classList.toggle('is-hidden', v.hidden);
     currentId = id;
-    paper.scrollTop = 0;
+    body.scrollTop = 0;
     return true;
   }
 
   function open(id: string, origin: HTMLElement | null) {
     const wasOpen = !modal.hidden;
     if (!wasOpen) {
-      order = getTimelineApi()?.getOrder() ?? [];
+      const api = getTimelineApi();
+      const readable = api?.getReadable() ?? [];
+      // Um evento oculto aberto direto entra na lista só para ele mesmo.
+      order = readable.includes(id) ? readable : [id];
       lastFocus = origin ?? (document.activeElement as HTMLElement | null);
     }
     if (!fill(id)) return;
@@ -84,12 +88,16 @@
     if (!wasOpen) {
       setBackgroundInert(true);
       $('[data-close]').focus();
+    } else if (!reduce.matches) {
+      card.classList.remove('swap');
+      void card.offsetWidth;
+      card.classList.add('swap');
     }
   }
 
-  /** Com o popup aberto, o resto da página não recebe foco nem aparece para leitores de tela. */
+  /** Com a folha aberta, o resto da página não recebe foco nem aparece para leitores de tela. */
   function setBackgroundInert(on: boolean) {
-    document.querySelectorAll<HTMLElement>('.intro, main, footer, .skip').forEach((el) => (el.inert = on));
+    document.querySelectorAll<HTMLElement>('.top, main, .foot, .skip').forEach((el) => (el.inert = on));
     document.body.toggleAttribute('data-modal-open', on);
   }
 
@@ -97,7 +105,7 @@
     modal.hidden = true;
     document.body.style.overflow = '';
     setBackgroundInert(false);
-    // Devolve o foco ao evento que estava aberto (pode ter mudado com Anterior/Próximo).
+    // Devolve o foco ao evento que estava aberto (pode ter mudado com Anterior/Próxima).
     const api = getTimelineApi();
     if (currentId && api) api.focusEvent(currentId);
     else if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
@@ -130,7 +138,7 @@
     else if (e.key === 'ArrowRight') step(1);
     else if (e.key === 'ArrowLeft') step(-1);
     else if (e.key === 'Tab') {
-      // Foco preso no popup.
+      // Foco preso na folha.
       const f = [...modal.querySelectorAll<HTMLElement>('button:not([disabled])')];
       if (!f.length) return;
       const first = f[0]!;

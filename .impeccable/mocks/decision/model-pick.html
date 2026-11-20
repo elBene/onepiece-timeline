@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Tinta e retícula</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;background:#fbfaf6;color:#111;font-family:Arial,sans-serif;overflow:hidden;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;padding:28px 48px;border-bottom:4px solid #111}
+.word{font-size:30px;font-weight:900;font-style:italic}
+.word b{color:#e1251b}
+.strip{position:absolute;top:130px;left:48px;right:-200px;height:640px;display:flex;gap:18px}
+.p{border:5px solid #111;position:relative;flex:none;background:#fbfaf6;padding:28px}
+.dots{background-image:radial-gradient(#111 1.6px,transparent 1.8px);background-size:9px 9px}
+.speed{background:repeating-conic-gradient(from 0deg at 50% 50%,#111 0 1deg,transparent 1deg 7deg)}
+.title{width:420px;background:#111;color:#fbfaf6}
+.title h1{font-size:96px;line-height:.9;font-weight:900;margin-top:280px}
+.title small{font-size:26px;color:#e1251b}
+.big{width:560px}
+.big h2{font-size:58px;font-weight:900;line-height:.95;background:#fbfaf6;display:inline;padding:4px 10px}
+.big .inner{position:absolute;inset:180px 28px 28px;}
+.big p{position:absolute;bottom:28px;left:28px;right:28px;font-size:24px;background:#fbfaf6;padding:12px;border:3px solid #111}
+.small{width:220px;height:300px;align-self:flex-start}
+.small2{width:220px;height:320px;align-self:flex-end}
+.hid{width:240px;background:#bdbdbd}
+.hid span{position:absolute;bottom:20px;left:20px;font-size:24px;font-weight:700}
+.bottom{position:absolute;left:48px;bottom:30px;font-size:24px;font-weight:700}
+.bottom b{background:#111;color:#fbfaf6;padding:2px 8px}
+</style></head><body>
+<div class="top"><div class="word">ONE PIECE <b>LINHA DO TEMPO</b></div><div style="font-size:24px;font-weight:700">Li até: Alabasta ▾ &nbsp; ◐</div></div>
+<div class="strip">
+  <div class="p title"><small>ERA 2</small><h1>Era do Vazio</h1></div>
+  <div class="p big"><h2>O Século Vazio</h2><div class="inner speed"></div><p>Cem anos somem dos registros. ≈ 900 anos atrás.</p></div>
+  <div style="display:flex;flex-direction:column;gap:18px"><div class="p small dots"></div><div class="p small2"><b style="font-size:26px">O primeiro pirata</b></div></div>
+  <div class="p hid"><span>?</span></div>
+</div>
+<div class="bottom"><b>Marcos</b> &nbsp; Eventos &nbsp; Tudo &nbsp; Eras &nbsp;&nbsp;|&nbsp;&nbsp; <b>História</b> Publicação</div>
+</body></html>

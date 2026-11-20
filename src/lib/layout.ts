@@ -3,25 +3,34 @@ import type { TimelineState } from './state';
 import { passesTags, passesZoom } from './filters';
 import { earliest, minCh, sortEvents } from './sort';
 import { compareDates } from './calendar';
-import { toView, type EventView } from './spoilers';
-import { DEFAULT_FLAG_COLOR, ERA_FLAG_COLORS, EVENT_ICONS, DEFAULT_ICON, SAGA_PALETTE } from './theme';
+import { HIDDEN_SAGA, isHidden, toView, type EventView } from './spoilers';
 
+/**
+ * Posições em px no eixo da fita. O x 0 é o começo da fita; a vista acrescenta meia
+ * tela de folga dos dois lados para que qualquer ponto possa passar pela cabeça de leitura.
+ */
 export const LAYOUT = {
-  start: 80,
-  eraGap: 270,
-  sagaGap: 150,
-  medallionOffset: 55,
-  medallionStep: 290,
+  start: 40,
+  eraGap: 360,
+  sagaGap: 180,
+  medallionOffset: 40,
+  medallionStep: 330,
   dotOffset: 22,
-  dotStep: { 2: 48, 1: 36 } as Record<number, number>,
-  tailPadding: 160,
+  dotStep: { 2: 60, 1: 46 } as Record<number, number>,
+  tailPadding: 40,
 } as const;
 
 export type LayoutItem =
-  | { kind: 'era'; x: number; era: Era; color: string }
-  | { kind: 'saga'; x: number; saga: Saga; subtitle: string }
-  | { kind: 'medallion'; x: number; view: EventView; side: 'top' | 'bot'; color: string; icon: string }
-  | { kind: 'dot'; x: number; view: EventView; imp: 1 | 2; color: string };
+  | { kind: 'era'; x: number; end: number; era: Era }
+  | { kind: 'saga'; x: number; end: number; saga: Saga; name: string; hidden: boolean; subtitle: string }
+  | { kind: 'medallion'; x: number; view: EventView; side: 'top' | 'bot' }
+  | { kind: 'dot'; x: number; view: EventView; imp: 1 | 2 };
+
+/** Marca do dial: uma estação (era, ou saga na ordem de publicação). */
+export interface Station {
+  label: string;
+  x: number;
+}
 
 export interface HorizontalLayout {
   items: LayoutItem[];
@@ -30,6 +39,7 @@ export interface HorizontalLayout {
   order: string[];
   /** Posição x (centro) de cada evento exibido. */
   xById: Record<string, number>;
+  stations: Station[];
 }
 
 export function computeHorizontalLayout(data: TimelineData, state: TimelineState): HorizontalLayout {
@@ -61,44 +71,55 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
   const items: LayoutItem[] = [];
   const order: string[] = [];
   const xById: Record<string, number> = {};
+  const stations: Station[] = [];
   let x: number = LAYOUT.start;
   let majors = 0;
-  const hasVisible = (s: Saga) => eventsOf(s).some((e) => passesTags(e, state.tags));
+  const visibleOf = (s: Saga) => eventsOf(s).filter((e) => passesTags(e, state.tags));
+  const hasVisible = (s: Saga) => visibleOf(s).length > 0;
 
   for (const g of groups) {
     if (!g.sagas.some(hasVisible)) continue;
+    let eraItem: Extract<LayoutItem, { kind: 'era' }> | undefined;
     if (g.era) {
-      items.push({ kind: 'era', x, era: g.era, color: ERA_FLAG_COLORS[g.era.id] ?? DEFAULT_FLAG_COLOR });
+      eraItem = { kind: 'era', x, end: x, era: g.era };
+      items.push(eraItem);
+      stations.push({ label: g.era.name, x });
       x += LAYOUT.eraGap;
     }
     for (const saga of g.sagas) {
       if (!hasVisible(saga)) continue;
-      const color = SAGA_PALETTE[data.sagas.indexOf(saga) % SAGA_PALETTE.length]!;
+      // Nome da saga também é spoiler: some quando nada dela foi revelado ao leitor.
+      const hidden = visibleOf(saga).every((e) => isHidden(e, state));
+      const name = hidden ? HIDDEN_SAGA : saga.name;
       const subtitle = g.era ? '' : (eraById.get(saga.era)?.name ?? '');
-      items.push({ kind: 'saga', x, saga, subtitle });
+      const sagaItem: Extract<LayoutItem, { kind: 'saga' }> = { kind: 'saga', x, end: x, saga, name, hidden, subtitle };
+      items.push(sagaItem);
+      if (!g.era && !hidden) stations.push({ label: saga.name, x });
       x += LAYOUT.sagaGap;
-      if (state.zoom === 1) continue;
-
-      const shown = sortEvents(eventsOf(saga), state.axis).filter(
-        (e: TimelineEvent) => passesTags(e, state.tags) && passesZoom(e, state.zoom),
-      );
-      for (const e of shown) {
-        const view = toView(e, state);
-        order.push(e.id);
-        if (e.imp === 3) {
-          const side = majors++ % 2 === 0 ? 'top' : 'bot';
-          const cx = x + LAYOUT.medallionOffset;
-          xById[e.id] = cx;
-          items.push({ kind: 'medallion', x: cx, view, side, color, icon: EVENT_ICONS[e.id] ?? DEFAULT_ICON });
-          x += LAYOUT.medallionStep;
-        } else {
-          const cx = x + LAYOUT.dotOffset;
-          xById[e.id] = cx;
-          items.push({ kind: 'dot', x: cx, view, imp: e.imp as 1 | 2, color });
-          x += LAYOUT.dotStep[e.imp]!;
+      if (state.zoom !== 1) {
+        const shown = sortEvents(eventsOf(saga), state.axis).filter(
+          (e: TimelineEvent) => passesTags(e, state.tags) && passesZoom(e, state.zoom),
+        );
+        for (const e of shown) {
+          const view = toView(e, state);
+          order.push(e.id);
+          if (e.imp === 3) {
+            const side = majors++ % 2 === 0 ? 'top' : 'bot';
+            const cx = x + LAYOUT.medallionOffset;
+            xById[e.id] = cx;
+            items.push({ kind: 'medallion', x: cx, view, side });
+            x += LAYOUT.medallionStep;
+          } else {
+            const cx = x + LAYOUT.dotOffset;
+            xById[e.id] = cx;
+            items.push({ kind: 'dot', x: cx, view, imp: e.imp as 1 | 2 });
+            x += LAYOUT.dotStep[e.imp]!;
+          }
         }
       }
+      sagaItem.end = x - 40;
     }
+    if (eraItem) eraItem.end = x;
   }
-  return { items, width: x + LAYOUT.tailPadding, order, xById };
+  return { items, width: x + LAYOUT.tailPadding, order, xById, stations };
 }

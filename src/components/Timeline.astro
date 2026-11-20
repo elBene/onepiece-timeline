@@ -1,29 +1,85 @@
 ---
-// Casca estática da vista horizontal. Os nós da corda são criados no cliente
+// Casca estática da vista horizontal. Os nós da fita são criados no cliente
 // (src/components/timeline/mount.ts) para que textos de eventos ocultos nunca entrem no DOM.
 ---
-<section class="hz" id="timeline" data-timeline aria-label="Linha do tempo horizontal">
-  <button type="button" class="hz-nav prev" data-prev aria-label="Voltar na linha do tempo">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-  </button>
-  <button type="button" class="hz-nav next" data-next aria-label="Avançar na linha do tempo">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-  </button>
-  <div class="hz-scroll" id="linha-do-tempo" data-scroll tabindex="0" role="region" aria-label="Corda do tempo. Use as setas do teclado para rolar.">
-    <div class="hz-track" data-track></div>
+<section class="hz" id="timeline" data-timeline aria-label="Linha do tempo">
+  <div class="dial" data-dial role="slider" tabindex="0" aria-label="Sintonia da linha do tempo"
+    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="">
+    <div class="dial-scale" aria-hidden="true"></div>
+    <div class="dial-window" data-dial-window aria-hidden="true"></div>
+    <div class="dial-stations" data-dial-stations aria-hidden="true"></div>
+    <div class="dial-needle" data-dial-needle aria-hidden="true"></div>
   </div>
-  <div class="hz-prog" data-prog aria-hidden="true">
-    <i></i>
-    <svg class="ship-s" viewBox="0 0 40 40"><path class="s-hull" d="M6 27h28l-4 7H11z"/><path class="s-mast" d="M20 5v22"/><path class="s-sail" d="M21 7c8 4 10 10 10 17H21z"/><path class="s-jib" d="M19 10c-5 3-7 8-7 14h7z"/></svg>
+
+  <div class="hz-view">
+    <div class="hz-scroll" id="linha-do-tempo" data-scroll>
+      <div class="hz-track" data-track></div>
+    </div>
+    <div class="head" aria-hidden="true"></div>
   </div>
-  <p class="hint">Arraste ou role para navegar. Com o teclado, Tab entra nos eventos e as setas ← → percorrem um a um (Enter abre). Passe o mouse nos pontos pequenos para ver o nome; clique em qualquer evento para abrir os detalhes.</p>
+
+  <div class="bar" data-bar>
+    <div class="seg" role="group" aria-label="Quanto mostrar" data-group="zoom">
+      <button type="button" data-v="1" aria-pressed="false">Eras</button>
+      <button type="button" data-v="2" aria-pressed="false">Marcos</button>
+      <button type="button" data-v="3" aria-pressed="true">Eventos</button>
+      <button type="button" data-v="4" aria-pressed="false">Tudo</button>
+    </div>
+    <div class="seg" role="group" aria-label="Ordem" data-group="axis">
+      <button type="button" data-v="chrono" aria-pressed="true">História</button>
+      <button type="button" data-v="pub" aria-pressed="false">Publicação</button>
+    </div>
+    <p class="count mono" data-count aria-live="polite"></p>
+    <div class="arrows">
+      <button type="button" class="icon-btn" data-prev aria-label="Voltar na linha do tempo">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+      <button type="button" class="icon-btn" data-next aria-label="Avançar na linha do tempo">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+    </div>
+  </div>
+  <p class="sr" id="hz-help">Na fita, as setas esquerda e direita passam de um acontecimento ao outro; Enter abre os detalhes.</p>
 </section>
 
 <script>
   import { data } from '../lib/data';
-  import { store, setTimelineApi } from '../lib/app';
+  import { store, setTimelineApi, RENDERED_EVENT } from '../lib/app';
   import { mountTimeline } from './timeline/mount';
+  import type { Axis, Zoom } from '../lib/state';
 
   const root = document.querySelector<HTMLElement>('[data-timeline]')!;
+
+  const bar = root.querySelector<HTMLElement>('[data-bar]')!;
+  const count = bar.querySelector<HTMLElement>('[data-count]')!;
+
+  function press(group: string, value: string) {
+    bar
+      .querySelectorAll<HTMLElement>(`[data-group="${group}"] button`)
+      .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === value)));
+  }
+  function sync() {
+    const s = store.get();
+    press('zoom', String(s.zoom));
+    press('axis', s.axis);
+  }
+  bar.querySelector('[data-group="zoom"]')!.addEventListener('click', (e) => {
+    const b = (e.target as Element).closest<HTMLElement>('button');
+    if (b) store.set({ zoom: Number(b.dataset.v) as Zoom });
+  });
+  bar.querySelector('[data-group="axis"]')!.addEventListener('click', (e) => {
+    const b = (e.target as Element).closest<HTMLElement>('button');
+    if (b) store.set({ axis: b.dataset.v as Axis });
+  });
+  document.addEventListener(RENDERED_EVENT, (e) => {
+    const { shown, hidden } = (e as CustomEvent<{ shown: number; hidden: number }>).detail;
+    const s = store.get();
+    if (s.zoom === 1) count.textContent = 'Só eras e sagas';
+    else if (shown === 0) count.textContent = 'Nenhuma transmissão nesses temas';
+    else count.textContent = `${shown - hidden} ${shown - hidden === 1 ? 'transmissão' : 'transmissões'}` + (hidden ? ` · ${hidden} fora de alcance` : '');
+  });
+  store.subscribe(sync);
+  sync();
+  // Monta por último: o contador já está ouvindo a primeira renderização.
   setTimelineApi(mountTimeline(root, data, store));
 </script>

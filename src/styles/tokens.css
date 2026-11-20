@@ -1,51 +1,80 @@
-/* Mapa náutico noturno. Tokens do protótipo. */
+/*
+ * Transmissões do Den Den Mushi. Duas tintas e um sinal.
+ * Claro: fita de telex. Escuro: transmissão noturna. Cor plena só no sinal.
+ */
 :root {
+  color-scheme: light;
+  --bg: #ecebe6;
+  --bg-rgb: 236 235 230;
+  --surface: #f7f6f2;
+  --ink: #16150f;
+  --ink-2: #3b3932;
+  --muted: #5d5a52;
+  --faint: #c4c1b7;
+  --hair: #d6d3ca;
+  --ghost: rgb(22 21 15 / .055);
+  --signal: #c0371b;
+  --on-signal: #fff;
+  --select: rgb(192 55 27 / .18);
+  --shade: rgb(22 21 15 / .14);
+  --static-ink: #6f6c63;
+  --static-bg: #d3d0c7;
+  --fill: rgb(22 21 15 / .07);
+  --fill-2: rgb(22 21 15 / .11);
+
+  --f-display: 'Archivo Variable', 'Arial Narrow', sans-serif;
+  --f-body: 'Archivo Variable', system-ui, sans-serif;
+  --f-data: 'Martian Mono Variable', ui-monospace, monospace;
+
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --t-fast: 160ms;
+  --t-med: 420ms;
+
+  /* Ruído de estática (gerado, sem imagem externa). */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.35'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+:root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #0a1b28;
-  --bg-rgb: 10 27 40;
-  --bg2: #102a3b;
-  --ink: #efe4cb;
-  --ink-soft: #cfc9b6;
-  --muted: #9fb1ba;
-  --gold: #e3aa2c;
-  --on-gold: #1b1305;
-  --red: #e0502f;
-  --sea: #3b8aa3;
-  --jade: #6fbf8e;
-  --rose: #c46b8a;
-  --violet: #8a7bd1;
-  --line: #27475a;
-  --card: #12303f;
-  --on-flag: #fff;
-  --shadow: rgb(0 0 0 / .45);
+  --bg: #0f0f11;
+  --bg-rgb: 15 15 17;
+  --surface: #18181b;
+  --ink: #ebe6da;
+  --ink-2: #c4beb1;
+  --muted: #9a958a;
+  --faint: #3a3935;
+  --hair: #2a2a2d;
+  --ghost: rgb(235 230 218 / .05);
+  --signal: #ee6c4c;
+  --on-signal: #160904;
+  --select: rgb(238 108 76 / .28);
+  --shade: rgb(0 0 0 / .5);
+  --static-ink: #8b877d;
+  --static-bg: #5b5954;
+  --fill: rgb(235 230 218 / .08);
+  --fill-2: rgb(235 230 218 / .13);
+}
 
-  /* Corda trançada */
-  --rope-1: #c7a56a;
-  --rope-2: #8a6b3a;
-
-  /* Bandeiras das eras */
-  --era-ancient: #4f6b3a;
-  --era-void: #5b47a3;
-  --era-roger: #8f5a1c;
-  --era-gpe: #1d7188;
-  --era-default: #2d7088;
-
-  /* Ondas de fundo (de trás para frente) */
-  --wave-1: rgb(59 138 163 / .35);
-  --wave-2: rgb(37 100 125 / .4);
-  --wave-3: rgb(16 52 72 / .7);
-
-  /* Pergaminho: tinta escura sobre areia. Todos os pares passam de 4,5:1 até no canto mais escuro. */
-  --paper-1: #f6ead0;
-  --paper-2: #e6d2a2;
-  --paper-3: #cdb27a;
-  --paper-ink: #2b1c0c;
-  --paper-ink-2: #4a3820;
-  --paper-ink-3: #5a3f18;
-  --paper-ink-4: #4f3814;
-  --paper-red: #7d2512;
-  --paper-btn-ink: #efe0bd;
-
-  --font-display: 'Pirata One', 'Georgia', serif;
-  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+/* Sem JavaScript, segue o sistema. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0f0f11;
+    --bg-rgb: 15 15 17;
+    --surface: #18181b;
+    --ink: #ebe6da;
+    --ink-2: #c4beb1;
+    --muted: #9a958a;
+    --faint: #3a3935;
+    --hair: #2a2a2d;
+    --ghost: rgb(235 230 218 / .05);
+    --signal: #ee6c4c;
+    --on-signal: #160904;
+    --select: rgb(238 108 76 / .28);
+    --shade: rgb(0 0 0 / .5);
+    --static-ink: #8b877d;
+  --static-bg: #5b5954;
+    --fill: rgb(235 230 218 / .08);
+    --fill-2: rgb(235 230 218 / .13);
+  }
 }

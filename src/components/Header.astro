@@ -1,0 +1,236 @@
+---
+import { data } from '../lib/data';
+import { arcSagas } from '../lib/spoilers';
+import { SPIRAL_PATH } from '../lib/glyphs';
+import { maxCh } from '../lib/sort';
+
+const arcs = arcSagas(data);
+const tagEntries = Object.entries(data.tags);
+const home = import.meta.env.BASE_URL;
+const latestCh = maxCh(data.events);
+---
+<header class="top">
+  <a class="brand" href={home}>
+    <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d={SPIRAL_PATH} stroke="currentColor" stroke-width="2.6" stroke-linecap="round" /></svg>
+    <span class="brand-name">Linha do Tempo <span>de One Piece</span></span>
+  </a>
+  <div class="top-actions">
+    <button type="button" class="pill pill-spoil" popovertarget="p-spoil" data-spoil-chip aria-haspopup="dialog">
+      <span class="pill-led" aria-hidden="true"></span>
+      <span data-spoil-label>Até onde você chegou?</span>
+    </button>
+    <button type="button" class="pill" popovertarget="p-tags" aria-haspopup="dialog">
+      Temas<span class="pill-n mono" data-tags-n hidden></span>
+    </button>
+    <button type="button" class="icon-btn" data-theme-toggle aria-label="Usar tema escuro">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+    </button>
+  </div>
+</header>
+
+<div id="p-spoil" class="sheet" popover role="dialog" aria-labelledby="p-spoil-h" data-spoil-sheet>
+  <h2 id="p-spoil-h">Até onde você chegou?</h2>
+  <p class="sheet-lead">Só chega até você o que já foi transmitido no seu ponto da história. Fica salvo neste navegador.</p>
+
+  <label class="switch">
+    <input type="checkbox" role="switch" data-spoil-on />
+    <span class="switch-track" aria-hidden="true"><span></span></span>
+    Proteger contra spoilers
+  </label>
+
+  <fieldset class="seg seg-wide" data-spoil-modes>
+    <legend class="sr">Informar por</legend>
+    <label><input type="radio" name="spoil-mode" value="saga" /><span>Saga</span></label>
+    <label><input type="radio" name="spoil-mode" value="ch" /><span>Capítulo</span></label>
+    <label><input type="radio" name="spoil-mode" value="ep" /><span>Episódio</span></label>
+  </fieldset>
+
+  <div class="field" data-pane="saga">
+    <label for="spoil-saga">Última saga que você terminou</label>
+    <select id="spoil-saga" data-spoil-saga>
+      <option value="">Ainda não terminei nenhuma</option>
+      {arcs.map((s) => <option value={s.id}>{s.name}</option>)}
+    </select>
+  </div>
+  <div class="field" data-pane="ch" hidden>
+    <label for="spoil-ch">Último capítulo lido</label>
+    <input id="spoil-ch" type="number" inputmode="numeric" min="1" step="1" data-spoil-ch aria-describedby="spoil-ch-err" placeholder={`ex.: ${Math.min(latestCh, 1000)}`} />
+    <p class="field-err" id="spoil-ch-err" aria-live="polite"></p>
+  </div>
+  <div class="field" data-pane="ep" hidden>
+    <label for="spoil-ep">Último episódio do anime</label>
+    <input id="spoil-ep" type="number" inputmode="numeric" min="1" step="1" data-spoil-ep aria-describedby="spoil-ep-note spoil-ep-err" placeholder="ex.: 400" />
+    <p class="field-note" id="spoil-ep-note">Convertido em capítulo pelos episódios já registrados nos dados. Na dúvida, esconde mais.</p>
+    <p class="field-err" id="spoil-ep-err" aria-live="polite"></p>
+  </div>
+
+  <div class="sheet-foot">
+    <button type="button" class="btn" popovertarget="p-spoil" popovertargetaction="hide">Pronto</button>
+  </div>
+</div>
+
+<div id="p-tags" class="sheet" popover role="dialog" aria-labelledby="p-tags-h" data-tags-sheet>
+  <h2 id="p-tags-h">Temas</h2>
+  <p class="sheet-lead">Mostra os acontecimentos de qualquer tema marcado.</p>
+  <div class="checks" data-tags>
+    {tagEntries.map(([id, name]) => (
+      <label class="check"><input type="checkbox" value={id} /><span>{name}</span></label>
+    ))}
+  </div>
+  <div class="sheet-foot">
+    <button type="button" class="btn btn-quiet" data-tags-clear>Limpar</button>
+    <button type="button" class="btn" popovertarget="p-tags" popovertargetaction="hide">Pronto</button>
+  </div>
+</div>
+
+<script>
+  import { data } from '../lib/data';
+  import { store } from '../lib/app';
+  import { arcSagas, chapterForEpisode, chapterForSaga } from '../lib/spoilers';
+  import type { SpoilerMode } from '../lib/state';
+
+  const $ = <T extends Element>(s: string) => document.querySelector<T>(s)!;
+
+  /* ---------- Tema ---------- */
+  const themeBtn = $<HTMLButtonElement>('[data-theme-toggle]');
+  const root = document.documentElement;
+  function syncThemeBtn() {
+    const dark = root.dataset.theme === 'dark';
+    themeBtn.setAttribute('aria-label', dark ? 'Usar tema claro' : 'Usar tema escuro');
+  }
+  themeBtn.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    const swap = () => {
+      root.dataset.theme = next;
+      syncThemeBtn();
+    };
+    // Troca com transição de vista quando existe; senão, a transição de cor do body cuida.
+    const d = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+    if (d.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) d.startViewTransition(swap);
+    else swap();
+    try {
+      localStorage.setItem('op-timeline:theme', next);
+    } catch {
+      /* sem armazenamento: vale só nesta visita */
+    }
+  });
+  syncThemeBtn();
+
+  /* ---------- Spoiler ---------- */
+  const chip = $<HTMLButtonElement>('[data-spoil-chip]');
+  const chipLabel = $<HTMLElement>('[data-spoil-label]');
+  const sheet = $<HTMLElement>('[data-spoil-sheet]');
+  const onBox = $<HTMLInputElement>('[data-spoil-on]');
+  const sagaSel = $<HTMLSelectElement>('[data-spoil-saga]');
+  const chIn = $<HTMLInputElement>('[data-spoil-ch]');
+  const epIn = $<HTMLInputElement>('[data-spoil-ep]');
+  const chErr = $<HTMLElement>('#spoil-ch-err');
+  const epErr = $<HTMLElement>('#spoil-ep-err');
+  const sagaName = new Map(arcSagas(data).map((s) => [s.id, s.name]));
+
+  function label(): string {
+    const s = store.get();
+    if (!s.spoilerOn) return 'Até onde você chegou?';
+    if (s.spoilerMode === 'saga') return s.spoilerSaga ? `Li até ${sagaName.get(s.spoilerSaga) ?? 'a saga escolhida'}` : 'Ainda no começo';
+    if (s.spoilerMode === 'ep') return `Vi até o ep. ${s.lastEpisode}`;
+    return `Li até o cap. ${s.lastChapter}`;
+  }
+
+  function showPane(mode: SpoilerMode) {
+    sheet.querySelectorAll<HTMLElement>('[data-pane]').forEach((p) => (p.hidden = p.dataset.pane !== mode));
+  }
+
+  function syncSheet() {
+    const s = store.get();
+    onBox.checked = s.spoilerOn;
+    sheet.querySelectorAll<HTMLInputElement>('input[name="spoil-mode"]').forEach((r) => (r.checked = r.value === s.spoilerMode));
+    showPane(s.spoilerMode);
+    sagaSel.value = s.spoilerSaga ?? '';
+    if (document.activeElement !== chIn) chIn.value = s.spoilerMode === 'ch' && s.spoilerOn ? String(s.lastChapter) : chIn.value;
+    if (document.activeElement !== epIn) epIn.value = s.spoilerMode === 'ep' && s.spoilerOn ? String(s.lastEpisode) : epIn.value;
+    chip.classList.toggle('is-on', s.spoilerOn);
+    chipLabel.textContent = label();
+  }
+
+  function applySaga() {
+    const id = sagaSel.value || null;
+    store.set({ spoilerOn: true, spoilerMode: 'saga', spoilerSaga: id, lastChapter: id ? chapterForSaga(data, id) : 0 });
+  }
+
+  /** Lê um inteiro positivo. Devolve a mensagem de erro, ou o número. */
+  function readPositive(input: HTMLInputElement, what: string): number | string {
+    const raw = input.value.trim();
+    if (raw === '') return `Digite o número do ${what}.`;
+    const n = Number(raw);
+    if (!Number.isInteger(n) || n < 1) return `Use um número inteiro a partir de 1.`;
+    if (n > 5000) return `Esse ${what} ainda não existe. Confira o número.`;
+    return n;
+  }
+
+  function applyNumber(mode: 'ch' | 'ep') {
+    const input = mode === 'ch' ? chIn : epIn;
+    const err = mode === 'ch' ? chErr : epErr;
+    const v = readPositive(input, mode === 'ch' ? 'capítulo' : 'episódio');
+    if (typeof v === 'string') {
+      // Mantém o último valor válido: um campo vazio nunca esconde tudo em silêncio.
+      err.textContent = v;
+      input.setAttribute('aria-invalid', 'true');
+      return;
+    }
+    err.textContent = '';
+    input.removeAttribute('aria-invalid');
+    if (mode === 'ch') store.set({ spoilerOn: true, spoilerMode: 'ch', lastChapter: v });
+    else store.set({ spoilerOn: true, spoilerMode: 'ep', lastEpisode: v, lastChapter: chapterForEpisode(data, v) });
+  }
+
+  onBox.addEventListener('change', () => {
+    const s = store.get();
+    if (onBox.checked && s.spoilerMode === 'saga') applySaga();
+    else store.set({ spoilerOn: onBox.checked });
+  });
+  sheet.querySelectorAll<HTMLInputElement>('input[name="spoil-mode"]').forEach((r) =>
+    r.addEventListener('change', () => {
+      const mode = r.value as SpoilerMode;
+      showPane(mode);
+      if (mode === 'saga') applySaga();
+      else if ((mode === 'ch' ? chIn : epIn).value.trim()) applyNumber(mode);
+      else store.set({ spoilerMode: mode });
+    }),
+  );
+  sagaSel.addEventListener('change', applySaga);
+  // Espera o usuário parar de digitar: cada mudança refaz a fita.
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  for (const [input, mode] of [[chIn, 'ch'], [epIn, 'ep']] as const) {
+    input.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => applyNumber(mode), 300);
+    });
+    input.addEventListener('change', () => {
+      clearTimeout(timer);
+      applyNumber(mode);
+    });
+  }
+
+  /* ---------- Temas ---------- */
+  const tagsBox = $<HTMLElement>('[data-tags]');
+  const tagsN = $<HTMLElement>('[data-tags-n]');
+  tagsBox.addEventListener('change', () => {
+    const tags = new Set([...tagsBox.querySelectorAll<HTMLInputElement>('input:checked')].map((i) => i.value));
+    store.set({ tags });
+  });
+  $('[data-tags-clear]').addEventListener('click', () => store.set({ tags: new Set() }));
+  function syncTags() {
+    const { tags } = store.get();
+    tagsBox.querySelectorAll<HTMLInputElement>('input').forEach((i) => (i.checked = tags.has(i.value)));
+    tagsN.hidden = tags.size === 0;
+    tagsN.textContent = String(tags.size);
+  }
+
+  store.subscribe(() => {
+    syncSheet();
+    syncTags();
+  });
+  syncSheet();
+  syncTags();
+</script>

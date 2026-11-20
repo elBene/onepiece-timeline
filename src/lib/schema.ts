@@ -12,6 +12,8 @@ export const SagaSchema = z.object({
   id: z.string().min(1),
   era: z.string().min(1),
   name: z.string().min(1),
+  /** true quando a saga corresponde a um arco de publicação (usada no "Li até"). */
+  arc: z.boolean().default(false),
 });
 
 export const ConfidenceSchema = z.enum(['exata', 'estimada', 'inferida']);

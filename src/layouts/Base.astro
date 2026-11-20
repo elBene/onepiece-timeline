@@ -1,20 +1,19 @@
 ---
-import '@fontsource/pirata-one/400.css';
-import '@fontsource/hanken-grotesk/400.css';
-import '@fontsource/hanken-grotesk/500.css';
-import '@fontsource/hanken-grotesk/700.css';
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/martian-mono/wdth.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
+import '../styles/header.css';
 import '../styles/horizontal.css';
 import '../styles/controls.css';
 import '../styles/modal.css';
-import Waves from '../components/Waves.astro';
 
 interface Props {
   title: string;
   description?: string;
 }
 const { title, description = 'Linha do tempo dos acontecimentos do mundo de One Piece, com proteção contra spoilers.' } = Astro.props;
+const icon = `${import.meta.env.BASE_URL}/favicon.svg`.replace(/\/{2,}/g, '/');
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -22,16 +21,26 @@ const { title, description = 'Linha do tempo dos acontecimentos do mundo de One 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`.replace(/\/{2,}/g, '/')} />
+    <meta name="theme-color" content="#ecebe6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href={icon} />
     <title>{title}</title>
+    <script is:inline>
+      // Aplica o tema antes da pintura, para não piscar.
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('op-timeline:theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
   </head>
   <body>
-    <Waves />
-    <div class="wrap">
+    <div class="page">
       <slot />
-      <footer>
-        <p><b>Versão em desenvolvimento.</b> Os eventos e capítulos são dados de exemplo para validar o visual. Itens com "≈" no capítulo ou com data estimada ainda precisam ser conferidos nas fontes.</p>
-        <p>Projeto de fã, sem fins oficiais. One Piece pertence a Eiichiro Oda, Shueisha e Toei Animation. Os textos aqui são resumos próprios e não reproduzem a obra.</p>
+      <footer class="foot">
+        <p><b>Versão em desenvolvimento.</b> Eventos marcados como rascunho e capítulos com “≈” ainda estão sendo conferidos nas fontes.</p>
+        <p>Projeto de fã, sem fins oficiais. One Piece pertence a Eiichiro Oda, Shueisha e Toei Animation. Os textos são resumos próprios e não reproduzem a obra.</p>
       </footer>
     </div>
   </body>

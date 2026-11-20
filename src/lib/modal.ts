@@ -1,6 +1,6 @@
 import { CANON_LABEL, KIND_LABEL, SOURCE_LABEL, type TimelineData } from './schema';
 import type { TimelineState } from './state';
-import { chapterLabel, episodeLabel, isHidden } from './spoilers';
+import { chapterLabel, episodeLabel, HIDDEN_TITLE, isHidden, type EventView } from './spoilers';
 import { formatAgo, formatBothCalendars, formatWhen } from './calendar';
 
 const IMP_LABEL: Record<number, string> = { 3: 'Marco', 2: 'Evento', 1: 'Detalhe' };
@@ -17,31 +17,34 @@ export interface ModalView {
   more: string;
   tags: string[];
   facts: { label: string; value: string }[];
+  conf: EventView['conf'];
 }
 
 export function toModalView(
   data: TimelineData,
-  state: Pick<TimelineState, 'spoilerOn' | 'lastChapter'>,
+  state: Pick<TimelineState, 'spoilerOn' | 'lastChapter'> & Partial<Pick<TimelineState, 'spoilerMode' | 'lastEpisode'>>,
   id: string,
 ): ModalView | null {
   const e = data.events.find((x) => x.id === id);
   if (!e) return null;
   const saga = data.sagas.find((s) => s.id === e.saga);
   const era = data.eras.find((x) => x.id === saga?.era);
-  const ribbon = ['Registro do diário de bordo', era?.name, saga?.name].filter(Boolean).join(' · ');
+  const ribbon = [era?.name, saga?.name].filter(Boolean).join(' · ');
 
   if (isHidden(e, state)) {
+    // Nem era nem saga: o nome do arco já seria spoiler.
     return {
       id,
       hidden: true,
-      ribbon,
-      title: 'Evento oculto',
-      when: '• • •',
-      stampNote: 'protegido',
-      sum: `Este acontecimento aparece depois do capítulo ${state.lastChapter}. Desative a proteção contra spoilers para ver.`,
+      ribbon: 'Transmissão protegida',
+      title: HIDDEN_TITLE,
+      when: '',
+      stampNote: '',
+      sum: 'Esta transmissão chega depois do ponto em que você está. Avance o seu ponto em “Li até” para recebê-la.',
       more: '',
       tags: [],
       facts: [],
+      conf: 'oculta',
     };
   }
   const ep = episodeLabel(e.revealed);
@@ -69,5 +72,6 @@ export function toModalView(
     more: e.more,
     tags: e.tags.map((t) => data.tags[t] ?? t),
     facts,
+    conf: e.date.conf,
   };
 }

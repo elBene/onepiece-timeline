@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Transmissões</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;background:#0e0e10;color:#ece6d6;font-family:'Arial Narrow',Arial,sans-serif;overflow:hidden;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;padding:28px 48px}
+.word{font-size:22px;letter-spacing:.02em}
+.word b{color:#d6452b}
+.right{display:flex;gap:18px;align-items:center}
+.chip{font-size:22px;padding:8px 16px;border-radius:999px;background:#1b1b1e}
+.chip b{color:#d6452b}
+.dial{position:relative;margin:8px 48px 0;height:110px}
+.scale{position:absolute;left:0;right:0;top:44px;height:40px;background:repeating-linear-gradient(90deg,#3a3833 0 1px,transparent 1px 12px)}
+.scale::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,#6d685d 0 2px,transparent 2px 120px)}
+.band{position:absolute;top:0;font-size:24px;color:#8a857a}
+.band.on{color:#ece6d6}
+.needle{position:absolute;left:50%;top:30px;width:3px;height:420px;background:#d6452b}
+.needle::before{content:"";position:absolute;left:-9px;top:-14px;border:10px solid transparent;border-top:14px solid #d6452b}
+.tape{position:absolute;left:0;right:0;top:520px;height:2px;background:#4a463e}
+.ev{position:absolute}
+.ev .when{font-size:24px;color:#8a857a;letter-spacing:.08em}
+.ev h2{font-size:64px;line-height:.95;font-weight:700;letter-spacing:-.01em;margin:8px 0 12px;max-width:560px}
+.ev p{font-size:22px;color:#b9b2a2;max-width:460px;line-height:1.35}
+.sig{display:flex;gap:4px;align-items:end;height:22px;margin-top:14px}
+.sig i{display:block;width:6px;background:#d6452b}
+.tick{position:absolute;top:510px;width:2px;height:22px;background:#8a857a}
+.tick.mid{height:36px;top:503px;width:3px;background:#ece6d6}
+.static{position:absolute;top:470px;width:150px;height:100px;background:repeating-radial-gradient(circle at 30% 40%,#2a2a2d 0 1px,#141416 1px 3px);opacity:.9}
+.static span{position:absolute;bottom:-34px;left:0;font-size:22px;color:#6d685d}
+.bottom{position:absolute;left:48px;right:48px;bottom:36px;display:flex;justify-content:space-between;font-size:24px;color:#8a857a}
+.bottom b{color:#ece6d6}
+.spiral{width:40px;height:40px;border-radius:50%;border:3px solid #d6452b;border-right-color:transparent;display:inline-block;vertical-align:middle;margin-right:12px}
+</style></head><body>
+<div class="top"><div class="word">Linha do Tempo de <b>One Piece</b></div><div class="right"><span class="chip">Li até <b>Alabasta</b></span><span class="chip">◐</span></div></div>
+<div class="dial">
+  <div class="band" style="left:2%">Antiguidade</div>
+  <div class="band on" style="left:42%">Era do Vazio</div>
+  <div class="band" style="left:68%">Era de Roger</div>
+  <div class="band" style="left:84%">Grande Era dos Piratas</div>
+  <div class="scale"></div>
+</div>
+<div class="needle"></div>
+<div class="tape"></div>
+<div class="tick" style="left:180px"></div><div class="tick" style="left:250px"></div><div class="tick mid" style="left:330px"></div><div class="tick" style="left:420px"></div>
+<div class="ev" style="left:110px;top:560px"><div class="when">≈ 1100 ANOS ATRÁS</div><p style="font-size:30px;color:#ece6d6;margin-top:6px">O auge de Shandora</p></div>
+<div class="ev" style="left:740px;top:250px"><div class="when"><span class="spiral"></span>≈ 900 ANOS ATRÁS · RECEBENDO</div><h2>O Século Vazio</h2><p>Cem anos somem dos registros. O que aconteceu nesse período segue sendo o maior mistério do mundo.</p><div class="sig"><i style="height:8px"></i><i style="height:14px"></i><i style="height:22px"></i><i style="height:22px;opacity:.25"></i></div></div>
+<div class="tick" style="left:900px"></div><div class="tick mid" style="left:990px"></div>
+<div class="static" style="left:1150px"><span>Sinal fora de alcance</span></div>
+<div class="bottom"><span><b>Marcos</b> · Eventos · Tudo · Eras</span><span><b>História</b> / Publicação</span><span>Temas</span></div>
+</body></html>
