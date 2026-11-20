@@ -1,14 +1,11 @@
 ---
-import { data } from '../lib/data';
+import Base from '../layouts/Base.astro';
+import Timeline from '../components/Timeline.astro';
 ---
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Linha do Tempo de One Piece</title>
-  </head>
-  <body>
+<Base title="Linha do Tempo de One Piece">
+  <header class="intro">
     <h1>Linha do Tempo de One Piece</h1>
-    <p>{data.eras.length} eras, {data.sagas.length} sagas, {data.events.length} eventos (dados validados).</p>
-  </body>
-</html>
+    <p>Do Século Vazio ao Egghead, em uma única linha. Afaste para ver as eras, aproxime para ler cada acontecimento, e esconda o que você ainda não leu ou assistiu.</p>
+  </header>
+  <Timeline />
+</Base>

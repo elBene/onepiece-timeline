@@ -1,0 +1,15 @@
+/* Mapa náutico noturno. Tokens do protótipo. */
+:root {
+  color-scheme: dark;
+  --bg: #0a1b28;
+  --bg2: #102a3b;
+  --ink: #efe4cb;
+  --muted: #9fb1ba;
+  --gold: #e3aa2c;
+  --red: #e0502f;
+  --sea: #3b8aa3;
+  --line: #27475a;
+  --card: #12303f;
+  --font-display: 'Pirata One', 'Georgia', serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}

@@ -1,0 +1,45 @@
+<canvas id="waves" aria-hidden="true"></canvas>
+
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>('#waves')!;
+  const ctx = canvas.getContext('2d')!;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w = 0;
+  let h = 0;
+  let t = 0;
+  const layers = [
+    { a: 14, f: 0.012, s: 0.9, y: 0.55, c: 'rgba(59,138,163,.35)' },
+    { a: 18, f: 0.008, s: 0.6, y: 0.68, c: 'rgba(37,100,125,.4)' },
+    { a: 12, f: 0.016, s: 1.2, y: 0.82, c: 'rgba(16,52,72,.7)' },
+  ];
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const l of layers) {
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for (let i = 0; i <= w; i += 6) ctx.lineTo(i, h * l.y + Math.sin(i * l.f + t * l.s) * l.a);
+      ctx.lineTo(w, h);
+      ctx.closePath();
+      ctx.fillStyle = l.c;
+      ctx.fill();
+    }
+  }
+  function size() {
+    const d = devicePixelRatio || 1;
+    w = canvas.clientWidth;
+    h = canvas.clientHeight;
+    canvas.width = w * d;
+    canvas.height = h * d;
+    ctx.setTransform(d, 0, 0, d, 0, 0);
+    draw();
+  }
+  function loop() {
+    t += 0.02;
+    draw();
+    requestAnimationFrame(loop);
+  }
+  addEventListener('resize', size);
+  size();
+  if (!reduce) requestAnimationFrame(loop);
+</script>

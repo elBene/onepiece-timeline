@@ -1,0 +1,36 @@
+---
+import '@fontsource/pirata-one/400.css';
+import '@fontsource/hanken-grotesk/400.css';
+import '@fontsource/hanken-grotesk/500.css';
+import '@fontsource/hanken-grotesk/700.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import '../styles/horizontal.css';
+import Waves from '../components/Waves.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Linha do tempo dos acontecimentos do mundo de One Piece, com proteção contra spoilers.' } = Astro.props;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Waves />
+    <div class="wrap">
+      <slot />
+      <footer>
+        <p><b>Versão em desenvolvimento.</b> Os eventos e capítulos são dados de exemplo para validar o visual. Itens com "≈" no capítulo ou com data estimada ainda precisam ser conferidos nas fontes.</p>
+        <p>Projeto de fã, sem fins oficiais. One Piece pertence a Eiichiro Oda, Shueisha e Toei Animation. Os textos aqui são resumos próprios e não reproduzem a obra.</p>
+      </footer>
+    </div>
+  </body>
+</html>

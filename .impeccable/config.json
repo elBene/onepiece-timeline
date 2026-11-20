@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles/horizontal.css"
+        ],
+        "createdAt": "2026-11-20T16:36:35.480Z",
+        "reason": "assistant: L16 is the flag mast (a 3px vertical pole under the era flag, from the prototype), not a card accent border"
+      }
+    ]
+  }
+}
