@@ -1,18 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
-import Controls from '../components/Controls.astro';
+import Header from '../components/Header.astro';
 import Timeline from '../components/Timeline.astro';
-import EventModal from '../components/EventModal.astro';
 ---
 <Base title="Linha do Tempo de One Piece">
   <a class="skip" href="#linha-do-tempo">Pular para a linha do tempo</a>
-  <header class="intro">
-    <h1>Linha do Tempo de One Piece</h1>
-    <p>Da Antiguidade ao Egghead, em uma única linha. Afaste para ver as eras, aproxime para ler cada acontecimento, e esconda o que você ainda não leu ou assistiu.</p>
-  </header>
+  <Header />
   <main>
-    <Controls />
+    <h1 class="sr">Linha do Tempo de One Piece: os acontecimentos do mundo em ordem, com proteção contra spoilers</h1>
     <Timeline />
   </main>
-  <EventModal />
 </Base>

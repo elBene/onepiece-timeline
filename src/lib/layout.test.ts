@@ -66,7 +66,7 @@ describe('layout horizontal', () => {
     const l = computeHorizontalLayout(data, st({ zoom: 2 }));
     const sides = l.items.filter((i) => i.kind === 'medallion').map((i) => (i as { side: string }).side);
     expect(sides.slice(0, 4)).toEqual(['top', 'bot', 'top', 'bot']);
-    expect(l.items[0]!.x).toBe(LAYOUT.start);
+    expect(l.items[0]!.x).toBe(LAYOUT.start + LAYOUT.yearLead);
   });
   it('zoom Eras não tem eventos', () => {
     const l = computeHorizontalLayout(data, st({ zoom: 1 }));
@@ -78,8 +78,8 @@ describe('layout horizontal', () => {
     expect(l.items.some((i) => i.kind === 'era')).toBe(false);
   });
   it('filtro por tema remove eventos', () => {
-    const all = computeHorizontalLayout(data, st({ zoom: 4 })).order.length;
-    const some = computeHorizontalLayout(data, st({ zoom: 4, tags: new Set(['strawhats']) })).order.length;
+    const all = Object.keys(computeHorizontalLayout(data, st({ zoom: 4 })).groupOf).length;
+    const some = Object.keys(computeHorizontalLayout(data, st({ zoom: 4, tags: new Set(['strawhats']) })).groupOf).length;
     expect(all).toBe(data.events.length);
     expect(some).toBeLessThan(all);
   });
@@ -88,5 +88,46 @@ describe('layout horizontal', () => {
     const json = JSON.stringify(l.items.filter((i) => i.kind === 'medallion' || i.kind === 'dot'));
     expect(json).not.toContain(ev('e24').title);
     expect(json).toContain(ev('e8').title);
+  });
+});
+
+describe('eixo de anos e painel por ano', () => {
+  it('cada ano é um nó só na linha, com a contagem do ano', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 4 }));
+    const nodes = l.items.filter((i) => i.kind === 'medallion' || i.kind === 'dot');
+    expect(nodes).toHaveLength(l.groups.length);
+    for (const n of nodes) {
+      if (n.kind !== 'medallion' && n.kind !== 'dot') continue;
+      const g = l.groups[l.groupOf[n.view.id]!]!;
+      expect(n.count).toBe(g.ids.length);
+    }
+  });
+  it('a ordem da história cobre todos os anos, do primeiro registro até hoje', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 4 }));
+    const firstAgo = Math.max(...data.events.map((e) => e.date.ago));
+    const covered = new Set<number>();
+    for (const g of l.groups) covered.add(g.ago);
+    for (const i of l.items) if (i.kind === 'gap') for (let a = i.fromAgo; a >= i.toAgo; a--) covered.add(a);
+    for (let a = firstAgo; a >= 0; a--) expect(covered.has(a)).toBe(true);
+  });
+  it('ano vazio ocupa bem menos espaço que um ano com acontecimentos', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 4 }));
+    const gap = l.items.find((i) => i.kind === 'gap')!;
+    if (gap.kind !== 'gap') throw new Error();
+    expect((gap.end - gap.x) / (gap.fromAgo - gap.toAgo + 1)).toBe(LAYOUT.emptyYear);
+  });
+  it('cada ano do painel lista tudo daquele ano, mesmo o que o zoom tira da linha', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 2 }));
+    for (const g of l.groups) {
+      const all = data.events.filter((e) => e.date.ago === g.ago).map((e) => e.id).sort();
+      expect([...g.ids].sort()).toEqual(all);
+    }
+    expect(l.groups.map((g) => g.ago)).toEqual([...l.groups.map((g) => g.ago)].sort((a, b) => b - a));
+  });
+  it('ano todo protegido não mostra eras nem sagas', () => {
+    const l = computeHorizontalLayout(data, st({ zoom: 4, spoilerOn: true, lastChapter: 0 }));
+    expect(l.groups.every((g) => g.allHidden && g.eras.length === 0 && g.sagas.length === 0)).toBe(true);
+    const json = JSON.stringify(l.views);
+    expect(json).not.toContain(ev('e8').title);
   });
 });

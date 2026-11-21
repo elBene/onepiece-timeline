@@ -2,26 +2,33 @@ import type { TimelineData } from '../../lib/schema';
 import type { Store } from '../../lib/store';
 import type { TimelineState } from '../../lib/state';
 import { computeHorizontalLayout, type HorizontalLayout, type LayoutItem } from '../../lib/layout';
+import { toModalView } from '../../lib/modal';
+import { HIDDEN_TITLE, type EventView } from '../../lib/spoilers';
 import { h } from '../../lib/dom';
 import { RENDERED_EVENT } from '../../lib/app';
-import { EraFlag } from './EraFlag';
-import { SagaLabel } from './SagaLabel';
-import { EventMedallion } from './EventMedallion';
-import { EventDot } from './EventDot';
+import { EraMark, Gap, Marker, SagaBand, Tick } from './nodes';
 
 export interface TimelineApi {
-  /** Eventos exibidos, na ordem da corda. */
+  /** Eventos exibidos, na ordem da linha. */
   getOrder(): string[];
+  /** Eventos exibidos e não protegidos, na ordem da linha. */
+  getReadable(): string[];
   centerOn(id: string): void;
-  /** Garante que o evento esteja montado, leva a corda até ele e move o foco para o botão dele. */
-  focusEvent(id: string): void;
+  select(id: string): void;
 }
 
-/** Evento disparado no document quando o usuário abre um evento (clique ou Enter). */
-export const OPEN_EVENT = 'timeline:open';
-
 /** Folga (px) renderizada além da área visível, para a rolagem não mostrar espaço vazio. */
-const WINDOW_MARGIN = 700;
+const WINDOW_MARGIN = 600;
+/** Ao parar de rolar, escolhe o marco mais perto do centro dentro desta distância (px). */
+const SETTLE_MAJOR = 220;
+const SETTLE_MINOR = 40;
+
+const CONF_LABEL: Record<EventView['conf'], string> = {
+  exata: 'data exata',
+  estimada: 'data estimada',
+  inferida: 'data inferida',
+  oculta: '',
+};
 
 function query<T extends Element>(root: ParentNode, sel: string): T {
   const el = root.querySelector<T>(sel);
@@ -33,75 +40,110 @@ function query<T extends Element>(root: ParentNode, sel: string): T {
 function extent(item: LayoutItem): [number, number] {
   switch (item.kind) {
     case 'era':
-      return [item.x - 4, item.x + 240];
+      return [item.x - 10, item.x + 280];
     case 'saga':
-      return [item.x - 4, item.x + 140];
+      return [item.x - 10, item.x + 180];
     case 'medallion':
-      return [item.x - 110, item.x + 230];
+      return [item.x - 80, item.x + 80];
+    case 'gap':
+      return [item.x, item.end];
     default:
-      return [item.x - 16, item.x + 16];
+      return [item.x - 110, item.x + 110];
   }
 }
 
 function buildNode(item: LayoutItem): HTMLElement {
-  if (item.kind === 'era') return EraFlag(item);
-  if (item.kind === 'saga') return SagaLabel(item);
-  if (item.kind === 'medallion') return EventMedallion(item);
-  return EventDot(item);
+  if (item.kind === 'era') return EraMark(item);
+  if (item.kind === 'saga') return SagaBand(item);
+  if (item.kind === 'medallion') return Marker(item);
+  if (item.kind === 'gap') return Gap(item);
+  return Tick(item);
 }
 
-function eventButton(node: HTMLElement): HTMLButtonElement | null {
-  return node instanceof HTMLButtonElement ? node : node.querySelector<HTMLButtonElement>('button.txt');
-}
+const eventButton = (node: HTMLElement): HTMLButtonElement | null =>
+  node instanceof HTMLButtonElement ? node : node.querySelector<HTMLButtonElement>('button[data-id]');
 
 export function mountTimeline(root: HTMLElement, data: TimelineData, store: Store<TimelineState>): TimelineApi {
   const scroller = query<HTMLElement>(root, '[data-scroll]');
   const track = query<HTMLElement>(root, '[data-track]');
-  const prog = query<HTMLElement>(root, '[data-prog]');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const rope = h('div', { class: 'rope' });
-  let layout: HorizontalLayout = { items: [], width: 0, order: [], xById: {} };
-  let axis: TimelineState['axis'] = 'chrono';
-  /** Só os itens perto da área visível existem no DOM (índice em layout.items -> nó). */
+  const prevBtn = query<HTMLButtonElement>(root, '[data-prev]');
+  const nextBtn = query<HTMLButtonElement>(root, '[data-next]');
+  const stationsBox = query<HTMLElement>(root, '[data-stations]');
+  const panel = query<HTMLElement>(root, '[data-panel]');
+  const pnHead = query<HTMLElement>(panel, '[data-pn-head]');
+  const pnSub = query<HTMLElement>(panel, '[data-pn-sub]');
+  const pnDetail = query<HTMLElement>(panel, '[data-pn-detail]');
+  const pnStair = query<HTMLElement>(panel, '[data-pn-stair]');
+  const pnPrev = query<HTMLButtonElement>(panel, '[data-pn-prev]');
+  const pnNext = query<HTMLButtonElement>(panel, '[data-pn-next]');
+  const reduceMq = matchMedia('(prefers-reduced-motion: reduce)');
+  const line = h('div', { class: 't-line', 'aria-hidden': 'true' });
+
+  let layout: HorizontalLayout = { items: [], width: 0, order: [], xById: {}, stations: [], groups: [], groupOf: {}, views: {} };
+  let state = store.get();
   const mounted = new Map<number, HTMLElement>();
   const itemIndexById = new Map<string, number>();
-  const orderPos = new Map<string, number>();
+  let readable: string[] = [];
+  /** Botão da linha que está na ordem de Tab (um só). */
   let activeId: string | null = null;
+  /** Evento mostrado no painel. */
+  let selectedId: string | null = null;
+  let shownGroup = -1;
+  let stationEls: HTMLButtonElement[] = [];
+  let first = true;
+  /** Rolagens feitas pelo código não trocam a seleção ao parar. */
+  let quietUntil = 0;
 
-  function updateProgress() {
-    const max = scroller.scrollWidth - scroller.clientWidth;
-    prog.style.setProperty('--hp', max > 0 ? (scroller.scrollLeft / max).toFixed(4) : '0');
+  const behavior = (): ScrollBehavior => (reduceMq.matches ? 'auto' : 'smooth');
+  const pad = () => scroller.clientWidth / 2;
+  /** Com meia tela de folga dos dois lados, o x da linha no centro da vista é scrollLeft. */
+  const centerX = () => scroller.scrollLeft;
+
+  /* ---------- Estações (lista "Ir para" do painel lateral) ---------- */
+  function renderStations() {
+    stationEls = layout.stations.map((st) => {
+      const b = h('button', { type: 'button', class: 'st' }, [st.label]) as HTMLButtonElement;
+      b.addEventListener('click', () => {
+        const id = layout.order.find((oid) => (layout.xById[oid] ?? -1) >= st.x);
+        if (id) select(id, { center: true });
+        else scroller.scrollTo({ left: st.x, behavior: behavior() });
+      });
+      return b;
+    });
+    stationsBox.replaceChildren(...stationEls);
   }
 
-  /** Itens que entram fora da tela surgem com animação suave ao aparecer. */
-  const io: IntersectionObserver | undefined =
-    reduce || !('IntersectionObserver' in window)
-      ? undefined
-      : new IntersectionObserver(
-          (entries) =>
-            entries.forEach((en) => {
-              if (en.isIntersecting) {
-                en.target.classList.remove('pre');
-                io?.unobserve(en.target);
-              }
-            }),
-          { root: scroller },
-        );
+  function updateStations() {
+    const x = centerX();
+    let current = -1;
+    layout.stations.forEach((st, i) => {
+      if (st.x <= x + 1) current = i;
+    });
+    stationEls.forEach((el, i) => {
+      if (i === current) el.setAttribute('aria-current', 'true');
+      else el.removeAttribute('aria-current');
+    });
+    const max = scroller.scrollWidth - scroller.clientWidth;
+    prevBtn.disabled = scroller.scrollLeft <= 1;
+    nextBtn.disabled = scroller.scrollLeft >= max - 1;
+  }
 
+  /** O nó de um ano fica marcado quando qualquer acontecimento daquele ano está escolhido. */
+  const sameYear = (id: string) => selectedId !== null && layout.groupOf[id] !== undefined && layout.groupOf[id] === layout.groupOf[selectedId];
+
+  /* ---------- Janela virtual ---------- */
   function decorate(node: HTMLElement, item: LayoutItem) {
-    if (item.kind === 'saga' && axis === 'pub') node.querySelector('h3')?.setAttribute('aria-level', '2');
+    if (item.kind === 'saga' && state.axis === 'pub') node.querySelector('h3')?.setAttribute('aria-level', '2');
     if (item.kind !== 'medallion' && item.kind !== 'dot') return;
     const id = item.view.id;
     const btn = eventButton(node);
     if (!btn) return;
     btn.tabIndex = id === activeId ? 0 : -1;
-    if (item.view.hidden) {
-      btn.setAttribute('aria-label', `Evento oculto, ${(orderPos.get(id) ?? 0) + 1} de ${layout.order.length}`);
-    }
-    if (axis === 'pub') node.querySelector('h4')?.setAttribute('aria-level', '3');
+    const on = sameYear(id);
+    node.classList.toggle('is-selected', on);
+    btn.setAttribute('aria-pressed', String(on));
   }
 
-  /** Garante um (e só um) botão de evento na ordem de Tab, mesmo quando o ativo saiu da janela. */
   function ensureTabStop() {
     const buttons = [...mounted.entries()]
       .sort((a, b) => a[0] - b[0])
@@ -109,17 +151,23 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
       .filter((b): b is HTMLButtonElement => !!b);
     if (!buttons.length) return;
     if (!buttons.some((b) => b.dataset.id === activeId)) {
-      const left = scroller.scrollLeft;
-      const pick = buttons.find((b) => (layout.xById[b.dataset.id!] ?? 0) >= left) ?? buttons[0]!;
+      const sel = buttons.find((b) => b.dataset.id === selectedId);
+      const x = centerX();
+      const pick =
+        sel ??
+        buttons.reduce<HTMLButtonElement>((best, b) => {
+          const d = Math.abs((layout.xById[b.dataset.id!] ?? 0) - x);
+          return d < Math.abs((layout.xById[best.dataset.id!] ?? 0) - x) ? b : best;
+        }, buttons[0]!);
       activeId = pick.dataset.id!;
     }
     for (const b of buttons) b.tabIndex = b.dataset.id === activeId ? 0 : -1;
   }
 
   function updateWindow() {
-    const left = scroller.scrollLeft - WINDOW_MARGIN;
-    const viewRight = scroller.scrollLeft + scroller.clientWidth;
-    const right = viewRight + WINDOW_MARGIN;
+    const p = pad();
+    const left = scroller.scrollLeft - p - WINDOW_MARGIN;
+    const right = scroller.scrollLeft + p + WINDOW_MARGIN;
     const wanted = new Set<number>();
     layout.items.forEach((item, i) => {
       const [a, b] = extent(item);
@@ -127,7 +175,6 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     });
     for (const [i, el] of mounted) {
       if (!wanted.has(i)) {
-        io?.unobserve(el);
         el.remove();
         mounted.delete(i);
       }
@@ -142,44 +189,220 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
         decorate(el, item);
         track.insertBefore(el, next);
         mounted.set(i, el);
-        if (io && (item.kind === 'medallion' || item.kind === 'dot') && extent(item)[0] > viewRight) {
-          el.classList.add('pre');
-          io.observe(el);
-        }
       }
       next = el;
     }
     ensureTabStop();
   }
 
-  function render(state: TimelineState) {
+  function sizeTrack() {
+    track.style.setProperty('--pad', `${pad()}px`);
+    track.style.width = `${layout.width + pad() * 2}px`;
+  }
+
+  /* ---------- Painel ---------- */
+  function stairItem(v: EventView, i: number): HTMLElement {
+    const on = v.id === selectedId;
+    const meta = v.hidden ? 'Protegido contra spoilers' : [v.when, v.chapter, v.episode].filter(Boolean).join(' · ');
+    const btn = h(
+      'button',
+      {
+        type: 'button',
+        class: `step imp${v.imp}${v.hidden ? ' is-hidden' : ''}`,
+        'data-id': v.id,
+        'aria-pressed': String(on),
+        style: `--i:${i}`,
+      },
+      [h('span', { class: 'step-dot', 'aria-hidden': 'true' }), h('b', {}, [v.title]), h('small', { class: 'num' }, [meta])],
+    );
+    return h('li', {}, [btn]);
+  }
+
+  function renderDetail(id: string) {
+    const v = toModalView(data, state, id);
+    if (!v) return;
+    const meta = [v.when, v.chapter, v.episode].filter(Boolean);
+    const children: (Node | null)[] = [
+      h('h3', { class: 'pn-title' }, [v.title]),
+      meta.length
+        ? h('p', { class: 'pn-meta num' }, [
+            h('span', { class: `conf conf-${v.conf}`, 'aria-hidden': 'true' }),
+            h('span', {}, [meta.join(' · ')]),
+            v.conf !== 'oculta' ? h('span', { class: 'pn-conf' }, [CONF_LABEL[v.conf]]) : null,
+          ])
+        : null,
+      h('p', { class: 'pn-sum' }, [v.sum]),
+      v.more ? h('p', { class: 'pn-more' }, [v.more]) : null,
+      v.tags.length ? h('ul', { class: 'pn-tags', 'aria-label': 'Temas' }, v.tags.map((t) => h('li', {}, [t]))) : null,
+    ];
+    if (v.facts.length) {
+      children.push(
+        h('section', { class: 'pn-facts', 'aria-label': 'Detalhes' }, [
+          h('h4', {}, ['Detalhes']),
+          h('dl', {}, v.facts.map((f) => h('div', {}, [h('dt', {}, [f.label]), h('dd', {}, [f.value])]))),
+        ]),
+      );
+    }
+    pnDetail.replaceChildren(h('article', { class: `pn-card${v.hidden ? ' is-hidden' : ''}` }, children));
+    pnDetail.scrollTop = 0;
+  }
+
+  const countLabel = (n: number) => `${n} ${n === 1 ? 'acontecimento' : 'acontecimentos'}`;
+
+  function renderPanel(animate: boolean) {
+    panel.classList.toggle('is-empty', !selectedId);
+    if (!selectedId) {
+      shownGroup = -1;
+      pnHead.textContent = state.zoom === 1 ? 'Só eras e sagas' : 'Nada por aqui';
+      pnSub.textContent = '';
+      pnStair.replaceChildren();
+      pnDetail.replaceChildren(
+        h('p', { class: 'pn-empty' }, [
+          state.zoom === 1
+            ? 'Para ver os acontecimentos, escolha Marcos, Eventos ou Tudo em “Mais filtros”.'
+            : 'Nenhum acontecimento com esse foco. Desmarque algum tema em “Foco”.',
+        ]),
+      );
+      pnPrev.disabled = pnNext.disabled = true;
+      return;
+    }
+    const gi = layout.groupOf[selectedId] ?? -1;
+    const group = layout.groups[gi];
+    if (group && gi !== shownGroup) {
+      shownGroup = gi;
+      pnHead.textContent = group.allHidden ? HIDDEN_TITLE : [group.label, ...group.eras].join(' · ');
+      const n = countLabel(group.ids.length);
+      pnSub.textContent = group.allHidden ? n : [...group.sagas, n].join(' · ');
+      pnStair.replaceChildren(...group.ids.map((id, i) => stairItem(layout.views[id]!, i)));
+      pnStair.classList.remove('in');
+      if (animate && !reduceMq.matches) {
+        void pnStair.offsetWidth;
+        pnStair.classList.add('in');
+      }
+    } else {
+      pnStair
+        .querySelectorAll<HTMLElement>('button[data-id]')
+        .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.id === selectedId)));
+    }
+    renderDetail(selectedId);
+    if (animate && !reduceMq.matches) {
+      pnDetail.classList.remove('swap');
+      void pnDetail.offsetWidth;
+      pnDetail.classList.add('swap');
+    }
+    pnPrev.disabled = yearStep(-1) === null;
+    pnNext.disabled = yearStep(1) === null;
+  }
+
+  /** Ano anterior ou seguinte que tenha algo legível (anos todo protegidos ficam de fora). */
+  function yearStep(dir: 1 | -1): number | null {
+    if (!selectedId) return null;
+    const at = layout.groupOf[selectedId] ?? -1;
+    for (let g = at + dir; g >= 0 && g < layout.groups.length; g += dir) if (!layout.groups[g]!.allHidden) return g;
+    return null;
+  }
+
+  function selectYear(g: number) {
+    const group = layout.groups[g];
+    if (!group) return;
+    const id = group.ids.find((i) => !layout.views[i]?.hidden && layout.xById[i] !== undefined) ?? group.ids.find((i) => !layout.views[i]?.hidden) ?? group.ids[0];
+    if (id) select(id, { center: true });
+  }
+
+  function markSelectedOnLine() {
+    for (const [i, node] of mounted) {
+      const item = layout.items[i]!;
+      if (item.kind !== 'medallion' && item.kind !== 'dot') continue;
+      const on = sameYear(item.view.id);
+      node.classList.toggle('is-selected', on);
+      eventButton(node)?.setAttribute('aria-pressed', String(on));
+    }
+  }
+
+  function select(id: string, opts: { center?: boolean } = {}) {
+    if (layout.groupOf[id] === undefined) return;
+    if (id !== selectedId) {
+      selectedId = id;
+      markSelectedOnLine();
+      renderPanel(true);
+    }
+    if (opts.center) centerOn(id);
+  }
+
+  /** Evento mais perto de x: prefere marcos; cai para uma marca só se ela estiver bem perto. */
+  function nearest(x: number, majorLimit = SETTLE_MAJOR): string | null {
+    let best: string | null = null;
+    let bestD = Infinity;
+    let minor: string | null = null;
+    let minorD = Infinity;
+    for (const item of layout.items) {
+      if (item.kind !== 'medallion' && item.kind !== 'dot') continue;
+      const d = Math.abs(item.x - x);
+      if (item.kind === 'medallion' && d < bestD) {
+        bestD = d;
+        best = item.view.id;
+      } else if (item.kind === 'dot' && d < minorD) {
+        minorD = d;
+        minor = item.view.id;
+      }
+    }
+    if (best && bestD <= majorLimit) return best;
+    if (minor && minorD <= SETTLE_MINOR) return minor;
+    return majorLimit === Infinity ? (best ?? minor) : null;
+  }
+
+  /* ---------- Renderização ---------- */
+  function render(next: TimelineState) {
+    state = next;
+    const keepId = selectedId;
+    const keepFrac = layout.width ? centerX() / layout.width : 0;
     layout = computeHorizontalLayout(data, state);
-    axis = state.axis;
     itemIndexById.clear();
-    orderPos.clear();
-    layout.order.forEach((id, i) => orderPos.set(id, i));
     layout.items.forEach((item, i) => {
       if (item.kind === 'medallion' || item.kind === 'dot') itemIndexById.set(item.view.id, i);
     });
+    readable = layout.order.filter((id) => !layout.views[id]?.hidden);
     if (activeId && !itemIndexById.has(activeId)) activeId = null;
-    for (const el of mounted.values()) {
-      io?.unobserve(el);
-      el.remove();
-    }
+    for (const el of mounted.values()) el.remove();
     mounted.clear();
-    track.style.width = `${layout.width}px`;
-    const fixed: Node[] = [rope];
-    if (layout.items.length === 0) fixed.push(h('div', { class: 'empty' }, ['Nenhum evento com esse filtro.']));
-    track.replaceChildren(...fixed);
+    sizeTrack();
+    track.replaceChildren(line);
+    renderStations();
+
+    let target: number;
+    if (first) {
+      first = false;
+      selectedId = nearest(0, Infinity);
+      // Começa no primeiro marco, não num trecho vazio.
+      const firstMajor = layout.items.find((i) => i.kind === 'medallion');
+      if (firstMajor && firstMajor.kind === 'medallion') selectedId = firstMajor.view.id;
+      target = selectedId ? layout.xById[selectedId]! : 0;
+    } else if (keepId && layout.groupOf[keepId] !== undefined) {
+      selectedId = keepId;
+      target = layout.xById[keepId] ?? layout.groups[layout.groupOf[keepId]!]!.x;
+    } else {
+      target = keepFrac * layout.width;
+      selectedId = nearest(target, Infinity);
+    }
+    quietUntil = performance.now() + 400;
+    scroller.scrollLeft = target;
+    shownGroup = -1;
     updateWindow();
-    updateProgress();
-    document.dispatchEvent(new CustomEvent(RENDERED_EVENT, { detail: { shown: layout.order.length } }));
+    updateStations();
+    renderPanel(false);
+    document.dispatchEvent(
+      new CustomEvent(RENDERED_EVENT, {
+        detail: { shown: Object.keys(layout.views).length, hidden: Object.values(layout.views).filter((v) => v.hidden).length },
+      }),
+    );
   }
 
   function centerOn(id: string) {
-    const x = layout.xById[id];
+    // Eventos que o zoom tirou da linha levam ao ano deles.
+    const x = layout.xById[id] ?? layout.groups[layout.groupOf[id] ?? -1]?.x;
     if (x === undefined) return;
-    scroller.scrollTo({ left: x - scroller.clientWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+    quietUntil = performance.now() + 900;
+    scroller.scrollTo({ left: x, behavior: behavior() });
   }
 
   function findButton(id: string): HTMLButtonElement | null {
@@ -193,18 +416,15 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     if (x === undefined) return;
     let btn = findButton(id);
     if (!btn) {
-      // Fora da janela: salta direto (sem animação) para montar o item antes de focar.
-      scroller.scrollLeft = Math.max(0, x - scroller.clientWidth / 2);
+      quietUntil = performance.now() + 400;
+      scroller.scrollLeft = x;
       updateWindow();
       btn = findButton(id);
     }
-    if (!btn) return;
-    btn.focus({ preventScroll: true });
-    const inView = x > scroller.scrollLeft + 90 && x < scroller.scrollLeft + scroller.clientWidth - 90;
-    if (!inView) centerOn(id);
+    btn?.focus({ preventScroll: true });
   }
 
-  // Arrastar com o mouse (toque usa a rolagem nativa).
+  /* ---------- Navegação na linha ---------- */
   let down = false;
   let moved = false;
   let startX = 0;
@@ -234,13 +454,15 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     if (!down) return;
     down = false;
     scroller.classList.remove('drag');
-    if (moved) setTimeout(() => (moved = false), 0);
+    if (moved) {
+      setTimeout(() => (moved = false), 0);
+      onScroll();
+    }
   };
   scroller.addEventListener('pointerup', endDrag);
   scroller.addEventListener('pointercancel', endDrag);
   scroller.addEventListener('lostpointercapture', endDrag);
   addEventListener('blur', endDrag);
-  // Depois de um arrasto, o clique que o navegador gera não deve abrir evento.
   scroller.addEventListener(
     'click',
     (e) => {
@@ -267,29 +489,50 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
   );
 
   let frame = 0;
-  const onScroll = () => {
-    updateProgress();
-    if (frame) return;
-    frame = requestAnimationFrame(() => {
-      frame = 0;
-      updateWindow();
-    });
-  };
+  let settle: ReturnType<typeof setTimeout> | undefined;
+  function onScroll() {
+    if (!frame) {
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        updateWindow();
+        updateStations();
+      });
+    }
+    clearTimeout(settle);
+    settle = setTimeout(() => {
+      // Parou de rolar por conta própria: o painel acompanha o marco que ficou no centro.
+      if (performance.now() < quietUntil || down) return;
+      const id = nearest(centerX());
+      if (!id || !selectedId) return;
+      if (layout.groupOf[id] !== layout.groupOf[selectedId]) select(id);
+    }, 180);
+  }
   scroller.addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', onScroll);
-
-  const page = (dir: 1 | -1) => () =>
-    scroller.scrollBy({ left: dir * scroller.clientWidth * 0.7, behavior: reduce ? 'auto' : 'smooth' });
-  query(root, '[data-prev]').addEventListener('click', page(-1));
-  query(root, '[data-next]').addEventListener('click', page(1));
-
-  track.addEventListener('click', (e) => {
-    const target = (e.target as Element).closest<HTMLElement>('[data-id]');
-    if (!target) return;
-    document.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: { id: target.dataset.id, origin: target } }));
+  addEventListener('resize', () => {
+    const x = centerX();
+    sizeTrack();
+    quietUntil = performance.now() + 400;
+    scroller.scrollLeft = x;
+    onScroll();
   });
 
-  // Uma parada de Tab para a corda inteira; as setas percorrem os eventos.
+  /** Setas laterais: pulam para o ano seguinte (ou anterior) com acontecimentos. */
+  const jump = (dir: 1 | -1) => () => {
+    const x = centerX();
+    const years = layout.groups.map((g, i) => ({ x: g.x, i })).sort((a, b) => a.x - b.x);
+    const target = dir > 0 ? years.find((y) => y.x > x + 4) : [...years].reverse().find((y) => y.x < x - 4);
+    if (target) selectYear(target.i);
+    else scroller.scrollTo({ left: dir > 0 ? layout.width : 0, behavior: behavior() });
+  };
+  prevBtn.addEventListener('click', jump(-1));
+  nextBtn.addEventListener('click', jump(1));
+
+  track.addEventListener('click', (e) => {
+    const btn = (e.target as Element).closest<HTMLElement>('button[data-id]');
+    if (btn) select(btn.dataset.id!, { center: true });
+  });
+
+  // Uma parada de Tab para a linha inteira; as setas percorrem os eventos e o painel acompanha.
   track.addEventListener('focusin', (e) => {
     const btn = (e.target as Element).closest<HTMLButtonElement>('button[data-id]');
     if (!btn || btn.dataset.id === activeId) return;
@@ -311,32 +554,40 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     else if (e.key === 'End') n = order.length - 1;
     if (n < 0 || i < 0) return;
     e.preventDefault();
-    if (n !== i) focusEvent(order[n]!);
+    if (n !== i) {
+      focusEvent(order[n]!);
+      select(order[n]!, { center: true });
+    }
   });
 
-  // Etiqueta dos pontos: Esc a dispensa sem tirar o foco (WCAG 1.4.13). Volta ao sair do ponto.
+  // Etiqueta das marcas: Esc a dispensa sem tirar o foco (WCAG 1.4.13).
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
-    track.querySelectorAll('.dot-h:hover, .dot-h:focus-visible').forEach((d) => d.classList.add('tip-off'));
+    track.querySelectorAll('.t-tick:hover, .t-tick:focus-visible').forEach((d) => d.classList.add('tip-off'));
   });
-  const reenableTip = (e: Event) => (e.target as Element).closest?.('.dot-h')?.classList.remove('tip-off');
+  const reenableTip = (e: Event) => (e.target as Element).closest?.('.t-tick')?.classList.remove('tip-off');
   track.addEventListener('mouseout', reenableTip);
   track.addEventListener('focusout', reenableTip);
 
-  // Texto maior (ajuste de fonte do navegador) pede mais altura acima e abaixo da corda.
-  // A sonda mede 1rem; quando o tamanho muda, o ResizeObserver recalcula --d.
-  const probe = h('div', { 'aria-hidden': 'true', style: 'position:absolute;visibility:hidden;width:1rem;height:0;pointer-events:none' });
-  root.append(probe);
-  const applyScale = () => {
-    const scale = probe.getBoundingClientRect().width / 16 || 1;
-    const d = Math.max(0, Math.round(131 * (scale - 1)));
-    track.style.setProperty('--d', `${d}px`);
+  /* ---------- Painel: lista do ano e Ano anterior/Próximo ano ---------- */
+  pnStair.addEventListener('click', (e) => {
+    const btn = (e.target as Element).closest<HTMLElement>('button[data-id]');
+    if (btn) select(btn.dataset.id!, { center: true });
+  });
+  const step = (dir: 1 | -1) => {
+    const g = yearStep(dir);
+    if (g !== null) selectYear(g);
   };
-  if ('ResizeObserver' in window) new ResizeObserver(applyScale).observe(probe);
-  applyScale();
+  pnPrev.addEventListener('click', () => step(-1));
+  pnNext.addEventListener('click', () => step(1));
 
   store.subscribe(render);
   render(store.get());
 
-  return { getOrder: () => layout.order, centerOn, focusEvent };
+  return {
+    getOrder: () => layout.order,
+    getReadable: () => readable,
+    centerOn,
+    select: (id) => select(id, { center: true }),
+  };
 }

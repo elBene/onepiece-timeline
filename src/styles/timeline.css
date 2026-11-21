@@ -1,0 +1,163 @@
+/* Palco: a linha corre pelo céu; o painel de detalhes boia sobre o mar. */
+.stage{
+  flex:1;min-width:0;min-height:0;display:grid;
+  grid-template-rows:var(--band-h) minmax(0,1fr);
+  --band-h:clamp(250px,44vh,380px);
+  --d:clamp(84px,12.5vh,112px);
+  --stem:clamp(16px,4.2vh,40px);
+}
+
+.band{position:relative;min-height:0}
+.hz-scroll{
+  position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.hz-scroll::-webkit-scrollbar{display:none}
+.hz-scroll.drag{cursor:grabbing;user-select:none}
+.hz-track{position:relative;height:100%}
+
+/* A linha: um cabo esticado de ponta a ponta. */
+.t-line{position:absolute;left:0;right:0;top:50%;height:3px;translate:0 -50%;border-radius:3px;background:var(--line);box-shadow:0 1px 0 rgb(255 255 255 / .18)}
+
+/* Setas laterais (somem no toque: lá o arrasto é nativo). */
+.side{
+  position:absolute;z-index:3;top:50%;translate:0 -50%;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;
+  background:var(--paper);color:var(--ink);box-shadow:0 4px 14px var(--shade);
+  transition:opacity var(--t-fast) var(--ease-out),transform var(--t-fast) var(--ease-out);
+}
+.side svg{width:22px;height:22px}
+.side:hover{background:var(--paper-solid)}
+.side:active{transform:scale(.94)}
+.side:disabled{opacity:0;pointer-events:none}
+.side-prev{left:10px}
+.side-next{right:10px}
+@media (pointer:coarse){.side{display:none}}
+
+/* Era: mastro com bandeira de ponta fendida. */
+.t-era{position:absolute;left:calc(var(--pad) + var(--x));top:10px;bottom:50%;width:0}
+.t-mast{position:absolute;left:-1px;top:0;bottom:0;border-left:2.5px solid var(--line)}
+.t-era-flag{
+  position:absolute;left:1px;top:0;width:max-content;max-width:250px;padding:7px 30px 8px 12px;
+  background:var(--line);color:var(--line-ink);
+  clip-path:polygon(0 0,100% 0,calc(100% - 14px) 50%,100% 100%,0 100%);
+  transform-origin:left center;
+}
+.t-era-flag h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:.98rem;line-height:1.15}
+.t-era-flag p{margin:2px 0 0;font-size:.72rem;font-weight:600;opacity:.82}
+
+/* Saga: rótulo logo abaixo da linha. */
+.t-saga{position:absolute;left:calc(var(--pad) + var(--x));top:calc(50% + 12px);max-width:170px}
+.t-saga::before{content:"";position:absolute;left:-1px;top:-12px;width:2px;height:12px;background:var(--line)}
+.t-saga h3,.t-saga p{margin:0}
+.t-saga h3{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--paper);font-size:.78rem;font-weight:700;line-height:1.3;color:var(--ink);box-shadow:0 2px 6px var(--shade)}
+.t-saga p{margin-top:4px;padding-left:4px;font-size:.7rem;font-weight:600;color:var(--sky-ink);text-shadow:var(--sky-ink-shadow)}
+.t-saga.is-hidden h3{color:var(--muted);font-style:italic;font-weight:600}
+
+/* Marco: disco com nome e ano, preso à linha por uma haste. */
+.t-ev{position:absolute;left:calc(var(--pad) + var(--x));top:50%;width:0;height:0}
+.t-ev::after{content:"";position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--line)}
+.t-stem{position:absolute;left:-1.25px;height:var(--stem);border-left:2.5px solid var(--line)}
+.t-ev.top .t-stem{bottom:0}
+.t-ev.bot .t-stem{top:0}
+/* A haste conta a confiança da data: cheia, fina, tracejada; pontilhada quando oculta. */
+.t-ev.conf-estimada .t-stem{border-left-width:1.5px;left:-.75px}
+.t-ev.conf-inferida .t-stem{border-left-style:dashed}
+.t-ev.conf-oculta .t-stem{border-left-style:dotted}
+
+.t-disc{
+  position:absolute;left:calc(var(--d) / -2);width:var(--d);height:var(--d);padding:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  border:2.5px solid var(--line);border-radius:50%;background:var(--paper-solid);color:var(--ink);text-align:center;
+  box-shadow:0 8px 20px var(--shade);
+  transition:transform 380ms var(--ease-spring),background-color var(--t-med) var(--ease-out),color var(--t-med) var(--ease-out),border-color var(--t-med) var(--ease-out),box-shadow var(--t-med) var(--ease-out);
+}
+.t-ev.top .t-disc{top:calc(-1 * (var(--stem) + var(--d)))}
+.t-ev.bot .t-disc{top:var(--stem)}
+.t-ev.top .t-disc{transform-origin:50% 100%}
+.t-ev.bot .t-disc{transform-origin:50% 0}
+.t-disc:hover{transform:scale(1.06)}
+.t-disc:focus-visible{outline-offset:4px;border-radius:50%}
+.t-title{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;
+  font-size:clamp(.7rem,1.55vh,.8rem);font-weight:750;font-stretch:92%;line-height:1.12;text-wrap:balance;
+}
+.t-year{font-size:.66rem;font-weight:650;color:var(--muted);white-space:nowrap}
+
+.t-ev.is-selected .t-disc{
+  background:var(--accent);border-color:var(--accent);color:var(--on-accent);transform:scale(1.1);
+  box-shadow:0 0 0 6px var(--select),0 12px 26px var(--shade);
+}
+.t-ev.is-selected .t-year{color:var(--on-accent);opacity:.85}
+.t-ev.is-selected .t-stem{border-left-color:var(--accent)}
+.t-ev.is-selected::after{background:var(--accent)}
+.t-ev.is-hidden .t-disc{background:var(--paper);border-style:dashed;color:var(--muted)}
+.t-ev.is-hidden .t-title{font-style:italic;font-weight:650}
+.t-ev.is-hidden.is-selected .t-disc{background:var(--paper-solid);border-color:var(--accent);color:var(--ink)}
+
+/* Ano sem marco: um traço só, com o número do ano em pílula e a contagem. */
+.t-tick{position:absolute;left:calc(var(--pad) + var(--x) - 9px);top:calc(50% - 24px);width:18px;height:48px;padding:0;border:0;background:transparent;z-index:1}
+.t-mark{position:absolute;left:50%;top:50%;width:3px;height:28px;translate:-50% -50%;border-radius:2px;background:var(--line);transition:height 260ms var(--ease-spring),background-color var(--t-fast) var(--ease-out),width 260ms var(--ease-spring)}
+.t-tick.is-hidden .t-mark{opacity:.45}
+.t-tick:hover .t-mark,.t-tick:focus-visible .t-mark{height:36px;background:var(--accent)}
+.t-tick.is-selected .t-mark{height:40px;width:4px;background:var(--accent)}
+.t-tick:focus-visible{outline-offset:0;border-radius:6px}
+.t-yr{
+  position:absolute;left:50%;bottom:calc(100% - 2px);translate:-50% 0;display:inline-flex;align-items:center;gap:5px;
+  padding:2px 8px;border-radius:999px;white-space:nowrap;background:var(--line);color:var(--line-ink);
+  font-size:.74rem;font-weight:750;line-height:1.35;transition:background-color var(--t-fast) var(--ease-out),color var(--t-fast) var(--ease-out);
+}
+.t-tick.is-selected .t-yr,.t-tick:hover .t-yr{background:var(--accent);color:var(--on-accent)}
+.t-tick.is-hidden .t-yr{opacity:.6}
+
+/* Quantos acontecimentos o ano tem. */
+.t-count{
+  display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 4px;border-radius:999px;
+  background:var(--paper-solid);color:var(--ink);font-size:.66rem;font-weight:800;line-height:1;
+}
+.t-disc .t-count{position:absolute;top:2px;right:2px;min-width:24px;height:24px;font-size:.74rem;background:var(--line);color:var(--line-ink);box-shadow:0 0 0 2px var(--paper-solid)}
+.t-ev.is-selected .t-disc .t-count{background:var(--paper-solid);color:var(--ink);box-shadow:0 0 0 2px var(--accent)}
+.t-tip{
+  position:absolute;left:50%;top:calc(100% + 4px);width:max-content;max-width:220px;padding:7px 11px;
+  display:grid;gap:1px;text-align:left;border-radius:12px;background:var(--paper-solid);color:var(--ink);
+  box-shadow:0 8px 20px var(--shade);pointer-events:none;
+  opacity:0;translate:-50% -4px;transition:opacity 200ms var(--ease-out),translate 260ms var(--ease-out);
+}
+.t-tip b{font-size:.8rem;font-weight:700;line-height:1.25}
+.t-tip small{font-size:.7rem;color:var(--muted);font-weight:600}
+.t-tick:hover .t-tip,.t-tick:focus-visible .t-tip,.t-tick.is-selected .t-tip{opacity:1;translate:-50% 0}
+.t-tick.tip-off .t-tip{opacity:0}
+.t-tick:hover,.t-tick:focus-visible{z-index:4}
+
+/* Discos surgem conforme entram na vista, acompanhando a rolagem. */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion:no-preference){
+    .t-disc{animation:disc-in linear both;animation-timeline:view(inline);animation-range:entry 0% entry 90%}
+    .t-era-flag{animation:flag-in linear both;animation-timeline:view(inline);animation-range:entry 0% entry 80%}
+  }
+}
+@keyframes disc-in{from{opacity:0;scale:.55}to{opacity:1;scale:1}}
+@keyframes flag-in{from{opacity:0;scale:.2 1}to{opacity:1;scale:1 1}}
+@media (prefers-reduced-motion:no-preference){
+  .t-ev.is-selected .t-disc::after{content:"";position:absolute;inset:-3px;border-radius:50%;animation:ping 900ms var(--ease-out) 1}
+}
+@keyframes ping{from{box-shadow:0 0 0 0 var(--accent)}to{box-shadow:0 0 0 22px transparent}}
+
+@media (max-width:760px){
+  .stage{--band-h:clamp(230px,40vh,300px);--d:clamp(74px,11vh,92px);--stem:clamp(12px,3vh,26px)}
+  .hz-scroll{-webkit-mask-image:none;mask-image:none}
+  .t-era-flag{max-width:200px}
+}
+
+/* Anos sem registro: régua fina e baixa, um traço por ano, um mais alto por década. */
+.t-gap{
+  position:absolute;left:calc(var(--pad) + var(--x));top:calc(50% - 6px);width:var(--w);height:12px;opacity:.6;
+  background:
+    repeating-linear-gradient(90deg,var(--line) 0 1.5px,transparent 1.5px calc(var(--yw) * 10)) var(--dec) 0 / auto 12px no-repeat,
+    repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px var(--yw)) 0 3px / auto 6px no-repeat;
+}
+.t-gap span{
+  position:absolute;top:16px;translate:-50% 0;font-size:.64rem;font-weight:700;white-space:nowrap;
+  color:var(--sky-ink);text-shadow:var(--sky-ink-shadow);
+}

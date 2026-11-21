@@ -1,51 +1,103 @@
-/* Mapa náutico noturno. Tokens do protótipo. */
-:root {
+/*
+ * Céu e Mar. A linha do tempo corre pelo céu; o painel de detalhes boia sobre o mar.
+ * Três temas, todos originais e pintados em código (src/lib/scene.ts):
+ *   azul      dia claro, nuvens altas e o mar faiscando
+ *   ouro      fim de tarde, o mar virando ouro
+ *   estrelas  noite de lua cheia
+ * Cor de destaque vem de cada céu: vermelho de bandeira de dia, ouro ao entardecer, luz de lanterna à noite.
+ */
+:root,
+:root[data-theme='azul'] {
+  color-scheme: light;
+  --sky-1: #2c77c9;
+  --sky-2: #6fb1e8;
+  --sky-3: #cfe8f7;
+  --sea-1: #4fa9de;
+  --sea-2: #1b6db4;
+  --sea-3: #0b4a87;
+
+  --ink: #0c2338;
+  --ink-2: #29445c;
+  --muted: #4c6478;
+  --paper: rgb(250 252 253 / .9);
+  --paper-solid: #f7fafc;
+  --paper-2: rgb(12 35 56 / .06);
+  --paper-3: rgb(12 35 56 / .11);
+  --hair: rgb(12 35 56 / .14);
+  --line: #0c2338;
+  --line-ink: #ffffff;
+  --accent: #d2361d;
+  --on-accent: #fff;
+  --select: rgb(210 54 29 / .2);
+  --shade: rgb(8 30 60 / .22);
+  --sky-ink: #fff;
+  --sky-ink-shadow: 0 1px 2px rgb(8 40 80 / .55);
+}
+
+:root[data-theme='ouro'] {
   color-scheme: dark;
-  --bg: #0a1b28;
-  --bg-rgb: 10 27 40;
-  --bg2: #102a3b;
-  --ink: #efe4cb;
-  --ink-soft: #cfc9b6;
-  --muted: #9fb1ba;
-  --gold: #e3aa2c;
-  --on-gold: #1b1305;
-  --red: #e0502f;
-  --sea: #3b8aa3;
-  --jade: #6fbf8e;
-  --rose: #c46b8a;
-  --violet: #8a7bd1;
-  --line: #27475a;
-  --card: #12303f;
-  --on-flag: #fff;
-  --shadow: rgb(0 0 0 / .45);
+  --sky-1: #2a1204;
+  --sky-2: #9a4a0c;
+  --sky-3: #f4b43a;
+  --sea-1: #6b3a08;
+  --sea-2: #2b1503;
+  --sea-3: #140801;
 
-  /* Corda trançada */
-  --rope-1: #c7a56a;
-  --rope-2: #8a6b3a;
+  --ink: #fbecc8;
+  --ink-2: #ead6a8;
+  --muted: #c6aa76;
+  --paper: rgb(30 15 4 / .86);
+  --paper-solid: #1e0f04;
+  --paper-2: rgb(251 236 200 / .07);
+  --paper-3: rgb(251 236 200 / .13);
+  --hair: rgb(251 236 200 / .16);
+  --line: #ffe7a6;
+  --line-ink: #1e0f04;
+  --accent: #ffc23a;
+  --on-accent: #241000;
+  --select: rgb(255 194 58 / .3);
+  --shade: rgb(0 0 0 / .45);
+  --sky-ink: #fff3d6;
+  --sky-ink-shadow: 0 1px 3px rgb(40 15 0 / .8);
+}
 
-  /* Bandeiras das eras */
-  --era-ancient: #4f6b3a;
-  --era-void: #5b47a3;
-  --era-roger: #8f5a1c;
-  --era-gpe: #1d7188;
-  --era-default: #2d7088;
+:root[data-theme='estrelas'] {
+  color-scheme: dark;
+  --sky-1: #03081c;
+  --sky-2: #0d1a44;
+  --sky-3: #22386f;
+  --sea-1: #142652;
+  --sea-2: #08122e;
+  --sea-3: #030817;
 
-  /* Ondas de fundo (de trás para frente) */
-  --wave-1: rgb(59 138 163 / .35);
-  --wave-2: rgb(37 100 125 / .4);
-  --wave-3: rgb(16 52 72 / .7);
+  --ink: #e6ecff;
+  --ink-2: #c3cdea;
+  --muted: #94a2c8;
+  --paper: rgb(7 13 34 / .84);
+  --paper-solid: #070d22;
+  --paper-2: rgb(230 236 255 / .07);
+  --paper-3: rgb(230 236 255 / .13);
+  --hair: rgb(230 236 255 / .15);
+  --line: #d5defb;
+  --line-ink: #070d22;
+  --accent: #ffd36b;
+  --on-accent: #1d1400;
+  --select: rgb(255 211 107 / .3);
+  --shade: rgb(0 0 0 / .5);
+  --sky-ink: #eef2ff;
+  --sky-ink-shadow: 0 1px 3px rgb(0 0 0 / .8);
+}
 
-  /* Pergaminho: tinta escura sobre areia. Todos os pares passam de 4,5:1 até no canto mais escuro. */
-  --paper-1: #f6ead0;
-  --paper-2: #e6d2a2;
-  --paper-3: #cdb27a;
-  --paper-ink: #2b1c0c;
-  --paper-ink-2: #4a3820;
-  --paper-ink-3: #5a3f18;
-  --paper-ink-4: #4f3814;
-  --paper-red: #7d2512;
-  --paper-btn-ink: #efe0bd;
+:root {
+  --f-display: 'Dela Gothic One', 'Archivo Variable', sans-serif;
+  --f-body: 'Archivo Variable', system-ui, sans-serif;
 
-  --font-display: 'Pirata One', 'Georgia', serif;
-  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+  --t-fast: 160ms;
+  --t-med: 420ms;
+
+  /* Onde o céu encontra o mar, em fração da altura da janela. A cena e o layout usam o mesmo valor. */
+  --horizon: 58%;
+  --rail-w: 232px;
 }

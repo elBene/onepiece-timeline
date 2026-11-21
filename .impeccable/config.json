@@ -11,6 +11,24 @@
         ],
         "createdAt": "2026-11-20T16:36:35.480Z",
         "reason": "assistant: L16 is the flag mast (a 3px vertical pole under the era flag, from the prototype), not a card accent border"
+      },
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-11-20T21:25:48.007Z",
+        "reason": "assistant: throwaway decision-page sketch; Arial is a placeholder, the page renders text as bars and the face is chosen at build"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "arial",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-11-20T21:52:47.244Z",
+        "reason": "assistant: throwaway decision-page sketch, not shipped; Arial is a placeholder rendered as bars"
       }
     ]
   }

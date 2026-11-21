@@ -14,8 +14,8 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@fontsource/hanken-grotesk": "^5.3.0",
-    "@fontsource/pirata-one": "^5.3.0",
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource/dela-gothic-one": "^5.3.0",
     "astro": "^7.4.13",
     "zod": "^4.6.7"
   },

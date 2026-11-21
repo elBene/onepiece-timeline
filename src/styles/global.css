@@ -1,30 +1,81 @@
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%}
 body{
-  margin:0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 60%,var(--bg) 100%);
-  color:var(--ink);font-family:var(--font-body);line-height:1.55;font-size:16px;
+  margin:0;background:var(--sky-2);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;line-height:1.5;font-stretch:100%;
   min-height:100vh;min-height:100dvh;
 }
-button{font:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+::selection{background:var(--select);color:var(--ink)}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 [hidden]{display:none!important}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-color:var(--accent)}
+*{scrollbar-color:var(--paper-3) transparent;scrollbar-width:thin}
 
-#waves{position:fixed;left:0;right:0;bottom:0;width:100%;height:180px;pointer-events:none;z-index:0;opacity:.55}
-.wrap{position:relative;z-index:1}
+.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--gold);color:var(--on-gold);padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
+.skip{position:absolute;left:16px;top:-60px;z-index:200;background:var(--paper-solid);color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:650;text-decoration:none}
 .skip:focus{top:12px}
 
-.intro{max-width:1100px;margin:0 auto;padding:36px 20px 8px}
-.intro h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.05;margin:0 0 8px;color:var(--gold);letter-spacing:.5px}
-.intro p{margin:0;color:var(--muted);max-width:62ch;text-wrap:balance}
+/* A cena pintada fica atrás de tudo, fixa. */
+.scene{position:fixed;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none;
+  background:linear-gradient(var(--sky-1),var(--sky-2) 35%,var(--sky-3) var(--horizon),var(--sea-1) var(--horizon),var(--sea-2) 80%,var(--sea-3))}
 
-.empty{position:relative;z-index:3;text-align:center;color:var(--muted);padding:60px 0}
-.hint{font-size:.78rem;color:var(--muted);padding:6px 0 0}
+.page{position:relative;z-index:1;display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100vh;height:100dvh;overflow:hidden}
+.page > main{display:flex;min-height:0}
 
-footer{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:10px 20px 60px;font-size:.78rem;color:var(--muted)}
-footer p{max-width:80ch;margin:0 0 6px}
+/* Rodapé permanente */
+.foot{
+  display:flex;flex-wrap:wrap;gap:4px 28px;justify-content:space-between;
+  padding:10px clamp(16px,3vw,32px) 12px;font-size:.74rem;line-height:1.5;color:var(--ink-2);
+  background:var(--paper);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.foot p{margin:0;max-width:80ch}
 
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
+/* Botões comuns */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;
+  border:0;border-radius:999px;background:var(--ink);color:var(--paper-solid);font-weight:650;
+  transition:transform var(--t-fast) var(--ease-out),opacity var(--t-fast) var(--ease-out);
+}
+.btn:hover{opacity:.88}
+.btn:active{transform:scale(.97)}
+.btn-quiet{background:var(--paper-2);color:var(--ink)}
+.btn-quiet:hover{opacity:1;background:var(--paper-3)}
+.icon-btn{
+  display:inline-grid;place-items:center;width:44px;height:44px;border:0;border-radius:999px;
+  background:transparent;color:var(--ink);
+  transition:background-color var(--t-fast) var(--ease-out),transform var(--t-fast) var(--ease-out);
+}
+.icon-btn svg{width:22px;height:22px}
+.icon-btn:hover{background:var(--paper-2)}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn:disabled{opacity:.35;cursor:default;background:transparent;transform:none}
+
+/* Segmentos (grupo de botões com um escolhido) */
+.seg{display:flex;gap:3px;padding:3px;border-radius:999px;background:var(--paper-2)}
+.seg button,.seg span{
+  flex:1;display:grid;place-items:center;height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;
+  font-size:.86rem;font-weight:600;color:var(--muted);white-space:nowrap;
+  transition:background-color var(--t-fast) var(--ease-out),color var(--t-fast) var(--ease-out);
+}
+.seg button:hover{color:var(--ink)}
+.seg [aria-pressed='true'],.seg input:checked + span{background:var(--paper-solid);color:var(--ink);box-shadow:0 1px 3px var(--shade)}
+.seg label{flex:1;position:relative;display:flex}
+.seg input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.seg input:focus-visible + span{outline:2px solid var(--accent);outline-offset:1px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* Troca de tema: o céu novo se abre em círculo a partir do botão escolhido. */
+::view-transition-old(root){animation:none}
+::view-transition-new(root){animation:vt-reveal 900ms var(--ease-out)}
+@keyframes vt-reveal{
+  from{clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,0))}
+  to{clip-path:circle(150vmax at var(--vt-x,50%) var(--vt-y,0))}
 }
