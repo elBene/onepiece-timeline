@@ -96,14 +96,28 @@
 .t-ev.is-hidden .t-title{font-style:italic;font-weight:650}
 .t-ev.is-hidden.is-selected .t-disc{background:var(--paper-solid);border-color:var(--accent);color:var(--ink)}
 
-/* Marcas de régua: acontecimentos menores. */
+/* Ano sem marco: um traço só, com o número do ano em pílula e a contagem. */
 .t-tick{position:absolute;left:calc(var(--pad) + var(--x) - 9px);top:calc(50% - 24px);width:18px;height:48px;padding:0;border:0;background:transparent;z-index:1}
-.t-mark{position:absolute;left:50%;top:50%;width:2.5px;height:26px;translate:-50% -50%;border-radius:2px;background:var(--line);transition:height 260ms var(--ease-spring),background-color var(--t-fast) var(--ease-out),width 260ms var(--ease-spring)}
-.t-tick.imp1 .t-mark{height:15px}
+.t-mark{position:absolute;left:50%;top:50%;width:3px;height:28px;translate:-50% -50%;border-radius:2px;background:var(--line);transition:height 260ms var(--ease-spring),background-color var(--t-fast) var(--ease-out),width 260ms var(--ease-spring)}
 .t-tick.is-hidden .t-mark{opacity:.45}
 .t-tick:hover .t-mark,.t-tick:focus-visible .t-mark{height:36px;background:var(--accent)}
 .t-tick.is-selected .t-mark{height:40px;width:4px;background:var(--accent)}
 .t-tick:focus-visible{outline-offset:0;border-radius:6px}
+.t-yr{
+  position:absolute;left:50%;bottom:calc(100% - 2px);translate:-50% 0;display:inline-flex;align-items:center;gap:5px;
+  padding:2px 8px;border-radius:999px;white-space:nowrap;background:var(--line);color:var(--line-ink);
+  font-size:.74rem;font-weight:750;line-height:1.35;transition:background-color var(--t-fast) var(--ease-out),color var(--t-fast) var(--ease-out);
+}
+.t-tick.is-selected .t-yr,.t-tick:hover .t-yr{background:var(--accent);color:var(--on-accent)}
+.t-tick.is-hidden .t-yr{opacity:.6}
+
+/* Quantos acontecimentos o ano tem. */
+.t-count{
+  display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 4px;border-radius:999px;
+  background:var(--paper-solid);color:var(--ink);font-size:.66rem;font-weight:800;line-height:1;
+}
+.t-disc .t-count{position:absolute;top:2px;right:2px;min-width:24px;height:24px;font-size:.74rem;background:var(--line);color:var(--line-ink);box-shadow:0 0 0 2px var(--paper-solid)}
+.t-ev.is-selected .t-disc .t-count{background:var(--paper-solid);color:var(--ink);box-shadow:0 0 0 2px var(--accent)}
 .t-tip{
   position:absolute;left:50%;top:calc(100% + 4px);width:max-content;max-width:220px;padding:7px 11px;
   display:grid;gap:1px;text-align:left;border-radius:12px;background:var(--paper-solid);color:var(--ink);
@@ -134,14 +148,6 @@
   .stage{--band-h:clamp(230px,40vh,300px);--d:clamp(74px,11vh,92px);--stem:clamp(12px,3vh,26px)}
   .hz-scroll{-webkit-mask-image:none;mask-image:none}
   .t-era-flag{max-width:200px}
-}
-
-/* Ano com acontecimentos: marca alta e o número em pílula. */
-.t-yr{position:absolute;left:calc(var(--pad) + var(--x));top:50%;width:0;height:0}
-.t-yr-mark{position:absolute;left:-1.5px;top:-14px;width:3px;height:28px;border-radius:2px;background:var(--line)}
-.t-yr b{
-  position:absolute;left:0;bottom:18px;translate:-50% 0;padding:2px 9px;border-radius:999px;white-space:nowrap;
-  background:var(--line);color:var(--line-ink);font-size:.74rem;font-weight:750;line-height:1.35;
 }
 
 /* Anos sem registro: régua fina e baixa, um traço por ano, um mais alto por década. */

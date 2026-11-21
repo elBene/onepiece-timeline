@@ -92,10 +92,8 @@ As inspirações foram imagens de anime enviadas pelo dono. **Nenhuma delas é u
 - **Cabeçalho:** botão de filtros, marca (sol nascendo sobre ondas, desenho original), pílula de spoiler com LED, pílula "Foco" com contador e as três janelinhas de tema.
 - **Mais filtros (rail):** ordem, quanto mostrar (Eras, Marcos, Eventos, Tudo), "Ir para" com as estações e o contador. Na área de trabalho é uma coluna recolhível. Com 900px ou menos vira gaveta com fundo escurecido.
 - **Linha:** cabo de 3px em `--line`. Na ordem da história ela é um eixo de anos que vai do primeiro registro até o presente.
-  - Os anos com acontecimentos ganham marca alta e o número em pílula.
+  - Cada ano com acontecimentos é **um nó só**. Se tiver marco, vira um disco com o marco legível mais importante. Se não tiver, vira um traço com o número do ano em pílula. Um selo mostra quantos acontecimentos o ano tem quando são mais de um.
   - Os anos vazios viram uma régua fina de 3px por ano, com um traço mais alto por década e um rótulo a cada 50 anos.
-  - Os marcos são discos com nome e ano.
-  - Os eventos menores são marcas de régua, com etiqueta no hover, no foco e na seleção.
   - As eras são mastros com bandeira de ponta fendida.
   - As sagas são pílulas abaixo da linha.
   - As setas laterais somem com `pointer: coarse`.

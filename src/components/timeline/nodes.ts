@@ -22,22 +22,29 @@ export function SagaBand(item: Of<'saga'>): HTMLElement {
   ]);
 }
 
-/** Marco (importância 3): disco com nome e ano, preso à linha por uma haste. O traço da haste é a confiança da data. */
+const more = (count: number) => (count > 1 ? `, ${count} acontecimentos neste ano` : '');
+
+/** Selo com a quantidade de acontecimentos do ano (só quando há mais de um). */
+const countBadge = (count: number) => (count > 1 ? h('span', { class: 't-count num', 'aria-hidden': 'true' }, [String(count)]) : null);
+
+/** Ano com marco: disco com nome e ano, preso à linha por uma haste. O traço da haste é a confiança da data. */
 export function Marker(item: Of<'medallion'>): HTMLElement {
   const { view } = item;
-  const label = view.hidden ? view.title : `${view.title}, ${view.when}, ${view.chapter}`;
+  const label = (view.hidden ? view.title : `${view.title}, ${view.when}, ${view.chapter}`) + more(item.count);
   return h('div', { class: `t-ev ${item.side} conf-${view.conf}${view.hidden ? ' is-hidden' : ''}`, style: pos(item.x), 'data-ev': view.id }, [
     h('span', { class: 't-stem', 'aria-hidden': 'true' }),
     h('button', { type: 'button', class: 't-disc', 'data-id': view.id, 'aria-label': label, 'aria-describedby': 'hz-help' }, [
       h('span', { class: 't-title', 'aria-hidden': 'true' }, [view.title]),
       view.when ? h('span', { class: 't-year num', 'aria-hidden': 'true' }, [view.when]) : null,
+      countBadge(item.count),
     ]),
   ]);
 }
 
-/** Acontecimento menor: marca de régua na linha. A etiqueta aparece no hover, no foco e quando escolhido. */
+/** Ano sem marco: um traço só, com o número do ano em pílula e a contagem. */
 export function Tick(item: Of<'dot'>): HTMLElement {
   const { view } = item;
+  const label = `Ano ${item.year}: ` + (view.hidden ? view.title : `${view.title}, ${view.chapter}`) + more(item.count);
   return h(
     'button',
     {
@@ -46,19 +53,18 @@ export function Tick(item: Of<'dot'>): HTMLElement {
       'data-id': view.id,
       'data-ev': view.id,
       style: pos(item.x),
-      'aria-label': view.hidden ? view.title : `${view.title}, ${view.when}, ${view.chapter}`,
+      'aria-label': label,
       'aria-describedby': 'hz-help',
     },
     [
       h('span', { class: 't-mark', 'aria-hidden': 'true' }),
-      h('span', { class: 't-tip', 'aria-hidden': 'true' }, [h('b', {}, [view.title]), h('small', { class: 'num' }, [view.tip])]),
+      h('span', { class: 't-yr num', 'aria-hidden': 'true' }, [item.year, countBadge(item.count)]),
+      h('span', { class: 't-tip', 'aria-hidden': 'true' }, [
+        h('b', {}, [view.title]),
+        h('small', { class: 'num' }, [item.count > 1 ? `${item.count} acontecimentos neste ano` : view.tip]),
+      ]),
     ],
   );
-}
-
-/** Ano com acontecimentos: marca alta e o número em pílula, acima da linha. */
-export function YearMark(item: Of<'year'>): HTMLElement {
-  return h('div', { class: 't-yr', style: pos(item.x) }, [h('span', { class: 't-yr-mark', 'aria-hidden': 'true' }), h('b', { class: 'num' }, [item.label])]);
 }
 
 const mod = (a: number, n: number) => ((a % n) + n) % n;

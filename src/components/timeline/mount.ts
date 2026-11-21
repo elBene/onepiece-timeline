@@ -6,7 +6,7 @@ import { toModalView } from '../../lib/modal';
 import { HIDDEN_TITLE, type EventView } from '../../lib/spoilers';
 import { h } from '../../lib/dom';
 import { RENDERED_EVENT } from '../../lib/app';
-import { EraMark, Gap, Marker, SagaBand, Tick, YearMark } from './nodes';
+import { EraMark, Gap, Marker, SagaBand, Tick } from './nodes';
 
 export interface TimelineApi {
   /** Eventos exibidos, na ordem da linha. */
@@ -45,8 +45,6 @@ function extent(item: LayoutItem): [number, number] {
       return [item.x - 10, item.x + 180];
     case 'medallion':
       return [item.x - 80, item.x + 80];
-    case 'year':
-      return [item.x - 40, item.x + 60];
     case 'gap':
       return [item.x, item.end];
     default:
@@ -58,7 +56,6 @@ function buildNode(item: LayoutItem): HTMLElement {
   if (item.kind === 'era') return EraMark(item);
   if (item.kind === 'saga') return SagaBand(item);
   if (item.kind === 'medallion') return Marker(item);
-  if (item.kind === 'year') return YearMark(item);
   if (item.kind === 'gap') return Gap(item);
   return Tick(item);
 }
@@ -131,6 +128,9 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     nextBtn.disabled = scroller.scrollLeft >= max - 1;
   }
 
+  /** O nó de um ano fica marcado quando qualquer acontecimento daquele ano está escolhido. */
+  const sameYear = (id: string) => selectedId !== null && layout.groupOf[id] !== undefined && layout.groupOf[id] === layout.groupOf[selectedId];
+
   /* ---------- Janela virtual ---------- */
   function decorate(node: HTMLElement, item: LayoutItem) {
     if (item.kind === 'saga' && state.axis === 'pub') node.querySelector('h3')?.setAttribute('aria-level', '2');
@@ -139,7 +139,7 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     const btn = eventButton(node);
     if (!btn) return;
     btn.tabIndex = id === activeId ? 0 : -1;
-    const on = id === selectedId;
+    const on = sameYear(id);
     node.classList.toggle('is-selected', on);
     btn.setAttribute('aria-pressed', String(on));
   }
@@ -313,7 +313,7 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     for (const [i, node] of mounted) {
       const item = layout.items[i]!;
       if (item.kind !== 'medallion' && item.kind !== 'dot') continue;
-      const on = item.view.id === selectedId;
+      const on = sameYear(item.view.id);
       node.classList.toggle('is-selected', on);
       eventButton(node)?.setAttribute('aria-pressed', String(on));
     }
@@ -391,7 +391,9 @@ export function mountTimeline(root: HTMLElement, data: TimelineData, store: Stor
     updateStations();
     renderPanel(false);
     document.dispatchEvent(
-      new CustomEvent(RENDERED_EVENT, { detail: { shown: layout.order.length, hidden: layout.order.length - readable.length } }),
+      new CustomEvent(RENDERED_EVENT, {
+        detail: { shown: Object.keys(layout.views).length, hidden: Object.values(layout.views).filter((v) => v.hidden).length },
+      }),
     );
   }
 

@@ -16,27 +16,28 @@ export const LAYOUT = {
   medallionOffset: 70,
   /** Marcos alternam em cima e embaixo: vizinhos podem ficar mais perto que o diâmetro. */
   medallionStep: 150,
-  dotOffset: 16,
-  /** Marcas na linha, como as de uma régua. */
-  dotStep: { 2: 28, 1: 22 } as Record<number, number>,
+  /** Ano sem marco: um traço só na linha, com o número do ano e a contagem. */
+  tickOffset: 30,
+  tickStep: 76,
   tailPadding: 60,
   /** Ordem da história: cada ano sem nada registrado ocupa só isto (px). */
   emptyYear: 3,
-  /** Folga antes do rótulo de um ano com acontecimentos, e espaço do rótulo até o primeiro item. */
+  /** Folga antes e depois de um ano com acontecimentos. */
   yearLead: 24,
-  yearPad: 40,
   yearTail: 16,
 } as const;
 
 export type LayoutItem =
   | { kind: 'era'; x: number; end: number; era: Era }
   | { kind: 'saga'; x: number; end: number; saga: Saga; name: string; hidden: boolean; subtitle: string }
-  /** Ano com acontecimentos (ordem da história). */
-  | { kind: 'year'; x: number; ago: number; label: string }
   /** Sequência de anos sem nada registrado, desenhada como régua fina. fromAgo é o mais antigo. */
   | { kind: 'gap'; x: number; end: number; fromAgo: number; toAgo: number }
-  | { kind: 'medallion'; x: number; view: EventView; side: 'top' | 'bot' }
-  | { kind: 'dot'; x: number; view: EventView; imp: 1 | 2 };
+  /**
+   * Um ano na linha é um nó só. Com marco, vira disco (o marco é o representante);
+   * sem marco, vira um traço. count é quantos acontecimentos o ano tem (os que o Foco deixa).
+   */
+  | { kind: 'medallion'; x: number; view: EventView; side: 'top' | 'bot'; count: number; year: string }
+  | { kind: 'dot'; x: number; view: EventView; imp: 1 | 2; count: number; year: string };
 
 /** Marca do "Ir para": uma estação (era, ou saga na ordem de publicação). */
 export interface Station {
@@ -64,7 +65,7 @@ export interface Group {
 export interface HorizontalLayout {
   items: LayoutItem[];
   width: number;
-  /** Ids dos eventos na linha, na ordem em que aparecem. */
+  /** Id do representante de cada nó da linha, na ordem em que aparecem. */
   order: string[];
   /** Posição x (centro) de cada evento na linha. */
   xById: Record<string, number>;
@@ -105,23 +106,33 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
   let x: number = LAYOUT.start;
   let majors = 0;
 
-  const placeEvent = (e: TimelineEvent) => {
-    const view = toView(e, state);
-    order.push(e.id);
-    if (e.imp === 3) {
+  const yearCount = new Map<number, number>();
+  for (const e of tagged) yearCount.set(e.date.ago, (yearCount.get(e.date.ago) ?? 0) + 1);
+  const yearX = new Map<number, number>();
+  /** Coloca o nó de um ano. O representante é o evento legível mais importante (o primeiro, no empate). */
+  const placeYear = (ago: number, evs: TimelineEvent[]) => {
+    const line = evs.filter(onLine);
+    if (!line.length) return;
+    const rank = (e: TimelineEvent) => (isHidden(e, state) ? 10 : 0) - e.imp;
+    const rep = line.slice().sort((a, b) => rank(a) - rank(b))[0]!;
+    const view = toView(rep, state);
+    const count = yearCount.get(ago) ?? line.length;
+    const year = yearLabel(ago);
+    order.push(rep.id);
+    let cx: number;
+    if (rep.imp === 3) {
       const side = majors++ % 2 === 0 ? 'top' : 'bot';
-      const cx = x + LAYOUT.medallionOffset;
-      xById[e.id] = cx;
-      items.push({ kind: 'medallion', x: cx, view, side });
+      cx = x + LAYOUT.medallionOffset;
+      items.push({ kind: 'medallion', x: cx, view, side, count, year });
       x += LAYOUT.medallionStep;
     } else {
-      const cx = x + LAYOUT.dotOffset;
-      xById[e.id] = cx;
-      items.push({ kind: 'dot', x: cx, view, imp: e.imp as 1 | 2 });
-      x += LAYOUT.dotStep[e.imp]!;
+      cx = x + LAYOUT.tickOffset;
+      items.push({ kind: 'dot', x: cx, view, imp: rep.imp as 1 | 2, count, year });
+      x += LAYOUT.tickStep;
     }
+    xById[rep.id] = cx;
+    if (!yearX.has(ago)) yearX.set(ago, cx);
   };
-  const yearX = new Map<number, number>();
 
   if (state.axis === 'chrono') {
     // Ordem da história: um eixo de anos, do primeiro registro até o presente.
@@ -154,9 +165,6 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
       }
       closeGap(ago + 1);
       x += LAYOUT.yearLead;
-      yearX.set(ago, x);
-      items.push({ kind: 'year', x, ago, label: yearLabel(ago) });
-      x += LAYOUT.yearPad;
       for (const e of evs) {
         const saga = sagaById.get(e.saga);
         if (saga && !seenSaga.has(saga.id)) {
@@ -171,8 +179,8 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
           items.push({ kind: 'saga', x, end: x, saga, name: sagaName(saga), hidden: sagaHidden(saga), subtitle: '' });
           x += LAYOUT.sagaGap;
         }
-        if (onLine(e)) placeEvent(e);
       }
+      placeYear(ago, evs);
       x += LAYOUT.yearTail;
     }
     closeGap(0);
@@ -195,7 +203,14 @@ export function computeHorizontalLayout(data: TimelineData, state: TimelineState
       items.push(sagaItem);
       if (!hidden) stations.push({ label: saga.name, x });
       x += LAYOUT.sagaGap;
-      for (const e of sortEvents(visible, 'pub')) if (onLine(e)) placeEvent(e);
+      // Dentro da saga, os anos aparecem na ordem do primeiro capítulo que os revela.
+      const years = new Map<number, TimelineEvent[]>();
+      for (const e of sortEvents(visible, 'pub')) {
+        const list = years.get(e.date.ago);
+        if (list) list.push(e);
+        else years.set(e.date.ago, [e]);
+      }
+      for (const [ago, evs] of years) placeYear(ago, evs);
       sagaItem.end = x - 40;
     }
   }
